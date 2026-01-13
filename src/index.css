@@ -1,0 +1,204 @@
+:root {
+  /* Color Palette - Dark Gray & Offwhite */
+  --color-dark: #2d2d2d;
+  --color-dark-medium: #3a3a3a;
+  --color-dark-light: #4a4a4a;
+  --color-offwhite: #f5f5f5;
+  --color-offwhite-dark: #f0f0f0;
+  --color-gray: #d5d5d5;
+  --color-gray-dark: #8a8a8a;
+  
+  /* Semantic Colors */
+  --color-text-primary: var(--color-dark);
+  --color-text-secondary: var(--color-gray-dark);
+  --color-bg-primary: var(--color-offwhite);
+  --color-bg-secondary: var(--color-offwhite-dark);
+  --color-bg-dark: var(--color-dark);
+  --color-border: #d0d0d0;
+  
+  /* Typography */
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  
+  /* Container */
+  --container-max-width: 1200px;
+  --container-padding: 2rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  
+  /* Animation Easing */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Animation Durations */
+  --duration-fast: 0.3s;
+  --duration-medium: 0.5s;
+  --duration-slow: 0.7s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: var(--color-offwhite);
+    --color-text-secondary: var(--color-gray-dark);
+    --color-bg-primary: var(--color-dark);
+    --color-bg-secondary: var(--color-dark-medium);
+    --color-border: var(--color-dark-light);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #f5f5f5;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.section-content {
+  width: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-dark);
+}
+
+::selection {
+  background: var(--color-dark);
+  color: var(--color-offwhite);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: var(--color-offwhite);
+    color: var(--color-dark);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1.5rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+  }
+  
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+}
