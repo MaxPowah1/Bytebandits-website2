@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import PortfolioCard from '../components/PortfolioCard'
 import { useI18n } from '../i18n/i18nContext'
 import officeVoiceMeterLogo from '../assets/app_logos/office_voice_meter_logo.png'
 import fahrzeugscheinDigitalIcon from '../assets/app_logos/fahrzeugschein_digital_Icon.png'
@@ -14,272 +13,188 @@ import kidsdentailcareIcon from '../assets/app_logos/kidsdentailcare_icon.png'
 
 const PortfolioContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
-  display: flex;
+  height: 100vh;
+  display: grid;
+  place-items: stretch;
   position: relative;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-    min-height: 100%;
-    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
-    padding: var(--spacing-lg) var(--container-padding);
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
-  }
-`
-
-const SplitSide = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-md) var(--container-padding);
   overflow: hidden;
-  
+  background:
+    radial-gradient(950px 700px at 18% 14%, rgba(201, 162, 39, 0.14), transparent 58%),
+    radial-gradient(900px 750px at 78% 88%, rgba(201, 162, 39, 0.10), transparent 60%),
+    linear-gradient(180deg, rgba(16, 20, 38, 0.92), rgba(11, 13, 18, 0.98));
+  color: rgba(247, 242, 232, 0.92);
+
   @media (max-width: 768px) {
-    min-height: auto;
-    padding: 0;
-    overflow: visible;
-    width: 100%;
-    flex: none;
+    height: auto;
+    min-height: 100%;
+    padding: var(--spacing-8) var(--container-padding);
   }
 `
 
-const LeftSide = styled(SplitSide)`
-  background-color: #2d2d2d;
-  color: #f5f5f5;
-  
-  * {
-    color: #f5f5f5;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    margin-bottom: var(--spacing-lg);
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const RightSide = styled(SplitSide)`
-  background-color: #f5f5f5;
-  color: #2d2d2d;
-  
-  * {
-    color: #2d2d2d;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const ContentWrapper = styled(motion.div)`
-  max-width: 600px;
+const Grid = styled.div`
+  max-width: var(--container-max-width);
+  margin: 0 auto;
   width: 100%;
-  
-  @media (max-width: 768px) {
-    max-width: 100%;
+  height: 100%;
+  padding: var(--spacing-9) var(--container-padding);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(18px, 4vw, 64px);
+  align-items: start;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-8) var(--container-padding);
   }
 `
 
-const SectionTitle = styled(motion.h2)`
-  margin-bottom: 1rem;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+const Left = styled(motion.div)`
+  position: sticky;
+  top: 64px;
+  align-self: start;
+
+  @media (max-width: 980px) {
+    position: relative;
+    top: 0;
+  }
 `
 
-const SectionDescription = styled(motion.p)`
-  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
-  line-height: 1.5;
-  opacity: 0.85;
+const Eyebrow = styled(motion.div)`
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 232, 0.70);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &::before {
+    content: "";
+    width: 46px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201, 162, 39, 0.85), rgba(201, 162, 39, 0));
+  }
 `
 
-const PortfolioGrid = styled(motion.div)`
+const Title = styled(motion.h2)`
+  margin-top: var(--spacing-4);
+  color: rgba(247, 242, 232, 0.96);
+`
+
+const Lead = styled(motion.p)`
+  margin-top: var(--spacing-4);
+  max-width: 62ch;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: rgba(247, 242, 232, 0.72);
+`
+
+const Right = styled(motion.div)`
+  border-left: 1px solid rgba(247, 242, 232, 0.14);
+  padding-left: clamp(16px, 2.4vw, 32px);
+
+  @media (max-width: 980px) {
+    border-left: none;
+    padding-left: 0;
+    margin-top: var(--spacing-6);
+  }
+`
+
+const Catalog = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 0;
-  width: 100%;
-  
-  @media (min-width: 769px) {
-    max-height: 100%;
-    overflow-y: auto;
-    
-    /* Hide scrollbar but keep functionality */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
-    
-    &::-webkit-scrollbar {
-      width: 2px;
-    }
-    
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.15);
-      border-radius: 1px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    gap: 0;
+  max-height: calc(100vh - 180px);
+  overflow: auto;
+  padding-right: 10px;
+
+  @media (max-width: 980px) {
+    max-height: none;
     overflow: visible;
+    padding-right: 0;
   }
 `
 
-const StyledPortfolioCard = styled(motion.div)`
-  padding: 1rem 0;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
+const Item = styled(motion.a)`
   position: relative;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
-  isolation: isolate;
-  
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 1rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid rgba(247, 242, 232, 0.14);
+  color: rgba(247, 242, 232, 0.92);
+
   &:last-child {
     border-bottom: none;
   }
-  
-  @media (max-width: 768px) {
-    border-bottom-color: ${props => props.theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.06)'};
+
+  &:hover {
+    opacity: 1;
   }
 `
 
-const AppLogo = styled.div`
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 1rem;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  opacity: 0.6;
-  
+const Badge = styled.div`
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(247, 242, 232, 0.18);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(201, 162, 39, 0.22), transparent 55%),
+    rgba(255, 255, 255, 0.03);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+
   img {
-    width: 100%;
-    height: 100%;
+    width: 76%;
+    height: 76%;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 10px;
   }
 `
 
-const CardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding-right: 48px;
-  
-  h3 {
-    margin-bottom: 0.25rem;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #2d2d2d;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-  }
-  
-  p {
-    line-height: 1.5;
-    opacity: 0.75;
-    margin-bottom: 0.375rem;
-    color: #2d2d2d;
-    font-size: 0.85rem;
-  }
-  
-  a {
-    color: #2d2d2d;
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: lowercase;
-    letter-spacing: 0.02em;
-    transition: opacity 0.2s ease;
-    opacity: 0.65;
-    
-    &:hover {
-      opacity: 0.9;
-    }
-    
-    &::after {
-      content: ' →';
-      opacity: 0.7;
-    }
+const ItemTitle = styled.h3`
+  font-family: var(--font-display);
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  color: rgba(247, 242, 232, 0.96);
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+`
+
+const ItemDesc = styled.p`
+  margin-top: 0.35rem;
+  color: rgba(247, 242, 232, 0.70);
+  line-height: 1.7;
+`
+
+const ItemMeta = styled.div`
+  margin-top: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 232, 0.66);
+
+  span {
+    color: rgba(201, 162, 39, 0.95);
+    letter-spacing: 0.12em;
   }
 `
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.15
-    }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.08 } }
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1.0,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
+const rise = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } }
 }
 
-const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-const gridVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.3
-    }
-  }
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: 20 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-export default function Portfolio({ theme = 'dark' }) {
+export default function Portfolio({ theme = 'ink' }) {
   const { t } = useI18n()
   
   const appLinks = [
@@ -312,54 +227,39 @@ export default function Portfolio({ theme = 'dark' }) {
 
   return (
     <PortfolioContainer theme={theme}>
-      <LeftSide theme={theme}>
-        <ContentWrapper
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <SectionTitle variants={itemVariants}>{t('portfolio.title')}</SectionTitle>
-          <SectionDescription variants={itemVariants}>{t('portfolio.description')}</SectionDescription>
-        </ContentWrapper>
-      </LeftSide>
-      <RightSide theme={theme}>
-        <ContentWrapper
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <PortfolioGrid
-            variants={gridVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
+      <Grid>
+        <Left variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          <Eyebrow variants={rise}>Selected Work</Eyebrow>
+          <Title variants={rise}>{t('portfolio.title')}</Title>
+          <Lead variants={rise}>{t('portfolio.description')}</Lead>
+        </Left>
+
+        <Right variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.12 }}>
+          <Catalog variants={container} initial="hidden" animate="visible">
             {apps.map((app, index) => (
-              <StyledPortfolioCard
+              <Item
                 key={index}
-                theme={theme}
-                variants={cardVariants}
-                whileHover={{ opacity: 0.6, transition: { duration: 0.2 } }}
+                href={app.link || '#portfolio'}
+                target={app.link ? '_blank' : undefined}
+                rel={app.link ? 'noopener noreferrer' : undefined}
+                variants={rise}
+                whileHover={{ x: 2 }}
               >
-                <AppLogo>
-                  <img src={app.logo} alt={app.name} />
-                </AppLogo>
-                <CardContent>
-                  <h3>{app.name}</h3>
-                  <p>{app.description}</p>
-                  {app.link && (
-                    <a href={app.link} target="_blank" rel="noopener noreferrer">
-                      {t('portfolio.appLink')}
-                    </a>
-                  )}
-                </CardContent>
-              </StyledPortfolioCard>
+                <Badge aria-hidden>
+                  <img src={app.logo} alt="" />
+                </Badge>
+                <div>
+                  <ItemTitle>{app.name}</ItemTitle>
+                  <ItemDesc>{app.description}</ItemDesc>
+                  <ItemMeta>
+                    <span>↗</span> {t('portfolio.appLink')}
+                  </ItemMeta>
+                </div>
+              </Item>
             ))}
-          </PortfolioGrid>
-        </ContentWrapper>
-      </RightSide>
+          </Catalog>
+        </Right>
+      </Grid>
     </PortfolioContainer>
   )
 }

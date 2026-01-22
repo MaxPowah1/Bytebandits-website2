@@ -3,259 +3,237 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useI18n } from '../i18n/i18nContext'
 import logo from '../assets/company_logo/logo.png'
+import logoMark from '../assets/company_logo/logo_ohne_company_namen.png'
 
 const HomeContainer = styled.div`
   width: 100%;
   height: 100vh;
-  display: flex;
+  display: grid;
+  place-items: stretch;
   position: relative;
   overflow: hidden;
-  
+  background:
+    radial-gradient(900px 700px at 15% 15%, rgba(201, 162, 39, 0.16), transparent 55%),
+    radial-gradient(900px 700px at 85% 85%, rgba(201, 162, 39, 0.10), transparent 60%),
+    linear-gradient(180deg, rgba(16, 20, 38, 0.92), rgba(11, 13, 18, 0.98));
+  color: rgba(247, 242, 232, 0.92);
+
   @media (max-width: 768px) {
-    flex-direction: column;
     height: auto;
     min-height: 100%;
-    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
-    padding: var(--spacing-lg) var(--container-padding);
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
+    padding: var(--spacing-8) var(--container-padding);
   }
 `
 
-const SplitSide = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-xl) var(--container-padding);
-  position: relative;
-  
-  @media (max-width: 768px) {
-    min-height: auto;
-    padding: 0;
-    overflow: visible;
-    width: 100%;
-    flex: none;
-  }
-`
-
-const LeftSide = styled(SplitSide)`
-  background-color: #2d2d2d;
-  color: #f5f5f5;
-  
-  * {
-    color: #f5f5f5;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    margin-bottom: var(--spacing-lg);
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const RightSide = styled(SplitSide)`
-  background-color: #f5f5f5;
-  color: #2d2d2d;
-  
-  * {
-    color: #2d2d2d;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const ContentWrapper = styled(motion.div)`
-  max-width: 600px;
-  width: 100%;
-  
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
-`
-
-const LogoImage = styled(motion.img)`
-  width: clamp(350px, 45vw, 700px);
+const BackgroundMark = styled.img`
+  position: absolute;
+  right: -6vmax;
+  top: -7vmax;
+  width: min(740px, 60vw);
   height: auto;
-  filter: invert(1);
-  display: block;
+  pointer-events: none;
+  user-select: none;
+  filter: invert(1) saturate(0.9) contrast(1.05);
+  opacity: 0.06;
+  transform: rotate(12deg);
+  mix-blend-mode: screen;
+
+  @media (max-width: 900px) {
+    right: -10vmax;
+    top: -12vmax;
+    width: min(640px, 95vw);
+    opacity: 0.05;
+  }
+`
+
+const Grid = styled.div`
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  
-  @media (max-width: 768px) {
-    width: clamp(220px, 55vw, 450px);
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-9) var(--container-padding);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(22px, 4vw, 64px);
+  align-items: start;
+  align-content: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: var(--spacing-8) var(--container-padding);
   }
 `
 
+const Eyebrow = styled(motion.div)`
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 232, 0.70);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
 
-const RightContent = styled(motion.div)`
-  h2 {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-  
-  p {
-    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-    line-height: 1.8;
-    opacity: 0.7;
-    margin-bottom: 1.5rem;
+  &::before {
+    content: "";
+    width: 46px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201, 162, 39, 0.85), rgba(201, 162, 39, 0));
   }
 `
 
-const FeatureList = styled(motion.ul)`
+const EyebrowMark = styled.img`
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+  opacity: 0.8;
+`
+
+const HeroTitle = styled(motion.h1)`
+  margin-top: var(--spacing-4);
+  max-width: 16ch;
+  color: rgba(247, 242, 232, 0.96);
+`
+
+const SubTitle = styled(motion.p)`
+  margin-top: var(--spacing-5);
+  max-width: 60ch;
+  font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+  line-height: 1.8;
+  color: rgba(247, 242, 232, 0.72);
+`
+
+const CTA = styled(motion.a)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: var(--spacing-6);
+  padding: 0.9rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(247, 242, 232, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(247, 242, 232, 0.92);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  backdrop-filter: blur(12px);
+  transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+
+  &:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    border-color: rgba(201, 162, 39, 0.45);
+    background: rgba(201, 162, 39, 0.12);
+  }
+`
+
+const Panel = styled(motion.div)`
+  align-self: start;
+  justify-self: stretch;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(247, 242, 232, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(14px);
+  padding: clamp(18px, 2.2vw, 28px);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+  margin-top: var(--spacing-6);
+`
+
+const PanelTitle = styled.h3`
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(247, 242, 232, 0.88);
+  margin-bottom: var(--spacing-3);
+`
+
+const PanelText = styled.p`
+  color: rgba(247, 242, 232, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.75;
+`
+
+const FeatureList = styled.ul`
+  margin-top: var(--spacing-5);
   list-style: none;
-  margin-top: 2rem;
-  
+  display: grid;
+  gap: 0.65rem;
+
   li {
-    padding: 0.4rem 0;
-    font-size: clamp(0.95rem, 1.2vw, 1rem);
-    line-height: 1.6;
-    opacity: 0.8;
-    position: relative;
-    padding-left: 1.5rem;
-    
-    &::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      opacity: 0.6;
-    }
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    color: rgba(247, 242, 232, 0.82);
+    font-size: 0.92rem;
   }
 `
 
-const containerVariants = {
+const Bullet = styled.span`
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(201, 162, 39, 0.95));
+  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.14);
+  flex: 0 0 auto;
+  transform: translateY(-1px);
+`
+
+const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.15
-    }
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 }
   }
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1.0,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
+const rise = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } }
 }
 
-const logoVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 8,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-const listVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.4
-    }
-  }
-}
-
-const listItemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 0.8,
-    x: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-export default function Home({ theme = 'dark' }) {
+export default function Home({ theme = 'ink' }) {
   const { t } = useI18n()
 
   return (
     <HomeContainer theme={theme}>
-      <LeftSide theme={theme}>
-        <LogoImage 
-          src={logo} 
-          alt="ByteBandits Logo"
-          variants={logoVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        />
-      </LeftSide>
-      <RightSide theme={theme}>
-        <ContentWrapper
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <RightContent variants={containerVariants} initial="hidden" animate="visible">
-            <motion.h2 variants={itemVariants}>{t('home.rightTitle')}</motion.h2>
-            <motion.p variants={itemVariants}>{t('home.rightDescription')}</motion.p>
-            <FeatureList
-              variants={listVariants}
-              initial="hidden"
-              animate="visible"
-            >
+      <BackgroundMark src={logoMark} alt="" aria-hidden="true" />
+      <Grid>
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <Eyebrow variants={rise}>
+            <EyebrowMark src={logoMark} alt="" aria-hidden="true" />
+            ByteBandits Studio
+          </Eyebrow>
+          <HeroTitle variants={rise}>{t('home.title')}</HeroTitle>
+          <SubTitle variants={rise}>{t('home.subtitle')}</SubTitle>
+          <CTA
+            variants={rise}
+            href="#portfolio"
+            onClick={(e) => {
+              e.preventDefault()
+              window.scrollToSection?.('portfolio')
+            }}
+          >
+            {t('home.cta')} <span aria-hidden>→</span>
+          </CTA>
+        </motion.div>
+
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <Panel variants={rise}>
+            <PanelTitle>{t('home.rightTitle')}</PanelTitle>
+            <PanelText>{t('home.rightDescription')}</PanelText>
+            <FeatureList>
               {t('home.features').map((feature, index) => (
-                <motion.li key={index} variants={listItemVariants}>
-                  {feature}
-                </motion.li>
+                <li key={index}>
+                  <Bullet aria-hidden />
+                  <span>{feature}</span>
+                </li>
               ))}
             </FeatureList>
-          </RightContent>
-        </ContentWrapper>
-      </RightSide>
+          </Panel>
+        </motion.div>
+      </Grid>
     </HomeContainer>
   )
 }

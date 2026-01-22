@@ -4,21 +4,26 @@ import Impressum from '../pages/Impressum'
 import { useI18n } from '../i18n/i18nContext'
 
 const FooterContainer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #f5f5f5;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 2rem 0;
-  width: 100%;
-  z-index: 10;
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: min(860px, calc(100% - (2 * var(--container-padding))));
+  z-index: 1002;
+  border-radius: 999px;
+  border: 1px solid rgba(247, 242, 232, 0.16);
+  background: rgba(11, 13, 18, 0.62);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 768px) {
+    bottom: 14px;
+    border-radius: 18px;
+  }
 `
 
 const FooterContent = styled.div`
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0.85rem 1.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,16 +38,20 @@ const FooterContent = styled.div`
 
 const Copyright = styled.p`
   font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  color: rgba(247, 242, 232, 0.70);
+  letter-spacing: 0.02em;
 `
 
 const FooterLink = styled.button`
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  transition: opacity var(--transition-fast);
+  font-size: 0.78rem;
+  color: rgba(201, 162, 39, 0.92);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
   
   &:hover {
-    opacity: 0.7;
+    opacity: 1;
+    transform: translateY(-1px);
   }
 `
 

@@ -5,272 +5,208 @@ import { useI18n } from '../i18n/i18nContext'
 
 const AboutContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
-  display: flex;
+  height: 100vh;
+  display: grid;
+  place-items: stretch;
   position: relative;
-  
+  background:
+    radial-gradient(900px 650px at 12% 14%, rgba(201, 162, 39, 0.12), transparent 60%),
+    radial-gradient(900px 650px at 88% 86%, rgba(11, 13, 18, 0.10), transparent 60%),
+    linear-gradient(180deg, rgba(242, 235, 224, 0.98), rgba(231, 221, 206, 0.92));
+  color: var(--ink);
+
   @media (max-width: 768px) {
-    flex-direction: column;
+    height: auto;
     min-height: 100%;
-    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
-    padding: var(--spacing-lg) var(--container-padding);
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
+    padding: var(--spacing-8) var(--container-padding);
   }
 `
 
-const SplitSide = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-xl) var(--container-padding);
-  overflow: hidden;
-  
-  @media (max-width: 768px) {
-    min-height: auto;
-    padding: 0;
-    overflow: visible;
-    width: 100%;
-    flex: none;
-  }
-`
-
-const LeftSide = styled(SplitSide)`
-  background-color: #2d2d2d;
-  color: #f5f5f5;
-  
-  * {
-    color: #f5f5f5;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    margin-bottom: var(--spacing-lg);
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const RightSide = styled(SplitSide)`
-  background-color: #f5f5f5;
-  color: #2d2d2d;
-  
-  * {
-    color: #2d2d2d;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const ContentWrapper = styled(motion.div)`
-  max-width: 600px;
+const Grid = styled.div`
+  max-width: var(--container-max-width);
+  margin: 0 auto;
   width: 100%;
-  
-  @media (max-width: 768px) {
-    max-width: 100%;
+  height: 100%;
+  padding: var(--spacing-9) var(--container-padding);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(18px, 4vw, 64px);
+  align-items: start;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-8) var(--container-padding);
   }
 `
 
-const SectionTitle = styled(motion.h2)`
-  margin-bottom: 2rem;
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-`
-
-const AboutText = styled(motion.div)`
-  p {
-    font-size: clamp(0.95rem, 1.3vw, 1rem);
-    line-height: 1.7;
-    opacity: 0.85;
-    margin-bottom: 1.5rem;
-    
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-`
-
-const ValuesGrid = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  width: 100%;
-  
-  @media (max-width: 768px) {
-    gap: 0;
-  }
-`
-
-const ValueCard = styled(motion.div)`
-  padding: 1rem 0;
+const Left = styled(motion.div)`
   position: relative;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
-  transition: opacity 0.2s ease;
-  
+`
+
+const Eyebrow = styled(motion.div)`
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(11, 13, 18, 0.60);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &::before {
+    content: "";
+    width: 46px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201, 162, 39, 0.85), rgba(201, 162, 39, 0));
+  }
+`
+
+const Title = styled(motion.h2)`
+  margin-top: var(--spacing-4);
+`
+
+const Body = styled(motion.div)`
+  margin-top: var(--spacing-5);
+  column-count: 2;
+  column-gap: clamp(18px, 3vw, 44px);
+
+  @media (max-width: 980px) {
+    column-count: 1;
+  }
+
+  p {
+    break-inside: avoid;
+    font-size: 1.02rem;
+    line-height: 1.9;
+    color: rgba(11, 13, 18, 0.82);
+    margin-bottom: 1.25rem;
+  }
+
+  p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3.1rem;
+    line-height: 0.9;
+    padding-right: 0.35rem;
+    margin-top: 0.15rem;
+    color: rgba(201, 162, 39, 0.95);
+  }
+`
+
+const PullQuote = styled(motion.blockquote)`
+  margin-top: var(--spacing-6);
+  padding: 1.35rem 1.35rem 1.15rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(11, 13, 18, 0.14);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-1);
+
+  p {
+    font-family: var(--font-display);
+    font-weight: 560;
+    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+    line-height: 1.35;
+    color: rgba(11, 13, 18, 0.92);
+  }
+
+  footer {
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+  }
+`
+
+const Right = styled(motion.div)`
+  border-left: 1px solid rgba(11, 13, 18, 0.18);
+  padding-left: clamp(16px, 2.4vw, 32px);
+
+  @media (max-width: 980px) {
+    border-left: none;
+    padding-left: 0;
+    margin-top: var(--spacing-6);
+  }
+`
+
+const Values = styled(motion.div)`
+  display: grid;
+  gap: 12px;
+`
+
+const Value = styled(motion.div)`
+  padding: 1.05rem 1.05rem 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(11, 13, 18, 0.18);
+  background: rgba(255, 255, 255, 0.62);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+
   &:hover {
-    opacity: 0.7;
-  }
-  
-  &:last-child {
-    border-bottom: none;
-  }
-  
-  @media (max-width: 768px) {
-    border-bottom-color: ${props => props.theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.06)'};
+    transform: translateY(-1px);
+    border-color: rgba(201, 162, 39, 0.35);
+    background: rgba(201, 162, 39, 0.06);
   }
 `
 
 const ValueTitle = styled.h3`
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.4;
+  font-family: var(--font-body);
+  font-weight: 700;
   letter-spacing: -0.01em;
+  font-size: 0.98rem;
 `
 
-const ValueDescription = styled.p`
-  line-height: 1.5;
-  opacity: 0.75;
-  font-size: 0.85rem;
+const ValueDesc = styled.p`
+  margin-top: 0.4rem;
+  color: rgba(11, 13, 18, 0.80);
+  line-height: 1.7;
+  font-size: 0.92rem;
 `
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.15
-    }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.08 } }
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1.0,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
+const rise = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } }
 }
 
-const paragraphVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 0.85,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-const gridVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.3
-    }
-  }
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, x: 30 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-export default function About({ theme = 'light' }) {
+export default function About({ theme = 'bone' }) {
   const { t } = useI18n()
   const values = t('about.values')
+  const quote = values?.map(v => v.title).join(' · ')
 
   return (
     <AboutContainer theme={theme}>
-      <LeftSide theme={theme}>
-        <ContentWrapper
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <SectionTitle variants={itemVariants}>{t('about.title')}</SectionTitle>
-          <AboutText
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+      <Grid>
+        <Left variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
+          <Eyebrow variants={rise}>Studio Notes</Eyebrow>
+          <Title variants={rise}>{t('about.title')}</Title>
+          <Body variants={container} initial="hidden" animate="visible">
             {t('about.paragraphs').map((paragraph, index) => (
-              <motion.p key={index} variants={paragraphVariants}>
+              <motion.p key={index} variants={rise}>
                 {paragraph}
               </motion.p>
             ))}
-          </AboutText>
-        </ContentWrapper>
-      </LeftSide>
-      <RightSide theme={theme}>
-        <ContentWrapper
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <ValuesGrid
-            variants={gridVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          </Body>
+          <PullQuote variants={rise}>
+            <p>“{quote}.”</p>
+            <footer>ByteBandits</footer>
+          </PullQuote>
+        </Left>
+
+        <Right variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+          <Values variants={container} initial="hidden" animate="visible">
             {values.map((value, index) => (
-              <ValueCard
-                key={index}
-                theme={theme}
-                variants={cardVariants}
-                whileHover={{ opacity: 0.6, transition: { duration: 0.2 } }}
-              >
+              <Value key={index} variants={rise}>
                 <ValueTitle>{value.title}</ValueTitle>
-                <ValueDescription>{value.description}</ValueDescription>
-              </ValueCard>
+                <ValueDesc>{value.description}</ValueDesc>
+              </Value>
             ))}
-          </ValuesGrid>
-        </ContentWrapper>
-      </RightSide>
+          </Values>
+        </Right>
+      </Grid>
     </AboutContainer>
   )
 }

@@ -15,12 +15,50 @@ const AppContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-bg-primary);
+  background: transparent;
   overflow: hidden;
   
   @media (max-width: 768px) {
     height: 100dvh;
     min-height: 100dvh;
+  }
+`
+
+const Frame = styled.div`
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.9;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: max(12px, 1.6vw);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: max(12px, 1.6vw);
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.10);
+    mask: radial-gradient(120px 120px at 12% 10%, transparent 0 45%, black 55%),
+      radial-gradient(120px 120px at 88% 10%, transparent 0 45%, black 55%),
+      radial-gradient(120px 120px at 12% 90%, transparent 0 45%, black 55%),
+      radial-gradient(120px 120px at 88% 90%, transparent 0 45%, black 55%);
+    opacity: 0.75;
+  }
+
+  @media (max-width: 768px) {
+    opacity: 0.45;
+    &::before,
+    &::after {
+      inset: 10px;
+      border-radius: var(--radius-md);
+    }
   }
 `
 
@@ -41,7 +79,7 @@ const Section = styled.section`
   position: absolute;
   top: 0;
   left: 0;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-slow);
   transform: translateY(${props => props.offset * 100}%);
   will-change: transform;
   
@@ -56,12 +94,13 @@ const SlideContent = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  background: transparent;
   
   @media (max-width: 768px) {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
+    background: transparent;
   }
 `
 
@@ -297,11 +336,12 @@ export default function App() {
     }
   }, [scrollToSection])
 
-  // Define alternating themes for slides
-  const slideThemes = ['dark', 'light', 'dark', 'light', 'dark']
+  // Art-direction tones for slides
+  const slideThemes = ['ink', 'bone', 'ink', 'bone', 'ink']
 
   return (
     <AppContainer>
+      <Frame />
       <BurgerMenu scrollToSection={scrollToSection} />
       <LanguageSwitcher 
         currentLanguage={language} 

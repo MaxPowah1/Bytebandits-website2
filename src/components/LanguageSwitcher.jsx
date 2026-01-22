@@ -17,20 +17,23 @@ const LanguageButton = styled.button`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: rgba(45, 45, 45, 0.9);
-  color: #f5f5f5;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  padding: 0.65rem 0.95rem;
+  background: rgba(11, 13, 18, 0.62);
+  color: rgba(247, 242, 232, 0.92);
+  border: 1px solid rgba(247, 242, 232, 0.14);
+  border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast);
-  backdrop-filter: blur(10px);
+  letter-spacing: 0.08em;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
   
   &:hover {
-    background-color: rgba(45, 45, 45, 1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(11, 13, 18, 0.76);
+    border-color: rgba(201, 162, 39, 0.35);
+    transform: translateY(-1px);
   }
   
   @media (max-width: 768px) {
@@ -51,12 +54,14 @@ const LanguageDropdown = styled.div`
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
-  background-color: rgba(45, 45, 45, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  background:
+    radial-gradient(700px 520px at 20% 20%, rgba(201, 162, 39, 0.18), transparent 60%),
+    rgba(11, 13, 18, 0.92);
+  border: 1px solid rgba(247, 242, 232, 0.14);
+  border-radius: 18px;
   min-width: 150px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
   overflow: hidden;
   animation: fadeIn 0.2s ease-out;
   
@@ -77,18 +82,18 @@ const LanguageOption = styled.button`
   padding: 0.75rem 1rem;
   background: none;
   border: none;
-  color: #f5f5f5;
+  color: rgba(247, 242, 232, 0.92);
   text-align: left;
   font-size: 0.875rem;
   cursor: pointer;
   transition: background-color var(--transition-fast);
   
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.06);
   }
   
   ${props => props.active && `
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(201, 162, 39, 0.12);
     font-weight: 600;
   `}
 `

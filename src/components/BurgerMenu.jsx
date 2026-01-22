@@ -4,37 +4,39 @@ import styled from 'styled-components'
 const BurgerButton = styled.button`
   position: fixed;
   top: 1.5rem;
-  right: var(--container-padding);
+  left: var(--container-padding);
   z-index: 1001;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 0.75rem;
+  padding: 0.8rem;
   min-width: 44px;
   min-height: 44px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(45, 45, 45, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  background: rgba(11, 13, 18, 0.62);
+  border: 1px solid rgba(247, 242, 232, 0.14);
+  border-radius: 999px;
   cursor: pointer;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast);
-  backdrop-filter: blur(10px);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
   
   &:hover {
-    background-color: rgba(45, 45, 45, 1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(11, 13, 18, 0.76);
+    border-color: rgba(201, 162, 39, 0.35);
+    transform: translateY(-1px);
   }
   
   @media (max-width: 768px) {
     top: 1rem;
-    right: 1rem;
+    left: 1rem;
   }
   
   span {
     width: 22px;
     height: 2px;
-    background-color: #f5f5f5;
+    background-color: rgba(247, 242, 232, 0.92);
     transition: all 0.3s ease;
     transform-origin: center;
     
@@ -58,18 +60,26 @@ const MenuOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(245, 245, 245, 0.98);
-  backdrop-filter: blur(20px);
+  background:
+    radial-gradient(1100px 900px at 18% 14%, rgba(201, 162, 39, 0.18), transparent 60%),
+    radial-gradient(900px 700px at 82% 70%, rgba(247, 242, 232, 0.10), transparent 60%),
+    rgba(11, 13, 18, 0.88);
+  backdrop-filter: blur(22px);
   z-index: 1000;
   display: ${props => props.open ? 'flex' : 'none'};
   flex-direction: column;
-  padding: 5rem 2rem 2rem;
+  padding: 6rem max(2rem, var(--container-padding)) 2rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  
-  @media (prefers-color-scheme: dark) {
-    background-color: rgba(45, 45, 45, 0.98);
-  }
+`
+
+const MenuInner = styled.div`
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 `
 
 const NavLinks = styled.ul`
@@ -78,27 +88,52 @@ const NavLinks = styled.ul`
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.25rem;
   width: 100%;
 `
 
 const NavLink = styled.li`
   a {
-    font-size: 1.2rem;
-    color: var(--color-text-primary);
-    transition: opacity var(--transition-fast);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    color: rgba(247, 242, 232, 0.92);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 500;
+    letter-spacing: 0.08em;
+    font-weight: 600;
     display: block;
-    padding: 0.75rem 0;
+    padding: 0.55rem 0;
     min-height: 44px;
     display: flex;
     align-items: center;
     
     &:hover {
-      opacity: 0.6;
+      opacity: 1;
+      transform: translateX(6px);
     }
+  }
+`
+
+const Meta = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(247, 242, 232, 0.14);
+
+  span {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(247, 242, 232, 0.65);
+  }
+
+  a {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(201, 162, 39, 0.95);
   }
 `
 
@@ -122,23 +157,29 @@ export default function BurgerMenu({ scrollToSection }) {
         <span></span>
       </BurgerButton>
       <MenuOverlay open={isOpen} onClick={() => setIsOpen(false)}>
-        <NavLinks onClick={(e) => e.stopPropagation()}>
-          <NavLink>
-            <a href="#home" onClick={(e) => handleLinkClick(e, '#home')}>Home</a>
-          </NavLink>
-          <NavLink>
-            <a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>Services</a>
-          </NavLink>
-          <NavLink>
-            <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')}>Portfolio</a>
-          </NavLink>
-          <NavLink>
-            <a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>About</a>
-          </NavLink>
-          <NavLink>
-            <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>Contact</a>
-          </NavLink>
-        </NavLinks>
+        <MenuInner onClick={(e) => e.stopPropagation()}>
+          <NavLinks>
+            <NavLink>
+              <a href="#home" onClick={(e) => handleLinkClick(e, '#home')}>Home</a>
+            </NavLink>
+            <NavLink>
+              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>Services</a>
+            </NavLink>
+            <NavLink>
+              <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')}>Portfolio</a>
+            </NavLink>
+            <NavLink>
+              <a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>About</a>
+            </NavLink>
+            <NavLink>
+              <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>Contact</a>
+            </NavLink>
+          </NavLinks>
+          <Meta>
+            <span>ByteBandits</span>
+            <a href="#home" onClick={(e) => handleLinkClick(e, '#home')}>Back to top</a>
+          </Meta>
+        </MenuInner>
       </MenuOverlay>
     </>
   )

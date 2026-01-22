@@ -1,61 +1,71 @@
 :root {
-  /* Color Palette - Dark Gray & Offwhite */
-  --color-dark: #2d2d2d;
-  --color-dark-medium: #3a3a3a;
-  --color-dark-light: #4a4a4a;
-  --color-offwhite: #f5f5f5;
-  --color-offwhite-dark: #f0f0f0;
-  --color-gray: #d5d5d5;
-  --color-gray-dark: #8a8a8a;
-  
-  /* Semantic Colors */
-  --color-text-primary: var(--color-dark);
-  --color-text-secondary: var(--color-gray-dark);
-  --color-bg-primary: var(--color-offwhite);
-  --color-bg-secondary: var(--color-offwhite-dark);
-  --color-bg-dark: var(--color-dark);
-  --color-border: #d0d0d0;
-  
-  /* Typography */
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  line-height: 1.6;
-  font-weight: 400;
-  
+  /* Fonts */
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", Times, serif;
+  --font-body: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+
+  /* Editorial palette (ink / bone / gilt) */
+  --ink: #0b0d12;
+  --ink-2: #121522;
+  --bone: #f7f2e8;
+  --bone-2: #efe7da;
+  --gilt: #c9a227;
+  --gilt-soft: rgba(201, 162, 39, 0.35);
+
+  /* Semantic colors */
+  --color-text-primary: var(--ink);
+  --color-text-secondary: rgba(11, 13, 18, 0.72);
+  --color-text-tertiary: rgba(11, 13, 18, 0.52);
+  --color-bg-primary: var(--bone);
+  --color-bg-secondary: var(--bone-2);
+  --color-border: rgba(11, 13, 18, 0.14);
+  --color-border-strong: rgba(11, 13, 18, 0.24);
+
+  /* Layout */
+  --container-max-width: 1220px;
+  --container-padding: clamp(16px, 3.2vw, 40px);
+
   /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 6rem;
-  
-  /* Container */
-  --container-max-width: 1200px;
-  --container-padding: 2rem;
-  
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-medium: 0.3s ease;
-  --transition-slow: 0.6s ease;
-  
-  /* Animation Easing */
-  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-out-cubic: cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Animation Durations */
-  --duration-fast: 0.3s;
-  --duration-medium: 0.5s;
-  --duration-slow: 0.7s;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.5rem;
+  --spacing-6: 2rem;
+  --spacing-7: 3rem;
+  --spacing-8: 4.5rem;
+  --spacing-9: 6rem;
+
+  /* Radii & shadows */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 26px;
+  --shadow-1: 0 10px 40px rgba(11, 13, 18, 0.10);
+  --shadow-2: 0 20px 80px rgba(11, 13, 18, 0.16);
+
+  /* Motion */
+  --transition-fast: 160ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --transition-medium: 260ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --transition-slow: 600ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-cubic: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+  font-family: var(--font-body);
+  line-height: 1.55;
+  font-weight: 400;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text-primary: var(--color-offwhite);
-    --color-text-secondary: var(--color-gray-dark);
-    --color-bg-primary: var(--color-dark);
-    --color-bg-secondary: var(--color-dark-medium);
-    --color-border: var(--color-dark-light);
+    --color-text-primary: rgba(247, 242, 232, 0.92);
+    --color-text-secondary: rgba(247, 242, 232, 0.70);
+    --color-text-tertiary: rgba(247, 242, 232, 0.52);
+    --color-bg-primary: #0b0d12;
+    --color-bg-secondary: #101426;
+    --color-border: rgba(247, 242, 232, 0.16);
+    --color-border-strong: rgba(247, 242, 232, 0.28);
+    color-scheme: dark;
   }
 }
 
@@ -77,15 +87,16 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: inherit;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   width: 100%;
+  isolation: isolate;
   
   @media (min-width: 769px) {
     height: 100vh;
@@ -102,29 +113,84 @@ body {
   }
 }
 
+/* Ambient editorial background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vmax;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 800px at 18% 12%, rgba(201, 162, 39, 0.22), transparent 60%),
+    radial-gradient(900px 650px at 82% 20%, rgba(11, 13, 18, 0.16), transparent 62%),
+    radial-gradient(1100px 900px at 70% 88%, rgba(201, 162, 39, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  filter: blur(0px);
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  animation: ambientDrift 22s var(--ease-out-expo) infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(circle at 10% 10%, rgba(11, 13, 18, 0.02) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(90deg, rgba(11, 13, 18, 0.015) 0 1px, transparent 1px 12px);
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+@media (prefers-color-scheme: dark) {
+  body::before {
+    background:
+      radial-gradient(1200px 800px at 18% 12%, rgba(201, 162, 39, 0.16), transparent 60%),
+      radial-gradient(900px 650px at 82% 20%, rgba(247, 242, 232, 0.10), transparent 62%),
+      radial-gradient(1100px 900px at 70% 88%, rgba(201, 162, 39, 0.10), transparent 60%),
+      linear-gradient(180deg, rgba(16, 20, 38, 0.55), rgba(0, 0, 0, 0));
+  }
+
+  body::after {
+    mix-blend-mode: screen;
+    opacity: 0.18;
+    background:
+      repeating-radial-gradient(circle at 20% 30%, rgba(247, 242, 232, 0.06) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(90deg, rgba(247, 242, 232, 0.03) 0 1px, transparent 1px 14px);
+  }
+}
+
+@keyframes ambientDrift {
+  from { transform: translate3d(-1.5vmax, -1vmax, 0) rotate(-1.2deg); }
+  to { transform: translate3d(1.5vmax, 1vmax, 0) rotate(1.2deg); }
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 520;
   line-height: 1.2;
   margin: 0;
   color: var(--color-text-primary);
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.7rem, 6.2vw, 5rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.9rem, 4.3vw, 3.3rem);
+  font-weight: 560;
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 600;
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  font-weight: 540;
 }
 
 p {
@@ -135,7 +201,9 @@ p {
 a {
   color: var(--color-text-primary);
   text-decoration: none;
-  transition: opacity var(--transition-fast);
+  transition: opacity var(--transition-fast), text-decoration-color var(--transition-fast);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 a:hover {
@@ -164,7 +232,7 @@ button {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-9) 0;
 }
 
 .section-content {
@@ -182,36 +250,34 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--color-border-strong);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-dark);
+  background: rgba(11, 13, 18, 0.35);
 }
 
 ::selection {
-  background: var(--color-dark);
-  color: var(--color-offwhite);
+  background: rgba(201, 162, 39, 0.28);
+  color: var(--color-text-primary);
 }
 
 @media (prefers-color-scheme: dark) {
   ::selection {
-    background: var(--color-offwhite);
-    color: var(--color-dark);
+    background: rgba(201, 162, 39, 0.22);
+    color: var(--color-text-primary);
   }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   :root {
-    --container-padding: 1.5rem;
-    --spacing-lg: 3rem;
-    --spacing-xl: 4rem;
+    --container-padding: clamp(14px, 4.5vw, 22px);
   }
   
   .section {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-8) 0;
   }
   
   /* Safe area support for notches */

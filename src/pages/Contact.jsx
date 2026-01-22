@@ -6,239 +6,140 @@ import { useI18n } from '../i18n/i18nContext'
 const ContactContainer = styled.div`
   width: 100%;
   height: 100vh;
-  display: flex;
+  display: grid;
+  place-items: stretch;
   position: relative;
-  
+  overflow: hidden;
+  background:
+    radial-gradient(900px 700px at 22% 18%, rgba(201, 162, 39, 0.16), transparent 58%),
+    radial-gradient(900px 700px at 82% 82%, rgba(201, 162, 39, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(16, 20, 38, 0.92), rgba(11, 13, 18, 0.98));
+  color: rgba(247, 242, 232, 0.92);
+
   @media (max-width: 768px) {
-    flex-direction: column;
     height: auto;
     min-height: 100%;
-    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
-    padding: var(--spacing-lg) var(--container-padding);
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
+    padding: var(--spacing-8) var(--container-padding);
   }
 `
 
-const SplitSide = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-xl) var(--container-padding);
-  overflow: hidden;
-  
-  @media (max-width: 768px) {
-    min-height: auto;
-    padding: 0;
-    overflow: visible;
-    width: 100%;
-    flex: none;
-  }
-`
-
-const LeftSide = styled(SplitSide)`
-  background-color: #2d2d2d;
-  color: #f5f5f5;
-  
-  * {
-    color: #f5f5f5;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    margin-bottom: var(--spacing-lg);
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const RightSide = styled(SplitSide)`
-  background-color: #f5f5f5;
-  color: #2d2d2d;
-  
-  * {
-    color: #2d2d2d;
-  }
-  
-  @media (max-width: 768px) {
-    background-color: transparent;
-    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    
-    * {
-      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
-    }
-  }
-`
-
-const ContentWrapper = styled(motion.div)`
-  max-width: 600px;
+const Grid = styled.div`
+  max-width: var(--container-max-width);
+  margin: 0 auto;
   width: 100%;
-  
-  @media (max-width: 768px) {
-    max-width: 100%;
+  height: 100%;
+  padding: var(--spacing-9) var(--container-padding);
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+`
+
+const Eyebrow = styled(motion.div)`
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 232, 0.70);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &::before {
+    content: "";
+    width: 46px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201, 162, 39, 0.85), rgba(201, 162, 39, 0));
   }
 `
 
-const SectionTitle = styled(motion.h2)`
-  margin-bottom: 2rem;
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+const Title = styled(motion.h2)`
+  margin-top: var(--spacing-4);
+  color: rgba(247, 242, 232, 0.96);
+  max-width: 20ch;
 `
 
-const ContactText = styled(motion.p)`
-  font-size: clamp(0.95rem, 1.3vw, 1rem);
-  line-height: 1.7;
-  opacity: 0.85;
-  margin-bottom: 2rem;
+const Lead = styled(motion.p)`
+  margin-top: var(--spacing-5);
+  max-width: 70ch;
+  font-size: clamp(1.02rem, 1.4vw, 1.22rem);
+  line-height: 1.9;
+  color: rgba(247, 242, 232, 0.72);
 `
 
-const ContactInfo = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: flex-start;
-`
-
-const ContactItem = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
+const ContactCard = styled(motion.div)`
+  margin-top: var(--spacing-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(247, 242, 232, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(14px);
+  padding: clamp(18px, 2.5vw, 32px);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+  display: grid;
   gap: 1rem;
 `
 
-const ContactLabel = styled(motion.span)`
-  font-size: 0.9rem;
+const Label = styled.div`
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.7;
-  font-weight: 500;
+  color: rgba(247, 242, 232, 0.62);
 `
 
-const ContactValue = styled(motion.a)`
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  font-weight: 500;
-  position: relative;
-  
+const Email = styled(motion.a)`
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.65rem, 4.2vw, 3rem);
+  line-height: 1.05;
+  color: rgba(247, 242, 232, 0.96);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+
+  &:hover {
+    opacity: 1;
+  }
+
   &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: currentColor;
-    transition: width 0.3s ease;
-  }
-  
-  &:hover::after {
-    width: 100%;
+    content: " ↗";
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    color: rgba(201, 162, 39, 0.95);
+    transform: translateY(-0.25em);
   }
 `
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.15
-    }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.08 } }
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1.0,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
+const rise = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } }
 }
 
-const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-const infoVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.25,
-      delayChildren: 0.3
-    }
-  }
-}
-
-const itemInfoVariants = {
-  hidden: { opacity: 0, x: 20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-}
-
-export default function Contact({ theme = 'dark' }) {
+export default function Contact({ theme = 'ink' }) {
   const { t } = useI18n()
 
   return (
     <ContactContainer theme={theme}>
-      <LeftSide theme={theme}>
-        <ContentWrapper
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <SectionTitle variants={itemVariants}>{t('contact.title')}</SectionTitle>
-          <ContactText variants={itemVariants}>{t('contact.description')}</ContactText>
-        </ContentWrapper>
-      </LeftSide>
-      <RightSide theme={theme}>
-        <ContentWrapper
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <ContactInfo
-            variants={infoVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <ContactItem variants={itemInfoVariants}>
-              <ContactLabel variants={itemInfoVariants}>{t('contact.email')}</ContactLabel>
-              <ContactValue
-                href="mailto:max@byte-bandits.com"
-                variants={itemInfoVariants}
-                whileHover={{ scale: 1.02 }}
-              >
-                max@byte-bandits.com
-              </ContactValue>
-            </ContactItem>
-          </ContactInfo>
-        </ContentWrapper>
-      </RightSide>
+      <Grid>
+        <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          <Eyebrow variants={rise}>Final Page</Eyebrow>
+          <Title variants={rise}>{t('contact.title')}</Title>
+          <Lead variants={rise}>{t('contact.description')}</Lead>
+
+          <ContactCard variants={rise}>
+            <div>
+              <Label>{t('contact.email')}</Label>
+            </div>
+            <Email href="mailto:max@byte-bandits.com" variants={rise} whileHover={{ x: 2 }}>
+              max@byte-bandits.com
+            </Email>
+          </ContactCard>
+        </motion.div>
+      </Grid>
     </ContactContainer>
   )
 }

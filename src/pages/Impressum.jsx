@@ -5,8 +5,8 @@ const Overlay = styled.div`
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  z-index: 1000;
+  backdrop-filter: blur(10px);
+  z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,10 +15,12 @@ const Overlay = styled.div`
 
 const Modal = styled.div`
   position: relative;
-  background: var(--color-bg-primary);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background:
+    radial-gradient(900px 650px at 12% 14%, rgba(201, 162, 39, 0.10), transparent 60%),
+    linear-gradient(180deg, rgba(247, 242, 232, 0.96), rgba(239, 231, 218, 0.90));
+  border: 1px solid rgba(11, 13, 18, 0.16);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
   width: 100%;
   max-width: 600px;
   max-height: 90vh;
@@ -40,14 +42,14 @@ const CloseButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-secondary);
+  color: rgba(11, 13, 18, 0.55);
   font-size: 1.5rem;
   line-height: 1;
   transition: color var(--transition-fast);
   cursor: pointer;
   
   &:hover {
-    color: var(--color-text-primary);
+    color: rgba(11, 13, 18, 0.92);
   }
   
   @media (max-width: 768px) {
@@ -58,7 +60,7 @@ const CloseButton = styled.button`
 
 const Title = styled.h2`
   margin-bottom: 2rem;
-  color: var(--color-text-primary);
+  color: rgba(11, 13, 18, 0.92);
   font-size: 2rem;
   
   @media (max-width: 768px) {
@@ -68,7 +70,7 @@ const Title = styled.h2`
 `
 
 const Content = styled.div`
-  color: var(--color-text-secondary);
+  color: rgba(11, 13, 18, 0.72);
   line-height: 1.8;
   
   p {
@@ -80,7 +82,7 @@ const Content = styled.div`
   }
   
   strong {
-    color: var(--color-text-primary);
+    color: rgba(11, 13, 18, 0.92);
     font-weight: 600;
   }
 `
@@ -89,26 +91,26 @@ const EmailButton = styled.button`
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(11, 13, 18, 0.16);
+  color: rgba(11, 13, 18, 0.92);
   font-size: 0.9rem;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: 999px;
   transition: background-color var(--transition-fast), border-color var(--transition-fast);
   cursor: pointer;
   
   &:hover {
-    background-color: var(--color-dark);
-    border-color: var(--color-dark);
-    color: var(--color-offwhite);
+    background-color: rgba(11, 13, 18, 0.90);
+    border-color: rgba(11, 13, 18, 0.90);
+    color: rgba(247, 242, 232, 0.92);
   }
 `
 
 const EmailLink = styled.a`
   display: inline-block;
   margin-top: 0.5rem;
-  color: var(--color-text-primary);
+  color: rgba(11, 13, 18, 0.92);
   font-weight: 500;
   text-decoration: underline;
   transition: opacity var(--transition-fast);
