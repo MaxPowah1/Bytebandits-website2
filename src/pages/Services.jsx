@@ -12,7 +12,11 @@ const ServicesContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
-    min-height: 100vh;
+    min-height: 100%;
+    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
+    padding: var(--spacing-lg) var(--container-padding);
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
   }
 `
 
@@ -25,8 +29,11 @@ const SplitSide = styled.div`
   overflow: hidden;
   
   @media (max-width: 768px) {
-    min-height: 50vh;
-    padding: var(--spacing-md) var(--container-padding);
+    min-height: auto;
+    padding: 0;
+    overflow: visible;
+    width: 100%;
+    flex: none;
   }
 `
 
@@ -37,6 +44,16 @@ const LeftSide = styled(SplitSide)`
   * {
     color: #f5f5f5;
   }
+  
+  @media (max-width: 768px) {
+    background-color: transparent;
+    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    margin-bottom: var(--spacing-lg);
+    
+    * {
+      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    }
+  }
 `
 
 const RightSide = styled(SplitSide)`
@@ -45,6 +62,15 @@ const RightSide = styled(SplitSide)`
   
   * {
     color: #2d2d2d;
+  }
+  
+  @media (max-width: 768px) {
+    background-color: transparent;
+    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    
+    * {
+      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    }
   }
 `
 
@@ -95,6 +121,10 @@ const ServiceCard = styled(motion.div)`
   
   &:last-child {
     border-bottom: none;
+  }
+  
+  @media (max-width: 768px) {
+    border-bottom-color: ${props => props.theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.06)'};
   }
 `
 
@@ -186,13 +216,13 @@ const cardVariants = {
   }
 }
 
-export default function Services() {
+export default function Services({ theme = 'light' }) {
   const { t } = useI18n()
   const services = t('services.items')
 
   return (
-    <ServicesContainer>
-      <LeftSide>
+    <ServicesContainer theme={theme}>
+      <LeftSide theme={theme}>
         <ContentWrapper
           variants={containerVariants}
           initial="hidden"
@@ -203,7 +233,7 @@ export default function Services() {
           <SectionDescription variants={itemVariants}>{t('services.description')}</SectionDescription>
         </ContentWrapper>
       </LeftSide>
-      <RightSide>
+      <RightSide theme={theme}>
         <ContentWrapper
           variants={slideInRight}
           initial="hidden"
@@ -219,6 +249,7 @@ export default function Services() {
             {services.map((service, index) => (
               <ServiceCard
                 key={index}
+                theme={theme}
                 dark={false}
                 variants={cardVariants}
                 whileHover={{ opacity: 0.6, transition: { duration: 0.2 } }}

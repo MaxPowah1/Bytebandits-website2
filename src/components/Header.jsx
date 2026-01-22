@@ -11,6 +11,22 @@ const HeaderContainer = styled.header`
   z-index: 1000;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    background-color: rgba(245, 245, 245, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(45, 45, 45, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    @media (max-width: 768px) {
+      background-color: rgba(45, 45, 45, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+  }
 `
 
 const Nav = styled.nav`
@@ -37,16 +53,29 @@ const NavLinks = styled.ul`
 
   @media (max-width: 768px) {
     display: ${props => props.open ? 'flex' : 'none'};
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     flex-direction: column;
-    background-color: var(--color-bg-primary);
-    padding: 2rem;
-    gap: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border-top: 1px solid var(--color-border);
+    background-color: rgba(245, 245, 245, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 5rem 2rem 2rem;
+    gap: 2rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border: none;
+    box-shadow: none;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    @media (max-width: 768px) {
+      background-color: rgba(45, 45, 45, 0.98);
+    }
   }
 `
 
@@ -62,6 +91,16 @@ const NavLink = styled.li`
     &:hover {
       opacity: 0.6;
     }
+    
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+      padding: 0.75rem 0;
+      display: block;
+      width: 100%;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
   }
 `
 
@@ -70,6 +109,12 @@ const MenuButton = styled.button`
   flex-direction: column;
   gap: 5px;
   padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  position: relative;
   
   @media (max-width: 768px) {
     display: flex;

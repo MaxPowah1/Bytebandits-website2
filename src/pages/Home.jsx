@@ -14,7 +14,11 @@ const HomeContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
-    min-height: 100vh;
+    min-height: 100%;
+    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
+    padding: var(--spacing-lg) var(--container-padding);
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
   }
 `
 
@@ -27,8 +31,11 @@ const SplitSide = styled.div`
   position: relative;
   
   @media (max-width: 768px) {
-    min-height: 50vh;
-    padding: var(--spacing-lg) var(--container-padding);
+    min-height: auto;
+    padding: 0;
+    overflow: visible;
+    width: 100%;
+    flex: none;
   }
 `
 
@@ -39,6 +46,16 @@ const LeftSide = styled(SplitSide)`
   * {
     color: #f5f5f5;
   }
+  
+  @media (max-width: 768px) {
+    background-color: transparent;
+    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    margin-bottom: var(--spacing-lg);
+    
+    * {
+      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    }
+  }
 `
 
 const RightSide = styled(SplitSide)`
@@ -47,6 +64,15 @@ const RightSide = styled(SplitSide)`
   
   * {
     color: #2d2d2d;
+  }
+  
+  @media (max-width: 768px) {
+    background-color: transparent;
+    color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    
+    * {
+      color: ${props => props.theme === 'dark' ? '#f5f5f5' : '#2d2d2d'};
+    }
   }
 `
 
@@ -191,12 +217,12 @@ const listItemVariants = {
   }
 }
 
-export default function Home() {
+export default function Home({ theme = 'dark' }) {
   const { t } = useI18n()
 
   return (
-    <HomeContainer>
-      <LeftSide>
+    <HomeContainer theme={theme}>
+      <LeftSide theme={theme}>
         <LogoImage 
           src={logo} 
           alt="ByteBandits Logo"
@@ -206,7 +232,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.3 }}
         />
       </LeftSide>
-      <RightSide>
+      <RightSide theme={theme}>
         <ContentWrapper
           variants={slideInRight}
           initial="hidden"

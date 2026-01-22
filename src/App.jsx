@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Footer from './components/Footer'
+import BurgerMenu from './components/BurgerMenu'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import Home from './pages/Home'
 import Services from './pages/Services'
@@ -16,6 +17,11 @@ const AppContainer = styled.div`
   flex-direction: column;
   background-color: var(--color-bg-primary);
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
 `
 
 const Main = styled.main`
@@ -38,6 +44,25 @@ const Section = styled.section`
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(${props => props.offset * 100}%);
   will-change: transform;
+  
+  @media (max-width: 768px) {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+`
+
+const SlideContent = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 768px) {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    background-color: ${props => props.theme === 'dark' ? '#2d2d2d' : '#f5f5f5'};
+  }
 `
 
 const sections = ['home', 'services', 'portfolio', 'about', 'contact']
@@ -57,6 +82,19 @@ export default function App() {
   const currentSectionRef = useRef(0)
   const isInitialMount = useRef(true)
   const isHashChange = useRef(false)
+  const sectionRefs = useRef([])
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Responsive detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia('(max-width: 768px)').matches)
+    }
+    checkMobile()
+    const mediaQuery = window.matchMedia('(max-width: 768px)')
+    mediaQuery.addEventListener('change', checkMobile)
+    return () => mediaQuery.removeEventListener('change', checkMobile)
+  }, [])
 
   // Keep ref in sync with state
   useEffect(() => {
@@ -126,44 +164,69 @@ export default function App() {
     }
 
     let touchStartY = null
+    let touchStartTime = null
 
     const handleTouchStart = (e) => {
+      if (!isMobile) return
       const touch = e.touches[0]
       touchStartY = touch.clientY
+      touchStartTime = Date.now()
     }
 
     const handleTouchEnd = (e) => {
-      if (touchStartY === null) return
+      if (!isMobile || touchStartY === null) {
+        touchStartY = null
+        return
+      }
       
-      if (isScrolling.current) return
+      if (isScrolling.current) {
+        touchStartY = null
+        return
+      }
       
       const touch = e.changedTouches[0]
       const touchEndY = touch.clientY
       const diff = touchStartY - touchEndY
       const current = currentSectionRef.current
+      const swipeThreshold = 50
+      const timeDiff = Date.now() - touchStartTime
+      const maxSwipeTime = 300 // ms
       
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-          // Swipe up - next section
-          if (current < sections.length - 1) {
-            isScrolling.current = true
-            setCurrentSection(prev => prev + 1)
-            setTimeout(() => {
-              isScrolling.current = false
-            }, 600)
-          }
-        } else {
-          // Swipe down - previous section
-          if (current > 0) {
-            isScrolling.current = true
-            setCurrentSection(prev => prev - 1)
-            setTimeout(() => {
-              isScrolling.current = false
-            }, 600)
+      // Only process if swipe is fast enough and far enough
+      if (Math.abs(diff) > swipeThreshold && timeDiff < maxSwipeTime) {
+        // Get the current slide's scrollable container
+        const currentSlideElement = sectionRefs.current[current]
+        if (currentSlideElement) {
+          const scrollContainer = currentSlideElement.querySelector('[data-slide-content]') || currentSlideElement
+          const scrollTop = scrollContainer.scrollTop
+          const scrollHeight = scrollContainer.scrollHeight
+          const clientHeight = scrollContainer.clientHeight
+          const isAtTop = scrollTop <= 5
+          const isAtBottom = scrollTop + clientHeight >= scrollHeight - 5
+          
+          if (diff > 0) {
+            // Swipe up - next section (only if at bottom)
+            if (isAtBottom && current < sections.length - 1) {
+              isScrolling.current = true
+              setCurrentSection(prev => prev + 1)
+              setTimeout(() => {
+                isScrolling.current = false
+              }, 600)
+            }
+          } else {
+            // Swipe down - previous section (only if at top)
+            if (isAtTop && current > 0) {
+              isScrolling.current = true
+              setCurrentSection(prev => prev - 1)
+              setTimeout(() => {
+                isScrolling.current = false
+              }, 600)
+            }
           }
         }
       }
       touchStartY = null
+      touchStartTime = null
     }
 
     const mainElement = mainRef.current
@@ -182,7 +245,7 @@ export default function App() {
         mainElement.removeEventListener('touchend', handleTouchEnd)
       }
     }
-  }, [])
+  }, [isMobile])
 
   // Update URL hash when section changes (but not on initial mount or hash changes)
   useEffect(() => {
@@ -234,27 +297,61 @@ export default function App() {
     }
   }, [scrollToSection])
 
+  // Define alternating themes for slides
+  const slideThemes = ['dark', 'light', 'dark', 'light', 'dark']
+
   return (
     <AppContainer>
+      <BurgerMenu scrollToSection={scrollToSection} />
       <LanguageSwitcher 
         currentLanguage={language} 
         onLanguageChange={setLanguage} 
       />
       <Main ref={mainRef}>
-        <Section id="home" offset={0 - currentSection}>
-          <Home />
+        <Section 
+          id="home" 
+          offset={0 - currentSection}
+          ref={el => sectionRefs.current[0] = el}
+        >
+          <SlideContent data-slide-content theme={slideThemes[0]}>
+            <Home theme={slideThemes[0]} />
+          </SlideContent>
         </Section>
-        <Section id="services" offset={1 - currentSection}>
-          <Services />
+        <Section 
+          id="services" 
+          offset={1 - currentSection}
+          ref={el => sectionRefs.current[1] = el}
+        >
+          <SlideContent data-slide-content theme={slideThemes[1]}>
+            <Services theme={slideThemes[1]} />
+          </SlideContent>
         </Section>
-        <Section id="portfolio" offset={2 - currentSection}>
-          <Portfolio />
+        <Section 
+          id="portfolio" 
+          offset={2 - currentSection}
+          ref={el => sectionRefs.current[2] = el}
+        >
+          <SlideContent data-slide-content theme={slideThemes[2]}>
+            <Portfolio theme={slideThemes[2]} />
+          </SlideContent>
         </Section>
-        <Section id="about" offset={3 - currentSection}>
-          <About />
+        <Section 
+          id="about" 
+          offset={3 - currentSection}
+          ref={el => sectionRefs.current[3] = el}
+        >
+          <SlideContent data-slide-content theme={slideThemes[3]}>
+            <About theme={slideThemes[3]} />
+          </SlideContent>
         </Section>
-        <Section id="contact" offset={4 - currentSection}>
-          <Contact />
+        <Section 
+          id="contact" 
+          offset={4 - currentSection}
+          ref={el => sectionRefs.current[4] = el}
+        >
+          <SlideContent data-slide-content theme={slideThemes[4]}>
+            <Contact theme={slideThemes[4]} />
+          </SlideContent>
         </Section>
       </Main>
       {currentSection === sections.length - 1 && <Footer />}
