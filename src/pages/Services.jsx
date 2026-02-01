@@ -7,7 +7,7 @@ const ServicesContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: grid;
-  place-items: stretch;
+  place-items: center;
   position: relative;
   background:
     radial-gradient(900px 650px at 85% 10%, rgba(11, 13, 18, 0.12), transparent 60%),
@@ -18,6 +18,7 @@ const ServicesContainer = styled.div`
   @media (max-width: 768px) {
     height: auto;
     min-height: 100%;
+    place-items: stretch;
     padding: 0;
   }
 `
@@ -26,7 +27,7 @@ const Grid = styled.div`
   max-width: var(--container-max-width);
   margin: 0 auto;
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: var(--spacing-9) var(--container-padding);
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -39,6 +40,7 @@ const Grid = styled.div`
   }
 
   @media (max-width: 768px) {
+    height: 100%;
     padding-top: var(--mobile-content-top);
     padding-bottom: var(--mobile-content-bottom);
     padding-left: calc(var(--container-padding) + var(--safe-left));
@@ -89,7 +91,6 @@ const Lead = styled(motion.p)`
 const Right = styled(motion.div)`
   border-left: 1px solid rgba(11, 13, 18, 0.18);
   padding-left: clamp(16px, 2.4vw, 32px);
-  min-height: 60vh;
 
   @media (max-width: 950px) {
     border-left: none;

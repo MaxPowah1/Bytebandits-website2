@@ -24,6 +24,7 @@
   /* Layout */
   --container-max-width: 1220px;
   --container-padding: clamp(16px, 3.2vw, 40px);
+  --frame-inset: max(12px, 1.6vw);
 
   /* Spacing */
   --spacing-1: 0.25rem;

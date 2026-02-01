@@ -1,16 +1,16 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useI18n } from '../i18n/i18nContext'
 
 import LanguageSwitcher from '../components/LanguageSwitcher'
 import MobileMenu from './components/MobileMenu'
+import Impressum from '../pages/Impressum'
 
 import HomeMobile from './pages/HomeMobile'
 import ServicesMobile from './pages/ServicesMobile'
 import PortfolioMobile from './pages/PortfolioMobile'
 import AboutMobile from './pages/AboutMobile'
 import ContactMobile from './pages/ContactMobile'
-import ImpressumPage from './pages/ImpressumPage'
 
 const Shell = styled.div`
   min-height: 100dvh;
@@ -62,6 +62,7 @@ function getInitialMobileSection() {
 
 export default function MobileApp() {
   const { language, setLanguage, t } = useI18n()
+  const [showImpressum, setShowImpressum] = useState(false)
 
   useEffect(() => {
     // Enable “normal scrolling” mode for the /m path, even on desktop widths.
@@ -112,6 +113,11 @@ export default function MobileApp() {
   useEffect(() => {
     const initial = getInitialMobileSection()
     if (!initial) return
+    if (initial === 'impressum') {
+      setShowImpressum(true)
+      window.history.replaceState(null, '', '/#/m')
+      return
+    }
 
     // Wait one frame so layout is ready.
     requestAnimationFrame(() => scrollToSection(initial, { behavior: 'auto', history: 'replace' }))
@@ -121,6 +127,11 @@ export default function MobileApp() {
     const onNav = () => {
       const section = getInitialMobileSection()
       if (!section) return
+      if (section === 'impressum') {
+        setShowImpressum(true)
+        window.history.replaceState(null, '', '/#/m')
+        return
+      }
       scrollToSectionNoHistory(section, { behavior: 'auto' })
     }
 
@@ -152,12 +163,18 @@ export default function MobileApp() {
         <Section id="contact">
           <ContactMobile />
         </Section>
-        <Section id="impressum">
-          <ImpressumPage />
-        </Section>
       </Main>
       <BottomBar>
         <div>{t('contact.copyright', { year: new Date().getFullYear() })}</div>
+        <a
+          href="/#/m/impressum"
+          onClick={(e) => {
+            e.preventDefault()
+            setShowImpressum(true)
+          }}
+        >
+          Impressum
+        </a>
         <a
           href="/#/m/home"
           onClick={(e) => {
@@ -168,6 +185,7 @@ export default function MobileApp() {
           Back to top
         </a>
       </BottomBar>
+      {showImpressum && <Impressum onClose={() => setShowImpressum(false)} />}
     </Shell>
   )
 }

@@ -18,6 +18,7 @@ const BurgerButton = styled.button`
   border: 1px solid rgba(247, 242, 232, 0.14);
   border-radius: 999px;
   cursor: pointer;
+  overflow: visible;
   transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
   backdrop-filter: blur(14px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
@@ -33,10 +34,11 @@ const BurgerButton = styled.button`
     height: 2px;
     background-color: rgba(247, 242, 232, 0.92);
     transition: all 0.3s ease;
-    transform-origin: center;
+    transform-origin: center center;
+    flex-shrink: 0;
 
     &:nth-child(1) {
-      transform: ${props => (props.open ? 'rotate(45deg) translateY(7px)' : 'none')};
+      transform: ${props => (props.open ? 'translateY(7px) rotate(45deg)' : 'none')};
     }
 
     &:nth-child(2) {
@@ -44,7 +46,7 @@ const BurgerButton = styled.button`
     }
 
     &:nth-child(3) {
-      transform: ${props => (props.open ? 'rotate(-45deg) translateY(-7px)' : 'none')};
+      transform: ${props => (props.open ? 'translateY(-7px) rotate(-45deg)' : 'none')};
     }
   }
 `
@@ -156,9 +158,6 @@ export default function MobileMenu({ scrollToSection }) {
             </NavLink>
             <NavLink>
               <a href="/#/m/contact" onClick={(e) => handleLinkClick(e, 'contact')}>Contact</a>
-            </NavLink>
-            <NavLink>
-              <a href="/#/m/impressum" onClick={(e) => handleLinkClick(e, 'impressum')}>Impressum</a>
             </NavLink>
           </NavLinks>
           <Meta>

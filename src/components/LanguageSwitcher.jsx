@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const LanguageSwitcherContainer = styled.div`
   position: fixed;
-  top: 1.5rem;
-  right: var(--container-padding);
+  top: var(--frame-inset);
+  right: var(--frame-inset);
   z-index: 1000;
   
   @media (max-width: 768px) {

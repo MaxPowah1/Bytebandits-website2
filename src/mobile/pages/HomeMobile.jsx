@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useI18n } from '../../i18n/i18nContext'
 import logoMark from '../../assets/company_logo/logo_ohne_company_namen.png'
 
 const Wrap = styled.div`
   width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background:
     radial-gradient(900px 700px at 15% 15%, rgba(201, 162, 39, 0.16), transparent 55%),
     radial-gradient(900px 700px at 85% 85%, rgba(201, 162, 39, 0.10), transparent 60%),
@@ -23,7 +28,7 @@ const Inner = styled.div`
     calc(var(--container-padding) + var(--safe-right, 0px));
 `
 
-const Eyebrow = styled.div`
+const Eyebrow = styled(motion.div)`
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -47,13 +52,13 @@ const EyebrowMark = styled.img`
   opacity: 0.85;
 `
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   margin-top: var(--spacing-4);
   color: rgba(247, 242, 232, 0.96);
   max-width: 16ch;
 `
 
-const SubTitle = styled.p`
+const SubTitle = styled(motion.p)`
   margin-top: var(--spacing-5);
   max-width: 60ch;
   font-size: 1.05rem;
@@ -61,7 +66,7 @@ const SubTitle = styled.p`
   color: rgba(247, 242, 232, 0.72);
 `
 
-const CTA = styled.a`
+const CTA = styled(motion.a)`
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -85,7 +90,7 @@ const CTA = styled.a`
   }
 `
 
-const Panel = styled.div`
+const Panel = styled(motion.div)`
   margin-top: var(--spacing-7);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(247, 242, 232, 0.14);
@@ -95,7 +100,7 @@ const Panel = styled.div`
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
 `
 
-const PanelTitle = styled.div`
+const PanelTitle = styled(motion.div)`
   font-family: var(--font-body);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -105,13 +110,13 @@ const PanelTitle = styled.div`
   margin-bottom: var(--spacing-3);
 `
 
-const PanelText = styled.p`
+const PanelText = styled(motion.p)`
   color: rgba(247, 242, 232, 0.72);
   font-size: 0.98rem;
   line-height: 1.75;
 `
 
-const FeatureList = styled.ul`
+const FeatureList = styled(motion.ul)`
   margin-top: var(--spacing-5);
   list-style: none;
   display: grid;
@@ -127,7 +132,7 @@ const FeatureList = styled.ul`
   }
 `
 
-const Bullet = styled.span`
+const Bullet = styled(motion.span)`
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -139,35 +144,66 @@ const Bullet = styled.span`
 
 export default function HomeMobile() {
   const { t } = useI18n()
+  const shouldReduceMotion = useReducedMotion()
+
+  const rise = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.85,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
+
+  const list = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        delayChildren: shouldReduceMotion ? 0 : 0.15
+      }
+    }
+  }
 
   return (
     <Wrap>
       <Inner>
-        <Eyebrow>
+        <Eyebrow variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }}>
           <EyebrowMark src={logoMark} alt="" aria-hidden="true" />
           ByteBandits Studio
         </Eyebrow>
-        <Title>{t('home.title')}</Title>
-        <SubTitle>{t('home.subtitle')}</SubTitle>
+        <Title variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }}>
+          {t('home.title')}
+        </Title>
+        <SubTitle variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }}>
+          {t('home.subtitle')}
+        </SubTitle>
         <CTA
           href="#portfolio"
           onClick={(e) => {
             e.preventDefault()
             window.scrollToSection?.('portfolio')
           }}
+          variants={rise}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
         >
           {t('home.cta')} <span aria-hidden>→</span>
         </CTA>
 
-        <Panel>
-          <PanelTitle>{t('home.rightTitle')}</PanelTitle>
-          <PanelText>{t('home.rightDescription')}</PanelText>
-          <FeatureList>
+        <Panel variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
+          <PanelTitle variants={rise}>{t('home.rightTitle')}</PanelTitle>
+          <PanelText variants={rise}>{t('home.rightDescription')}</PanelText>
+          <FeatureList variants={list} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
             {t('home.features').map((feature, index) => (
-              <li key={index}>
-                <Bullet aria-hidden />
+              <motion.li key={index} variants={rise}>
+                <Bullet aria-hidden variants={rise} />
                 <span>{feature}</span>
-              </li>
+              </motion.li>
             ))}
           </FeatureList>
         </Panel>

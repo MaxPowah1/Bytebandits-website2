@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useI18n } from '../../i18n/i18nContext'
 
 import officeVoiceMeterLogo from '../../assets/app_logos/office_voice_meter_logo.png'
@@ -31,7 +32,7 @@ const Inner = styled.div`
     calc(var(--container-padding) + var(--safe-right, 0px));
 `
 
-const Eyebrow = styled.div`
+const Eyebrow = styled(motion.div)`
   font-size: 0.78rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -48,12 +49,12 @@ const Eyebrow = styled.div`
   }
 `
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   margin-top: var(--spacing-4);
   color: rgba(247, 242, 232, 0.96);
 `
 
-const Lead = styled.p`
+const Lead = styled(motion.p)`
   margin-top: var(--spacing-4);
   max-width: 62ch;
   font-size: 1.02rem;
@@ -61,13 +62,13 @@ const Lead = styled.p`
   color: rgba(247, 242, 232, 0.72);
 `
 
-const List = styled.div`
+const List = styled(motion.div)`
   margin-top: var(--spacing-7);
   display: grid;
   gap: 10px;
 `
 
-const Item = styled.a`
+const Item = styled(motion.a)`
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 0.95rem;
@@ -137,6 +138,7 @@ const ItemMeta = styled.div`
 
 export default function PortfolioMobile() {
   const { t } = useI18n()
+  const shouldReduceMotion = useReducedMotion()
 
   const appLinks = [
     'https://play.google.com/store/apps/details?id=com.bytebandits.amitooloud',
@@ -166,16 +168,50 @@ export default function PortfolioMobile() {
     logo: appLogos[index]
   }))
 
+  const rise = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.85,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
+
+  const list = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        delayChildren: shouldReduceMotion ? 0 : 0.12
+      }
+    }
+  }
+
   return (
     <Wrap>
       <Inner>
-        <Eyebrow>Selected Work</Eyebrow>
-        <Title>{t('portfolio.title')}</Title>
-        <Lead>{t('portfolio.description')}</Lead>
+        <Eyebrow variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          Selected Work
+        </Eyebrow>
+        <Title variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          {t('portfolio.title')}
+        </Title>
+        <Lead variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          {t('portfolio.description')}
+        </Lead>
 
-        <List>
+        <List variants={list} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
           {apps.map((app, index) => (
-            <Item key={index} href={app.link} target="_blank" rel="noopener noreferrer">
+            <Item
+              key={index}
+              href={app.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={rise}
+            >
               <Badge aria-hidden>
                 <img src={app.logo} alt="" />
               </Badge>

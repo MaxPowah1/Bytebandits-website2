@@ -9,7 +9,7 @@ const HomeContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: grid;
-  place-items: stretch;
+  place-items: center;
   position: relative;
   overflow: hidden;
   background:
@@ -21,6 +21,7 @@ const HomeContainer = styled.div`
   @media (max-width: 768px) {
     height: auto;
     min-height: 100%;
+    place-items: stretch;
     padding: 0;
   }
 `
@@ -50,13 +51,12 @@ const Grid = styled.div`
   max-width: var(--container-max-width);
   margin: 0 auto;
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: var(--spacing-9) var(--container-padding);
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: clamp(22px, 4vw, 64px);
   align-items: start;
-  align-content: start;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -65,6 +65,7 @@ const Grid = styled.div`
   }
 
   @media (max-width: 768px) {
+    height: 100%;
     padding-top: var(--mobile-content-top);
     padding-bottom: var(--mobile-content-bottom);
     padding-left: calc(var(--container-padding) + var(--safe-left));

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useI18n } from '../../i18n/i18nContext'
 
 const Wrap = styled.div`
@@ -22,7 +23,7 @@ const Inner = styled.div`
     calc(var(--container-padding) + var(--safe-right, 0px));
 `
 
-const Eyebrow = styled.div`
+const Eyebrow = styled(motion.div)`
   font-size: 0.78rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -39,12 +40,14 @@ const Eyebrow = styled.div`
   }
 `
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   margin-top: var(--spacing-4);
 `
 
-const Body = styled.div`
+const Body = styled(motion.div)`
   margin-top: var(--spacing-5);
+  display: grid;
+  gap: 1.1rem;
 
   p {
     font-size: 1.02rem;
@@ -65,56 +68,55 @@ const Body = styled.div`
   }
 `
 
-const Values = styled.div`
-  margin-top: var(--spacing-7);
-  display: grid;
-  gap: 12px;
-`
-
-const Value = styled.div`
-  padding: 1.05rem 1.05rem 0.95rem;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(11, 13, 18, 0.18);
-  background: rgba(255, 255, 255, 0.62);
-`
-
-const ValueTitle = styled.h3`
-  font-family: var(--font-body);
-  font-weight: 750;
-  letter-spacing: -0.01em;
-  font-size: 0.98rem;
-`
-
-const ValueDesc = styled.p`
-  margin-top: 0.4rem;
-  color: rgba(11, 13, 18, 0.80);
-  line-height: 1.7;
-  font-size: 0.92rem;
-`
 
 export default function AboutMobile() {
   const { t } = useI18n()
-  const values = t('about.values')
+  const paragraphs = t('about.paragraphs')
+  const shouldReduceMotion = useReducedMotion()
+
+  const rise = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.85,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
+
+  const list = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        delayChildren: shouldReduceMotion ? 0 : 0.12
+      }
+    }
+  }
 
   return (
     <Wrap>
       <Inner>
-        <Eyebrow>Studio Notes</Eyebrow>
-        <Title>{t('about.title')}</Title>
-        <Body>
-          {t('about.paragraphs').map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+        <Eyebrow variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.35 }}>
+          Studio Notes
+        </Eyebrow>
+        <Title variants={rise} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.35 }}>
+          {t('about.title')}
+        </Title>
+        <Body
+          variants={list}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          {paragraphs.map((paragraph, index) => (
+            <motion.p key={index} variants={rise}>
+              {paragraph}
+            </motion.p>
           ))}
         </Body>
-
-        <Values>
-          {values.map((value, index) => (
-            <Value key={index}>
-              <ValueTitle>{value.title}</ValueTitle>
-              <ValueDesc>{value.description}</ValueDesc>
-            </Value>
-          ))}
-        </Values>
       </Inner>
     </Wrap>
   )

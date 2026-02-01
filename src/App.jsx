@@ -34,7 +34,7 @@ const Frame = styled.div`
   &::before {
     content: "";
     position: absolute;
-    inset: max(12px, 1.6vw);
+    inset: var(--frame-inset);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
   }
@@ -42,7 +42,7 @@ const Frame = styled.div`
   &::after {
     content: "";
     position: absolute;
-    inset: max(12px, 1.6vw);
+    inset: var(--frame-inset);
     border-radius: var(--radius-lg);
     box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.10);
     mask: radial-gradient(120px 120px at 12% 10%, transparent 0 45%, black 55%),
