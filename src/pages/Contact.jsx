@@ -19,7 +19,7 @@ const ContactContainer = styled.div`
   @media (max-width: 768px) {
     height: auto;
     min-height: 100%;
-    padding: var(--spacing-8) var(--container-padding);
+    padding: 0;
   }
 `
 
@@ -32,6 +32,15 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   align-content: center;
+
+  @media (max-width: 768px) {
+    padding-top: var(--mobile-content-top);
+    /* extra room so the fixed footer never blocks the last lines */
+    padding-bottom: calc(var(--mobile-content-bottom) + 3.5rem);
+    padding-left: calc(var(--container-padding) + var(--safe-left));
+    padding-right: calc(var(--container-padding) + var(--safe-right));
+    align-content: start;
+  }
 `
 
 const Eyebrow = styled(motion.div)`
@@ -94,6 +103,8 @@ const Email = styled(motion.a)`
   display: inline-flex;
   align-items: baseline;
   gap: 0.75rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 
   &:hover {
     opacity: 1;

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0; url=/#/m" />
+    <script>
+      (function () {
+        // /m#home cannot be handled by static hosts unless /m exists.
+        // This file makes /m exist and forwards to the canonical hash route: /#/m/<section>
+        var h = window.location.hash || '';
+        var section = null;
+        if (h && h[0] === '#' && h.length > 1) section = h.slice(1).split('/')[0] || null;
+        var target = section ? '/#/m/' + encodeURIComponent(section) : '/#/m';
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
+

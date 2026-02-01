@@ -68,6 +68,10 @@ const Main = styled.main`
   height: 100%;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    overscroll-behavior: none;
+  }
 `
 
 const Section = styled.section`
@@ -101,6 +105,9 @@ const SlideContent = styled.div`
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
     background: transparent;
+    scroll-behavior: smooth;
+    /* helps avoid fixed UI overlap when scrolling inside the slide */
+    scroll-padding-top: var(--mobile-content-top);
   }
 `
 

@@ -1,0 +1,1541 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Legal – Astro Tarot</title>
+    <meta name="description" content="Imprint, Privacy Policy, Terms of Use, Subscription Terms and Disclaimer for Astro Tarot (English + German)." />
+    <style>
+      :root{
+        --midnight:#050816;
+        --surface:#101320;
+        --surfaceAlt:#141727;
+        --outline:#2A2E45;
+        --text:#ECEAF2;
+        --muted:rgba(236,234,242,.75);
+        --gold:#ECCB8B;
+        --amethyst:#B59CFF;
+        --teal:#7EDAC7;
+        --danger:#FF6B6B;
+        --shadow:0 18px 60px rgba(0,0,0,.45);
+        --radius:18px;
+        --radiusLg:24px;
+        --max:1040px;
+      }
+
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        color:var(--text);
+        background:
+          radial-gradient(1200px 520px at 18% -8%, rgba(181,156,255,.22), transparent 60%),
+          radial-gradient(900px 520px at 92% 0%, rgba(126,218,199,.14), transparent 55%),
+          radial-gradient(1200px 700px at 55% 110%, rgba(236,203,139,.10), transparent 60%),
+          linear-gradient(180deg, var(--midnight), #070a1c 40%, var(--midnight));
+        line-height:1.55;
+      }
+
+      a{color:var(--gold); text-underline-offset:3px}
+      a:hover{color:#ffe0a8}
+      code,pre{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace}
+
+      header{
+        position:sticky;
+        top:0;
+        z-index:20;
+        backdrop-filter:saturate(140%) blur(10px);
+        background:linear-gradient(180deg, rgba(5,8,22,.85), rgba(5,8,22,.55));
+        border-bottom:1px solid rgba(42,46,69,.6);
+      }
+
+      .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+      .topbar{
+        display:flex;
+        gap:12px;
+        align-items:center;
+        justify-content:space-between;
+        padding:12px 0;
+      }
+
+      .brand{
+        display:flex;
+        gap:12px;
+        align-items:center;
+        min-width:0;
+      }
+
+      .sigil{
+        width:38px; height:38px;
+        border-radius:14px;
+        background:
+          radial-gradient(12px 12px at 30% 30%, rgba(236,203,139,.85), transparent 55%),
+          radial-gradient(14px 14px at 70% 65%, rgba(181,156,255,.6), transparent 60%),
+          linear-gradient(180deg, rgba(16,19,32,1), rgba(20,23,39,1));
+        border:1px solid rgba(236,203,139,.32);
+        box-shadow:0 10px 28px rgba(0,0,0,.35);
+        flex:0 0 auto;
+      }
+
+      .brand h1{
+        margin:0;
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        letter-spacing:.22px;
+        font-size:16px;
+        font-weight:700;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      .brand small{
+        display:block;
+        color:var(--muted);
+        font-size:12px;
+        margin-top:2px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      .actions{
+        display:flex;
+        gap:10px;
+        align-items:center;
+        flex:0 0 auto;
+      }
+
+      .btn{
+        border:1px solid rgba(42,46,69,.85);
+        background:rgba(16,19,32,.75);
+        color:var(--text);
+        padding:10px 12px;
+        border-radius:999px;
+        text-decoration:none;
+        font-size:13px;
+        transition:transform .08s ease, border-color .15s ease, background .15s ease;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+      }
+      .btn:hover{
+        transform:translateY(-1px);
+        border-color:rgba(236,203,139,.55);
+        background:rgba(20,23,39,.85);
+      }
+
+      main{padding:28px 0 60px}
+      .divider{
+        height:1px;
+        background:rgba(42,46,69,.6);
+        margin:22px 0;
+      }
+
+      .hero{
+        padding:18px;
+        border-radius:var(--radiusLg);
+        background:linear-gradient(180deg, rgba(16,19,32,.80), rgba(20,23,39,.70));
+        border:1px solid rgba(42,46,69,.6);
+        box-shadow:var(--shadow);
+      }
+      .hero h2{
+        margin:0 0 10px 0;
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        font-size:26px;
+        letter-spacing:.25px;
+      }
+      .hero p{margin:8px 0; color:var(--muted)}
+      .badges{
+        margin-top:14px;
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+      .badge{
+        border:1px solid rgba(42,46,69,.85);
+        background:rgba(5,8,22,.35);
+        color:rgba(236,234,242,.92);
+        padding:8px 10px;
+        border-radius:999px;
+        font-size:12px;
+        display:inline-flex;
+        gap:8px;
+        align-items:center;
+      }
+      .dot{
+        width:9px;height:9px;border-radius:999px; display:inline-block;
+        background:var(--gold);
+        box-shadow:0 0 0 4px rgba(236,203,139,.18);
+      }
+      .dot.a{background:var(--amethyst); box-shadow:0 0 0 4px rgba(181,156,255,.16)}
+      .dot.t{background:var(--teal); box-shadow:0 0 0 4px rgba(126,218,199,.14)}
+
+      .grid{
+        margin-top:16px;
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:14px;
+      }
+      @media (min-width: 920px){
+        .grid{grid-template-columns: 340px 1fr; align-items:start}
+      }
+
+      nav.toc{
+        position:relative;
+        border-radius:var(--radiusLg);
+        background:linear-gradient(180deg, rgba(16,19,32,.72), rgba(20,23,39,.64));
+        border:1px solid rgba(42,46,69,.6);
+        box-shadow:var(--shadow);
+        padding:14px;
+      }
+      nav.toc h3{
+        margin:4px 0 10px;
+        font-size:13px;
+        letter-spacing:.18px;
+        color:rgba(236,234,242,.9);
+        text-transform:uppercase;
+      }
+      nav.toc a{
+        display:block;
+        padding:9px 10px;
+        border-radius:14px;
+        color:rgba(236,234,242,.88);
+        text-decoration:none;
+        border:1px solid transparent;
+      }
+      nav.toc a:hover{
+        border-color:rgba(236,203,139,.28);
+        background:rgba(5,8,22,.35);
+        color:var(--text);
+      }
+
+      section.card{
+        border-radius:var(--radiusLg);
+        background:linear-gradient(180deg, rgba(16,19,32,.80), rgba(20,23,39,.70));
+        border:1px solid rgba(42,46,69,.6);
+        box-shadow:var(--shadow);
+        padding:18px;
+      }
+
+      section.card + section.card{margin-top:14px}
+
+      h3.sec{
+        margin:0 0 12px 0;
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        font-size:20px;
+        letter-spacing:.18px;
+      }
+
+      h4{margin:18px 0 8px; font-size:15px; letter-spacing:.10px}
+      p{margin:10px 0}
+      ul{margin:10px 0 10px 18px}
+      li{margin:7px 0}
+      .muted{color:var(--muted)}
+      .note{
+        border-left:3px solid rgba(236,203,139,.55);
+        padding:10px 12px;
+        margin:12px 0;
+        background:rgba(5,8,22,.30);
+        border-radius:14px;
+      }
+      .warn{
+        border-left:3px solid rgba(255,107,107,.75);
+        padding:10px 12px;
+        margin:12px 0;
+        background:rgba(255,107,107,.06);
+        border-radius:14px;
+      }
+      .k{
+        display:inline-block;
+        padding:2px 8px;
+        border-radius:999px;
+        border:1px solid rgba(42,46,69,.85);
+        background:rgba(5,8,22,.35);
+        color:rgba(236,234,242,.92);
+        font-size:12px;
+      }
+
+      footer{
+        margin-top:18px;
+        padding-top:14px;
+        border-top:1px solid rgba(42,46,69,.6);
+        color:var(--muted);
+        font-size:12px;
+      }
+
+      .twoCol{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:12px;
+      }
+      @media (min-width: 720px){
+        .twoCol{grid-template-columns: 1fr 1fr}
+      }
+
+      .kv{
+        border:1px solid rgba(42,46,69,.6);
+        background:rgba(5,8,22,.25);
+        border-radius:16px;
+        padding:12px;
+      }
+      .kv strong{display:block; font-size:12px; color:rgba(236,234,242,.86); text-transform:uppercase; letter-spacing:.12px}
+      .kv span{display:block; margin-top:6px}
+
+      /* print-friendly */
+      @media print {
+        header{position:static; backdrop-filter:none; background:#fff; color:#000}
+        body{background:#fff; color:#000}
+        a{color:#000}
+        .hero, nav.toc, section.card{box-shadow:none; border:1px solid #ddd; background:#fff}
+        .muted{color:#333}
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="topbar">
+          <div class="brand">
+            <div class="sigil" aria-hidden="true"></div>
+            <div style="min-width:0">
+              <h1>Legal – Astro Tarot</h1>
+              <small>Imprint · Privacy Policy · Terms of Use · Subscription Terms · Disclaimer</small>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#en" title="Jump to English version">EN</a>
+            <a class="btn" href="#de" title="Zur deutschen Version springen">DE</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- =========================================================================
+           ENGLISH (default)
+           ========================================================================= -->
+      <div id="en" class="hero" lang="en">
+        <h2>Legal Information (English)</h2>
+        <p>
+          This page consolidates legally relevant information for the mobile app <span class="k">Astro Tarot</span> (the “App”) and this accompanying page (together, the “Service”).
+          It includes, in particular, the <span class="k">Imprint</span>, <span class="k">Privacy Policy</span>, <span class="k">Terms of Use</span>,
+          <span class="k">Subscription Terms</span>, and a detailed <span class="k">Disclaimer</span> (incl. generative AI, health, legal, and financial topics).
+        </p>
+        <p class="muted">
+          Notice: We aim for maximum transparency. At the same time, not every liability can be excluded effectively in every jurisdiction.
+          Mandatory statutory rights (especially consumer rights) remain unaffected.
+        </p>
+        <div class="badges" aria-label="Quick overview">
+          <span class="badge"><span class="dot"></span> AI interpretation via OpenAI API (HTTPS)</span>
+          <span class="badge"><span class="dot a"></span> Subscriptions via Google Play Billing</span>
+          <span class="badge"><span class="dot t"></span> On-device storage (local app data)</span>
+        </div>
+      </div>
+
+      <div class="grid">
+        <nav class="toc" aria-label="Table of contents (English)">
+          <h3>Contents (EN)</h3>
+          <a href="#en-imprint">1. Imprint</a>
+          <a href="#en-definitions">2. Definitions &amp; scope</a>
+          <a href="#en-privacy">3. Privacy Policy</a>
+          <a href="#en-terms">4. Terms of Use</a>
+          <a href="#en-subscription">5. Subscription Terms</a>
+          <a href="#en-disclaimer">6. Disclaimer (incl. AI, health, legal, finance)</a>
+          <a href="#en-copyright">7. Copyright / content</a>
+          <a href="#en-changes">8. Changes to this page</a>
+          <a href="#en-contact">9. Contact</a>
+          <div class="divider" role="separator" aria-hidden="true"></div>
+          <h3>Inhalt (DE)</h3>
+          <a href="#de-impressum">1. Impressum</a>
+          <a href="#de-definitions">2. Begriffe &amp; Geltungsbereich</a>
+          <a href="#de-privacy">3. Datenschutzerklärung</a>
+          <a href="#de-terms">4. Nutzungsbedingungen</a>
+          <a href="#de-subscription">5. Abonnement-Bedingungen</a>
+          <a href="#de-disclaimer">6. Haftungsausschluss (inkl. KI, Medizin, Recht, Finanzen)</a>
+          <a href="#de-copyright">7. Urheberrecht / Inhalte</a>
+          <a href="#de-changes">8. Änderungen dieser Seite</a>
+          <a href="#de-contact">9. Kontakt</a>
+        </nav>
+
+        <div>
+          <!-- ========================= ENGLISH SECTIONS ========================= -->
+          <section class="card" id="en-imprint" lang="en">
+            <h3 class="sec">1. Imprint</h3>
+
+            <div class="twoCol">
+              <div class="kv">
+                <strong>Provider</strong>
+                <span>
+                  Bytebandits OÜ<br />
+                  Tartu mnt 67/1-13b, Kesklinna linnaosa<br />
+                  Tallinn 10115, Eesti
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Contact</strong>
+                <span>
+                  E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Represented by</strong>
+                <span>Management Board: M. Scherb</span>
+              </div>
+              <div class="kv">
+                <strong>Registration</strong>
+                <span>
+                  Registration code: 17265228<br />
+                  Registered with Harju County Court
+                </span>
+              </div>
+              <div class="kv">
+                <strong>VAT</strong>
+                <span>VAT ID (KMKR): The legal entity is not liable for VAT registration.</span>
+              </div>
+              <div class="kv">
+                <strong>App</strong>
+                <span>Astro Tarot</span>
+              </div>
+            </div>
+
+            <div class="note">
+              <p>
+                <strong>Legal note:</strong>
+                Bytebandits OÜ is a company incorporated under Estonian law (OÜ). The App may be offered in Germany and other countries.
+                Mandatory provisions of your country of residence (especially consumer and data protection law) remain unaffected.
+              </p>
+            </div>
+
+            <h4>Dispute resolution / consumer arbitration</h4>
+            <p class="muted">
+              We are not obliged and generally not willing to participate in dispute resolution proceedings before a consumer arbitration board,
+              unless mandatory law provides otherwise.
+            </p>
+          </section>
+
+          <section class="card" id="en-definitions" lang="en">
+            <h3 class="sec">2. Definitions &amp; scope</h3>
+
+            <p>
+              These legal documents apply to the App <span class="k">Astro Tarot</span> and this accompanying page (together, the “Service”).
+              Where the App links to this page, this page forms part of the information provided within the App.
+            </p>
+
+            <h4>Definitions (excerpt)</h4>
+            <ul>
+              <li><strong>“User”</strong>: any person who installs, accesses, or uses the App.</li>
+              <li><strong>“Content”</strong>: texts, visuals, card assets, interpretations, hints, FAQs, and other data made available in the Service.</li>
+              <li><strong>“AI”</strong>: automated text generation (e.g., interpretations) via external AI services.</li>
+              <li><strong>“Subscription”</strong>: recurring paid service managed via the applicable app store (e.g., Google Play).</li>
+              <li><strong>“Third Party”</strong>: external providers (e.g., OpenAI, Google) whose services are integrated or referenced.</li>
+            </ul>
+
+            <div class="warn">
+              <p>
+                <strong>Important:</strong>
+                Astro Tarot is not medical, psychological, therapeutic, legal, or financial advice and is not a substitute for professional help.
+                See Section <a href="#en-disclaimer">6</a> for details.
+              </p>
+            </div>
+          </section>
+
+          <section class="card" id="en-privacy" lang="en">
+            <h3 class="sec">3. Privacy Policy</h3>
+
+            <p>
+              We take privacy seriously. This Privacy Policy explains <em>which</em> data is processed in Astro Tarot, <em>for what purposes</em>,
+              <em>on what legal basis</em> (in particular under the GDPR where applicable), <em>for how long</em> data is processed, and <em>which rights</em> you have.
+            </p>
+
+            <h4>3.1 Controller</h4>
+            <p>
+              The controller within the meaning of the GDPR (where applicable) is:<br />
+              <strong>Bytebandits OÜ</strong>, Tartu mnt 67/1-13b, Kesklinna linnaosa, Tallinn 10115, Eesti<br />
+              Kontakt: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+            </p>
+
+            <h4>3.2 Data Protection Officer</h4>
+            <p class="muted">
+              We have not appointed a Data Protection Officer at this time (not legally required under our current model).
+              You can reach us at any time using the contact details above.
+            </p>
+
+            <h4>3.3 Overview: data categories &amp; purposes</h4>
+            <div class="twoCol">
+              <div class="kv">
+                <strong>App usage (on-device)</strong>
+                <span>
+                  Saved readings, daily-card history, settings, language, and (where applicable) premium/entitlement status data
+                  are primarily stored <strong>locally on your device</strong>.
+                </span>
+              </div>
+              <div class="kv">
+                <strong>AI interpretations (OpenAI)</strong>
+                <span>
+                  Text you enter (e.g., question, notes), selected cards, mood/stress inputs and—if you use the relationship spread—relationship context
+                  may be transmitted to an <strong>external AI provider</strong> to generate an interpretation.
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Purchases / subscriptions (Google Play)</strong>
+                <span>
+                  Purchase/subscription management is handled via <strong>Google Play</strong>. We typically receive only the information required for technical enablement
+                  (e.g., product ID, entitlement state), while payment data is processed by Google.
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Support contact</strong>
+                <span>
+                  If you contact us via email, we process the contact data and content you provide to handle your request.
+                </span>
+              </div>
+            </div>
+            <h4>3.3a Data minimization and user-controlled inputs</h4>
+            <p class="muted">
+              The Service is designed to operate without user accounts and without a proprietary backend for storing your readings.
+              Most content you create (questions, readings, interpretations) remains on your device unless you transmit it to a third party
+              (e.g., the AI provider) or you voluntarily share it outside the App (e.g., copy/paste).
+            </p>
+
+            <h4>3.4 Technical implementation (what the App actually uses)</h4>
+            <ul>
+              <li><strong>OpenAI API (Chat Completions)</strong>: the App can generate interpretations via HTTPS requests to OpenAI.</li>
+              <li><strong>Google Play Billing</strong>: purchases and subscriptions are handled via Google Play; the App can restore/check purchases via Play.</li>
+              <li><strong>Local storage</strong>: selected App data is persisted on-device via SharedPreferences.</li>
+              <li><strong>No ads / ad networks</strong>: currently no advertising SDKs are integrated.</li>
+              <li><strong>No separate analytics SDK</strong>: currently no standalone analytics SDK (e.g., Firebase Analytics) is used.</li>
+              <li><strong>No push notifications</strong>: currently the App does not send push notifications.</li>
+            </ul>
+
+            <div class="note">
+              <p>
+                <strong>Accuracy notice:</strong>
+                This policy describes the current feature set. If we add services in the future (e.g., analytics, crash reporting, ads),
+                we will update this page accordingly (see Section <a href="#en-changes">8</a>).
+              </p>
+            </div>
+
+            <h4>3.5 Legal bases (GDPR)</h4>
+            <p>
+              We process personal data only if and insofar as a legal basis exists. Depending on context, this may include:
+            </p>
+            <ul>
+              <li><strong>Art. 6(1)(b) GDPR</strong> (contract / pre-contractual measures): providing App functionality, generating interpretations, enabling premium features.</li>
+              <li><strong>Art. 6(1)(f) GDPR</strong> (legitimate interests): operating, securing, and maintaining the Service; preventing misuse; minimal necessary troubleshooting.</li>
+              <li><strong>Art. 6(1)(a) GDPR</strong> (consent): where we request consent for specific optional functions or future integrations.</li>
+              <li><strong>Art. 6(1)(c) GDPR</strong> (legal obligation): compliance with statutory duties (e.g., accounting), where applicable.</li>
+            </ul>
+
+            <h4>3.6 AI interpretation / OpenAI (third parties, cross-border transfers)</h4>
+            <p>
+              For AI interpretation, information you enter or select in the App is transmitted to an AI provider (currently OpenAI). This typically includes:
+            </p>
+            <ul>
+              <li><strong>User inputs</strong>: question, free-text notes; mood/stress ratings and optional note text; in relationship readings, names, birthdates and zodiac sign context you provide.</li>
+              <li><strong>Reading data</strong>: drawn cards, card positions, spread type, language setting.</li>
+              <li><strong>Technical metadata</strong> (provider-dependent): IP address, timestamps, headers, and potentially device/app context, insofar as the provider processes this for API operation.</li>
+            </ul>
+            <p>
+              The App currently communicates with the AI provider via direct HTTPS API calls from your device. We do not run a proprietary backend for AI requests.
+              This generally means your content is not routed through our own servers; however, it is transmitted to the third party and processed there.
+            </p>
+            <p>
+              The purpose is the <strong>generation of a textual interpretation</strong> and its return to the App.
+            </p>
+            <p class="muted">
+              Processing by the third party is governed by its own terms and policies. We do not fully control whether and for how long the provider stores data.
+              Please also consult the provider’s privacy information (e.g., OpenAI policies).
+            </p>
+            <p class="muted">
+              Important: Depending on your configuration, the App may require an API key for the AI provider. Where you use your own API key, you are responsible for maintaining the confidentiality of the key,
+              complying with the provider’s terms, and ensuring you have the rights and consents required to transmit any third-party data.
+            </p>
+
+            <div class="warn">
+              <p>
+                <strong>Please do not enter sensitive data.</strong>
+                In particular, avoid information you consider highly sensitive (e.g., health data, diagnoses, intimate details, bank data, passwords, full names of third parties without their consent).
+                The App is not designed for such information.
+              </p>
+            </div>
+            <p class="muted">
+              Relationship readings: the App can include names and birthdates you enter for two people as part of the prompt context sent to the AI provider. Do not enter third-party data unless you have a lawful basis
+              and, where required, the person’s consent.
+            </p>
+
+            <h4>3.7 Purchases &amp; subscriptions (Google Play Billing)</h4>
+            <p>
+              If you purchase or restore a subscription in the App, payment processing is handled via <strong>Google Play</strong>.
+              Google is generally an independent controller for payment processing and related data processing.
+            </p>
+            <p>
+              In the App, we typically process only:
+            </p>
+            <ul>
+              <li><strong>Product ID</strong> of the subscription,</li>
+              <li><strong>Entitlement/purchase state</strong> (purchased/restored/active/inactive),</li>
+              <li><strong>Timestamps</strong> of the last verification / last entitled state (stored locally),</li>
+              <li>any additional technical purchase details provided by Play Billing insofar as needed for enabling access.</li>
+            </ul>
+            <p class="muted">
+              Payment data (e.g., credit card information) is not processed by us, but by Google.
+              Cancellation, termination, price changes, and billing are governed by Google Play’s terms and processes.
+            </p>
+
+            <h4>3.8 Local storage / on-device retention</h4>
+            <p>
+              A significant portion of App data is stored locally on your device (e.g., reading history, daily cards, settings). This means:
+            </p>
+            <ul>
+              <li>Data generally remains on your device until you delete it or uninstall the App (device/OS behavior may vary).</li>
+              <li>Uninstalling the App typically removes locally stored App data.</li>
+              <li>At present, we operate <strong>no own backend server</strong> to store your readings or personal profiles.</li>
+            </ul>
+            <p class="muted">
+              Typical on-device limits (current implementation): up to ~100 saved readings, up to ~365 daily cards, and an “archive” snapshot that may keep only the most recent entries (e.g., last 7 daily cards).
+              These limits are implemented for usability and storage hygiene and may change with updates.
+            </p>
+            <p class="muted">
+              Local storage can include, depending on use: your questions, card IDs/positions, mood/stress ratings and optional note text, AI responses returned to the App, timestamps, language choice,
+              as well as subscription entitlement cache values (e.g., last verified timestamps and active product identifiers). You can generally remove this data by uninstalling the App
+              or using available in-app reset/delete functions (if provided).
+            </p>
+            <p class="muted">
+              Subscription entitlement caching is implemented only for UX continuity and short grace periods (e.g., temporary network outages). The definitive billing relationship is managed by Google Play.
+            </p>
+
+            <h4>3.9 Cookies / tracking on this page</h4>
+            <p class="muted">
+              This page is designed as a simple information page. Currently, we do not set tracking cookies.
+              If you access this page via a hosting provider, that provider may process server logs (e.g., IP address, time, user agent) for technical reasons. Details depend on hosting.
+            </p>
+
+            <h4>3.10 Recipients / categories of recipients</h4>
+            <ul>
+              <li><strong>AI provider</strong> (e.g., OpenAI): processing to generate interpretations.</li>
+              <li><strong>App store / payment provider</strong> (Google Play): payment processing and subscription management.</li>
+              <li><strong>Hosting provider of this page</strong>: technical provision (servers/logs, CDN).</li>
+              <li><strong>Communication providers</strong>: email delivery/processing (your mail provider / our mail infrastructure).</li>
+              <li><strong>Authorities</strong>: only where legally required or upon valid official request.</li>
+            </ul>
+
+            <h4>3.11 Transfers to third countries (outside EU/EEA)</h4>
+            <p>
+              Depending on the third party’s location, processing may occur outside the EU/EEA (e.g., the USA). Where required, we rely on appropriate safeguards
+              (e.g., Standard Contractual Clauses, adequacy decisions, or comparable mechanisms), insofar as applicable.
+            </p>
+            <p class="muted">
+              Because providers may change infrastructure, please also review the provider’s current privacy information.
+            </p>
+
+            <h4>3.11a Processor vs. joint controller vs. independent controller</h4>
+            <p>
+              Depending on the integrated service, the third party may act as (i) a <strong>processor</strong>, (ii) a <strong>joint controller</strong>, or (iii) an <strong>independent controller</strong>.
+              App stores (e.g., Google Play) are typically independent controllers for payment/billing. For AI providers, the classification depends on the contractual setup and technical flow.
+            </p>
+            <p class="muted">
+              Note: This page is intentionally detailed but cannot cover every scenario. The governing documents are the contracts, roles, and actual processing in effect at the time.
+            </p>
+
+            <h4>3.11b Retention / deletion</h4>
+            <p>
+              We generally process personal data only as long as necessary for the purpose, or as long as statutory retention duties apply. Typically:
+            </p>
+            <ul>
+              <li><strong>On-device App data</strong>: remains until you delete it or uninstall the App.</li>
+              <li><strong>AI requests</strong>: we do not store the contents on our own servers because we do not operate a backend; however, the provider may store/log data (see provider policies).</li>
+              <li><strong>Support communications</strong>: emails are retained as needed for handling, evidence, and legal obligations, then deleted or anonymized where feasible.</li>
+              <li><strong>Website logs (hosting)</strong>: may be retained short-term for security/operations; details depend on hosting.</li>
+            </ul>
+
+            <h4>3.12 Your rights (data subject rights)</h4>
+            <p>Where the legal requirements are met, you have in particular the following rights:</p>
+            <ul>
+              <li><strong>Access</strong> (Art. 15 GDPR)</li>
+              <li><strong>Rectification</strong> (Art. 16 GDPR)</li>
+              <li><strong>Erasure</strong> (Art. 17 GDPR)</li>
+              <li><strong>Restriction</strong> (Art. 18 GDPR)</li>
+              <li><strong>Data portability</strong> (Art. 20 GDPR)</li>
+              <li><strong>Objection</strong> to processing based on legitimate interests (Art. 21 GDPR)</li>
+              <li><strong>Withdrawal of consent</strong> (Art. 7(3) GDPR) without affecting prior lawfulness</li>
+              <li><strong>Complaint</strong> to a supervisory authority (Art. 77 GDPR)</li>
+            </ul>
+
+            <h4>3.12a Exercising your rights / identity verification</h4>
+            <p>
+              To exercise your rights, email <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.
+              Please describe which right you wish to exercise and which processing it relates to.
+            </p>
+            <p class="muted">
+              To protect your data, we may request reasonable identity verification. We will request only what is necessary and will not use it for other purposes.
+            </p>
+
+            <h4>3.12b Right to lodge a complaint</h4>
+            <p>
+              You have the right to lodge a complaint with a data protection authority, in particular in your habitual residence, place of work, or the place of the alleged infringement.
+            </p>
+
+            <h4>3.12c Security (technical and organizational measures)</h4>
+            <p>
+              We implement appropriate technical and organizational measures to protect data against loss, misuse, unauthorized access, disclosure, and alteration.
+              Depending on platform and hosting, this may include access controls, data minimization, transport encryption (HTTPS), and incident response processes.
+            </p>
+            <p class="muted">
+              No system is 100% secure. Please use the App responsibly, keep your device updated, and do not enter information you are not willing to risk.
+            </p>
+
+            <h4>3.13 Free-text fields</h4>
+            <p>
+              The App may include free-text fields (e.g., “question”, “context”). You decide which content you enter.
+              We strongly recommend not entering data you do not want transmitted to a third party.
+            </p>
+
+            <h4>3.14 Children / minors (COPPA / GDPR)</h4>
+            <p>
+              The App is not directed at children under 13. Where higher age limits apply in a country, the stricter rule applies.
+              If you are a parent/guardian and believe a child has provided personal data, please contact us.
+            </p>
+
+            <h4>3.15 “US privacy” (CCPA/CPRA and other state laws, only if applicable)</h4>
+            <p class="muted">
+              We do not sell personal information and do not share personal information for cross‑context behavioral advertising.
+              We currently do not run advertising-based tracking or targeted ads in the App.
+            </p>
+            <p class="muted">
+              Depending on our user base and statutory thresholds, US state privacy laws may apply (e.g., California (CCPA/CPRA),
+              Virginia, Colorado, Connecticut, Utah). Where applicable, you may have rights to access, delete, correct, and obtain a copy
+              of your personal information, and to opt out of certain processing (such as sale or targeted advertising).
+            </p>
+            <p class="muted">
+              To exercise rights, contact <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>. We may verify your request.
+              You will not be discriminated against for exercising privacy rights.
+            </p>
+          </section>
+
+          <section class="card" id="en-terms" lang="en">
+            <h3 class="sec">4. Terms of Use</h3>
+
+            <p>
+              These Terms of Use govern your use of the App <span class="k">Astro Tarot</span>. By installing, accessing, or using the App, you agree to these terms.
+              If you do not agree, do not use the App.
+            </p>
+
+            <h4>4.1 Service description</h4>
+            <p>
+              Astro Tarot provides digital tarot and/or astro-inspired content, including card visualizations, spreads/readings, archive features, and—if enabled—
+              AI-generated interpretations based on your inputs and drawn cards. The content is primarily for entertainment and self-reflection.
+            </p>
+
+            <h4>4.2 No advisory relationship / no guarantees</h4>
+            <p>
+              No medical, therapeutic, psychological, legal, or financial advisory relationship is created.
+              Outputs/interpretations are not reliable, not objectively verifiable, and do not constitute assurances.
+              See Section <a href="#en-disclaimer">6</a> for details.
+            </p>
+
+            <h4>4.3 Requirements &amp; availability</h4>
+            <ul>
+              <li>Some features (especially AI interpretation) require an internet connection.</li>
+              <li>We do not guarantee uninterrupted availability. Maintenance, updates, technical issues, network problems, or third-party outages may limit functionality.</li>
+              <li>We may change, remove, or add features where necessary or objectively justified and without violating mandatory rights.</li>
+            </ul>
+
+            <h4>4.4 User obligations</h4>
+            <ul>
+              <li><strong>No unlawful content:</strong> you must not enter or disseminate content that is illegal, abusive, discriminatory, defamatory, pornographic, extremist, or otherwise unlawful.</li>
+              <li><strong>No sensitive data:</strong> do not enter highly sensitive data (e.g., health data, passwords, payment data) into free-text fields.</li>
+              <li><strong>No misuse:</strong> no circumvention of paywalls, no reverse engineering, no automated scraping, no interference with operation.</li>
+              <li><strong>Responsibility:</strong> decisions you make based on the App are at your own risk.</li>
+            </ul>
+
+            <h4>4.5 Content &amp; intellectual property</h4>
+            <p>
+              Unless expressly stated otherwise, all rights in the App, designs, texts, graphics, logos, card images, audiovisual elements, databases, and software
+              belong to the provider or its licensors. Use outside the App (copying, distribution, public display, modification) is prohibited without prior consent,
+              unless permitted by law.
+            </p>
+            <h4>4.5a Limited license to use the App</h4>
+            <p class="muted">
+              Subject to these Terms and applicable store rules, we grant you a personal, limited, non-exclusive, non-transferable, revocable license to install and use the App
+              for private, non-commercial purposes on devices you control. No rights are granted except those expressly stated. You may not sublicense, rent, lease, sell, distribute,
+              or otherwise commercialize the App or any portion of it unless mandatory law allows or we explicitly agree in writing.
+            </p>
+
+            <h4>4.6 Links to third parties</h4>
+            <p>
+              The App may include links to external websites (e.g., “Manage subscriptions” in Google Play). Operators of external websites are solely responsible for their content.
+              We do not adopt such content as our own.
+            </p>
+            <h4>4.6a Third-party services and dependencies</h4>
+            <p class="muted">
+              The Service relies on third-party infrastructure and software components. In particular, subscription flows are handled by Google Play and AI interpretation is handled by an external AI provider.
+              We do not guarantee the availability, security, correctness, or continued provision of third-party services. If a third party changes its service or terms, the App may be affected accordingly.
+            </p>
+
+            <h4>4.7 Term / termination</h4>
+            <p>
+              You can stop using the App at any time by uninstalling it. Subscriptions must be cancelled via the app store (see Section <a href="#en-subscription">5</a>).
+            </p>
+            <p class="muted">
+              We may suspend or restrict access (including to premium gating logic) if required to comply with law, protect the Service, prevent abuse, or enforce these Terms,
+              while respecting mandatory consumer rights.
+            </p>
+
+            <h4>4.8 Liability (general)</h4>
+            <p>
+              Liability is governed by Section <a href="#en-disclaimer">6</a>. In addition: we are liable without limitation for intent and gross negligence, and for injury to life, body, or health.
+              For slight negligence regarding essential contractual duties, liability is limited to the typically foreseeable damage.
+            </p>
+
+            <h4>4.9 Governing law &amp; jurisdiction</h4>
+            <p>
+              To the extent legally permissible, German law applies excluding the UN Convention on Contracts for the International Sale of Goods (CISG).
+              For consumers, mandatory consumer protection provisions of the country of habitual residence remain applicable.
+            </p>
+            <p class="muted">
+              Jurisdiction is Germany to the extent legally permissible. For consumers, this applies only if and insofar as mandatory law allows it.
+            </p>
+
+            <h4>4.10 Severability</h4>
+            <p class="muted">
+              If any provision is invalid, the remaining provisions remain effective. The statutory provision replaces the invalid clause. The same applies to gaps.
+            </p>
+
+            <h4>4.11 Changes to the Terms</h4>
+            <p class="muted">
+              We may amend these Terms if required for legal, technical, or objective reasons. For consumers, changes must not unreasonably disadvantage you.
+              Where explicit consent is required, we will obtain it.
+            </p>
+            <h4>4.11a Updates</h4>
+            <p class="muted">
+              The App may receive updates that add, modify, or remove features. Updates may be required for security, compatibility, or legal compliance.
+              Availability of updates and your ability to install them may depend on your device, operating system, and app store policies.
+            </p>
+            <h4>4.11b EU/UK digital content consumer rights (where applicable)</h4>
+            <p class="muted">
+              If you are a consumer in the EU/EEA or UK, mandatory rights regarding digital content may apply. This includes, in particular,
+              rights to conformity with the contract, functionality, compatibility, and required updates. If the App is not in conformity,
+              you may be entitled to statutory remedies such as repair, replacement, price reduction, or termination, subject to legal conditions.
+              These rights are not limited by these Terms.
+            </p>
+            <p class="muted">
+              Where distribution and updates are handled through an app store, certain remedies, notices, or update processes may be implemented by the store or platform.
+            </p>
+
+            <h4>4.12 Assignment</h4>
+            <p class="muted">
+              We may transfer rights and obligations within legal limits (e.g., restructuring) provided you do not suffer material disadvantages. Your statutory rights remain unaffected.
+            </p>
+
+            <h4>4.13 Language</h4>
+            <p class="muted">
+              The standard language of these legal documents is English. A German version is provided for convenience.
+              In case of discrepancies, the English version prevails to the extent legally permissible.
+            </p>
+            <h4>4.14 Third-party terms</h4>
+            <p class="muted">
+              Where the App uses or references third-party services (in particular Google Play and the AI provider), their respective terms, policies and technical requirements apply in addition to these Terms.
+              If third-party terms impose mandatory or technically necessary constraints, those constraints take precedence in the relevant scope.
+            </p>
+          </section>
+
+          <section class="card" id="en-subscription" lang="en">
+            <h3 class="sec">5. Subscription Terms</h3>
+
+            <p>
+              This section applies to paid subscriptions and premium features in Astro Tarot offered via <strong>Google Play Billing</strong>.
+              In case of conflict, Google Play’s mandatory terms (e.g., billing, refunds, taxes) take precedence.
+            </p>
+
+            <h4>5.1 Products, access, enablement</h4>
+            <ul>
+              <li>Premium features may unlock certain spreads or content.</li>
+              <li>The App checks entitlement via Google Play and enables premium accordingly.</li>
+              <li>Technical delays, offline states, or store errors may temporarily delay (re-)enablement.</li>
+            </ul>
+
+            <h4>5.2 Billing, term, renewal</h4>
+            <p class="muted">
+              Billing, term, trial periods, and auto-renewal are governed by the product information shown in Google Play.
+              Please review the product page carefully before purchase.
+            </p>
+
+            <h4>5.3 Cancellation, management, restore</h4>
+            <ul>
+              <li>Cancellation and management are done via your Google Play account (“Subscriptions”).</li>
+              <li>The App may initiate restore/check of purchases where supported by the store.</li>
+              <li>Uninstalling the App does not automatically cancel a subscription.</li>
+            </ul>
+
+            <h4>5.4 Price changes</h4>
+            <p class="muted">
+              Price changes are handled by the app store. Where consent/notifications are required, the store process applies.
+            </p>
+
+            <h4>5.5 Refunds</h4>
+            <p>
+              Refunds are processed—where available—under Google Play’s policies and processes.
+              We cannot always issue refunds directly because billing is handled by the store.
+            </p>
+            <h4>5.6 EU/UK right of withdrawal (digital content)</h4>
+            <p class="muted">
+              If you are a consumer in the EU/EEA or UK, statutory withdrawal rights may apply. For digital content delivered immediately,
+              the right of withdrawal may be lost if you expressly consent to immediate performance and acknowledge that you lose the right.
+              This consent and acknowledgment, where required, are typically collected in the app store checkout flow.
+            </p>
+            <p class="muted">
+              If you purchased via Google Play, withdrawal, cancellations, and refunds are handled under Google Play's processes and policies.
+            </p>
+          </section>
+
+          <section class="card" id="en-disclaimer" lang="en">
+            <h3 class="sec">6. Disclaimer</h3>
+
+            <div class="warn">
+              <p>
+                <strong>Short version (the long one still follows):</strong>
+                Astro Tarot provides entertainment and impulses. No advice. No diagnosis. No guarantee. Not a substitute for professional help.
+                You make decisions independently and at your own risk.
+              </p>
+            </div>
+
+            <h4>6.1 Nature of content: entertainment, self-reflection, subjective</h4>
+            <p>
+              All content in Astro Tarot—including tarot spreads/readings, interpretations, text outputs, hints, and visualizations—is inherently
+              <strong>subjective</strong> and <strong>symbolic</strong>, intended for <strong>entertainment</strong> and <strong>self-reflection</strong>.
+              It is not scientifically validated and is not presented as objective fact.
+            </p>
+
+            <h4>6.2 No medical/psychological/therapeutic advice</h4>
+            <p>
+              Astro Tarot does not replace medical examination, diagnosis, treatment, or psychological/psychotherapeutic counseling.
+              If you experience health issues, mental crises, suicidal thoughts, or emergencies, contact medical professionals or emergency services immediately.
+            </p>
+
+            <h4>6.3 No legal advice</h4>
+            <p>
+              The App’s content is not legal advice. For legal questions, consult a qualified attorney or competent advisory body.
+            </p>
+
+            <h4>6.4 No financial/investment/tax advice</h4>
+            <p>
+              The content is not investment, financial, or tax advice. Financial decisions should be based on reliable information and professional advice.
+              We assume no responsibility for losses, lost profits, or consequential damages arising from financial decisions based (in whole or in part) on App content.
+            </p>
+
+            <h4>6.5 No guarantee of accuracy, completeness, suitability, success</h4>
+            <p>
+              We provide no guarantee that content is accurate, complete, up to date, or suitable for a particular purpose. In particular, we do not guarantee that:
+            </p>
+            <ul>
+              <li>interpretations will come true or predict events,</li>
+              <li>the App will lead to specific outcomes (e.g., better decisions, relationships, health, prosperity),</li>
+              <li>the App will be error-free or continuously available.</li>
+            </ul>
+            <h4>6.5a “As-is” / no warranties</h4>
+            <p class="muted">
+              To the maximum extent permitted by law, the Service is provided “as is” and “as available”, without warranties of any kind, whether express, implied, statutory or otherwise,
+              including (without limitation) implied warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, quiet enjoyment, and availability.
+              Where mandatory law provides non-excludable warranties, those warranties remain unaffected.
+            </p>
+
+            <h4>6.6 AI-specific notices (generative AI)</h4>
+            <p>
+              Parts of the App may output AI-generated content. Generative AI can:
+            </p>
+            <ul>
+              <li>produce false, fabricated, or misleading statements,</li>
+              <li>contain inconsistencies,</li>
+              <li>generate inappropriate content (despite safeguards),</li>
+              <li>misunderstand or miss context.</li>
+            </ul>
+            <p>
+              You must critically evaluate AI outputs and not use them as the basis for decisions with significant consequences.
+              If in doubt: <strong>seek professional help</strong>.
+            </p>
+            <div class="note">
+              <p>
+                <strong>Non-sensitive input rule (practical compliance guidance):</strong>
+                The App is designed for general questions and self-reflection. Do not input special categories of personal data (e.g., health data),
+                confidential identifiers (passwords, financial credentials), or third-party information unless you have a lawful basis and, where required, their consent.
+              </p>
+            </div>
+
+            <h4>6.7 Personal responsibility</h4>
+            <p>
+              The App may provide impulses but does not replace your responsibility. You decide whether and how to use content.
+              Any action or omission following use of the App is taken <strong>at your own responsibility</strong>.
+            </p>
+
+            <h4>6.8 Limitation of liability (to the extent permitted by law)</h4>
+            <p>
+              We limit liability to the extent permitted by law. In particular:
+            </p>
+            <ul>
+              <li><strong>Unlimited liability</strong> exists only for intent, gross negligence, injury to life/body/health, and mandatory statutory liability (e.g., product liability).</li>
+              <li>For slight negligence of essential contractual obligations, liability is limited to the typically foreseeable damage.</li>
+              <li>We are not liable for <strong>indirect</strong> or <strong>consequential damages</strong>, lost profits, data loss, or immaterial damages except for intent/gross negligence or where mandatory law requires.</li>
+              <li>We are not liable for disruptions outside our control (e.g., network issues, third-party outages, app-store problems).</li>
+            </ul>
+
+            <h4>6.9 Third-party content &amp; external services</h4>
+            <p>
+              Where the App uses external services (e.g., AI, app store), their terms also apply. We are not responsible for their availability, security,
+              content, or data processing to the extent legally permissible.
+            </p>
+            <h4>6.9a Open-source notices</h4>
+            <p class="muted">
+              The App uses open-source software components. Applicable open-source license texts and attributions can be accessed within the App (e.g., “Open source licenses”),
+              and may also be provided upon request. Open-source licenses apply in addition to these terms for the relevant components.
+            </p>
+
+            <h4>6.10 Indemnification</h4>
+            <p>
+              To the extent permitted by law, you indemnify us against third-party claims arising from your unlawful use of the App or your inputs,
+              including reasonable legal defense costs, to the extent you are responsible for the infringement.
+            </p>
+
+            <h4>6.11 Mandatory rights remain unaffected</h4>
+            <p class="muted">
+              Nothing in this disclaimer excludes or limits rights that cannot be excluded or limited under applicable law, especially mandatory consumer rights.
+            </p>
+          </section>
+
+          <section class="card" id="en-copyright" lang="en">
+            <h3 class="sec">7. Copyright / content</h3>
+            <p>
+              Content and works created by the provider on this page and within the App are protected by copyright.
+              Downloads, copies, modifications, distribution, and any exploitation outside statutory limitations require written consent.
+            </p>
+            <p class="muted">
+              Where content is not created by the provider, third-party copyrights are respected. If you notice a copyright infringement,
+              please inform us. Upon becoming aware of infringements, we will remove such content where possible and reasonable.
+            </p>
+          </section>
+
+          <section class="card" id="en-changes" lang="en">
+            <h3 class="sec">8. Changes to this page</h3>
+            <p>
+              We may update these legal documents to reflect changes to the App, applicable law, or technical integrations.
+              The current version is available at the URL linked in the App.
+            </p>
+            <p class="muted">
+              We recommend checking this page occasionally. Material changes requiring consent will be handled separately where required.
+            </p>
+          </section>
+
+          <section class="card" id="en-contact" lang="en">
+            <h3 class="sec">9. Contact</h3>
+            <p>
+              Questions about the imprint, privacy, or terms can be sent to:
+              <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+            </p>
+
+            <footer>
+              <p>
+                As of: <span id="lastUpdated">2026-01-24</span> · Document: Legal – Astro Tarot
+              </p>
+              <p class="muted">
+                This is a template text drafted based on the current App implementation. It does not replace individual legal advice.
+              </p>
+              <script>
+                // Keep a clear "as-of" date for your deployments (optional).
+                // If you want auto date, uncomment:
+                // document.getElementById('lastUpdated').textContent = new Date().toISOString().slice(0,10);
+              </script>
+            </footer>
+          </section>
+
+          <div class="divider" role="separator" aria-hidden="true"></div>
+
+          <!-- =========================================================================
+               DEUTSCH
+               ========================================================================= -->
+          <div id="de" class="hero" lang="de">
+            <h2>Rechtliche Informationen (Deutsch)</h2>
+            <p>
+              Diese Seite bündelt sämtliche rechtlich relevanten Informationen für die mobile App <span class="k">Astro Tarot</span> (nachfolgend auch „App“)
+              sowie diese begleitende Seite (zusammen „Angebot“). Sie umfasst insbesondere <span class="k">Impressum</span>, <span class="k">Datenschutzerklärung</span>,
+              <span class="k">Nutzungsbedingungen</span>, <span class="k">Abonnement-Bedingungen</span> sowie einen ausführlichen <span class="k">Haftungsausschluss</span>
+              (inkl. generativer KI, Gesundheit, Recht, Finanzen).
+            </p>
+            <p class="muted">
+              Hinweis: Wir bemühen uns um maximale Transparenz. Gleichzeitig gilt: Nicht jede Haftung kann wirksam ausgeschlossen werden.
+              Zwingende gesetzliche Rechte (insbesondere Verbraucherrechte) bleiben unberührt.
+            </p>
+            <div class="badges" aria-label="Kurzüberblick">
+              <span class="badge"><span class="dot"></span> KI-Interpretation über OpenAI API (HTTPS)</span>
+              <span class="badge"><span class="dot a"></span> Abonnements via Google Play Billing</span>
+              <span class="badge"><span class="dot t"></span> Lokal gespeicherte App-Daten (on-device)</span>
+            </div>
+          </div>
+
+          <!-- ========================= GERMAN SECTIONS (expanded) ========================= -->
+          <section class="card" id="de-impressum" lang="de">
+            <h3 class="sec">1. Impressum</h3>
+            <div class="twoCol">
+              <div class="kv">
+                <strong>Anbieter / Diensteanbieter</strong>
+                <span>
+                  Bytebandits OÜ<br />
+                  Tartu mnt 67/1-13b, Kesklinna linnaosa<br />
+                  Tallinn 10115, Eesti
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Kontakt</strong>
+                <span>
+                  E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Vertretungsberechtigt</strong>
+                <span>Management Board: M. Scherb</span>
+              </div>
+              <div class="kv">
+                <strong>Register / Registrierung</strong>
+                <span>
+                  Registration code: 17265228<br />
+                  Registered with Harju County Court
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Umsatzsteuer</strong>
+                <span>VAT ID (KMKR): The legal entity is not liable for VAT registration.</span>
+              </div>
+              <div class="kv">
+                <strong>App</strong>
+                <span>Astro Tarot</span>
+              </div>
+            </div>
+            <div class="note">
+              <p>
+                <strong>Hinweis zur Rechtsnatur:</strong>
+                Bytebandits OÜ ist eine Gesellschaft nach estnischem Recht (OÜ). Unabhängig davon kann die App in Deutschland und anderen Staaten angeboten werden.
+                Zwingende Bestimmungen des jeweiligen Nutzungslandes (insbesondere Verbraucher- und Datenschutzrecht) bleiben unberührt.
+              </p>
+            </div>
+            <h4>Streitbeilegung / Verbraucherstreitbeilegung</h4>
+            <p class="muted">
+              Wir sind nicht verpflichtet und grundsätzlich nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen,
+              sofern nicht zwingendes Recht etwas anderes bestimmt.
+            </p>
+          </section>
+
+          <section class="card" id="de-definitions" lang="de">
+            <h3 class="sec">2. Begriffe &amp; Geltungsbereich</h3>
+            <p>
+              Diese rechtlichen Informationen gelten für die Nutzung der App <span class="k">Astro Tarot</span> sowie für diese begleitende Seite (nachfolgend zusammen „Angebot“).
+              Soweit innerhalb der App Verlinkungen auf diese Seite erfolgen, ist diese Seite Bestandteil der Informationen, die wir im Rahmen der App bereitstellen.
+            </p>
+            <h4>Begriffe (Auswahl)</h4>
+            <ul>
+              <li><strong>„Nutzer“</strong>: Jede Person, die die App installiert, startet oder verwendet.</li>
+              <li><strong>„Inhalte“</strong>: Texte, Visualisierungen, Karten-Assets, Interpretationen, Hinweise, FAQ, sonstige Daten.</li>
+              <li><strong>„KI/AI“</strong>: Automatisierte Textgenerierung (z.&nbsp;B. Interpretationen) über externe KI-Dienste.</li>
+              <li><strong>„Abonnement“</strong>: Wiederkehrende kostenpflichtige Leistung, die über den jeweiligen App-Store (z.&nbsp;B. Google Play) verwaltet wird.</li>
+              <li><strong>„Drittanbieter“</strong>: Externe Stellen (z.&nbsp;B. OpenAI, Google), deren Dienste eingebunden werden.</li>
+            </ul>
+            <div class="warn">
+              <p>
+                <strong>Wichtig:</strong>
+                Astro Tarot ist keine medizinische, psychologische, therapeutische, rechtliche oder finanzielle Beratung und kein Ersatz für professionelle Hilfe.
+                Details siehe Abschnitt <a href="#de-disclaimer">6. Haftungsausschluss</a>.
+              </p>
+            </div>
+          </section>
+
+          <section class="card" id="de-privacy" lang="de">
+            <h3 class="sec">3. Datenschutzerklärung</h3>
+            <p>
+              Wir nehmen Datenschutz ernst. Diese Datenschutzerklärung erläutert, <em>welche</em> Daten in Astro Tarot verarbeitet werden, <em>zu welchen Zwecken</em>,
+              <em>auf welcher Rechtsgrundlage</em> (insbesondere nach DSGVO, soweit anwendbar), <em>wie lange</em> die Daten verarbeitet werden und <em>welche Rechte</em> Ihnen zustehen.
+            </p>
+            <h4>3.1 Verantwortlicher</h4>
+            <p>
+              Verantwortlicher im Sinne der DSGVO (soweit anwendbar) ist:<br />
+              <strong>Bytebandits OÜ</strong>, Tartu mnt 67/1-13b, Kesklinna linnaosa, Tallinn 10115, Eesti<br />
+              Kontakt: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+            </p>
+            <h4>3.2 Datenschutzbeauftragter</h4>
+            <p class="muted">
+              Derzeit ist kein Datenschutzbeauftragter bestellt (nicht gesetzlich erforderlich bzw. Schwellenwerte werden nach unserem aktuellen Geschäftsmodell nicht erreicht).
+              Unabhängig davon können Sie uns jederzeit unter den oben genannten Kontaktdaten erreichen.
+            </p>
+            <h4>3.3 Überblick: Datenkategorien &amp; Zwecke</h4>
+            <div class="twoCol">
+              <div class="kv">
+                <strong>App-Nutzung (lokal / on-device)</strong>
+                <span>
+                  Gespeicherte Legungen, Tageskarten-Historie, Einstellungen, Sprache sowie (sofern vorhanden) Status-/Entitlement-Informationen zu Premium-Funktionen
+                  werden primär <strong>lokal auf Ihrem Gerät</strong> gespeichert.
+                </span>
+              </div>
+              <div class="kv">
+                <strong>KI-Interpretationen (OpenAI)</strong>
+                <span>
+                  Von Ihnen eingegebene Texte (z.&nbsp;B. Frage, Notizen), Kartenauswahl/Positionsdaten, Stimmungs-/Stresswerte und – bei Beziehungslegungen –
+                  Beziehungs-Kontext (z.&nbsp;B. Namen, Geburtsdaten, Sternzeichen) werden zur Generierung einer Interpretation an einen <strong>externen KI-Dienst</strong> übermittelt.
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Käufe / Abonnements (Google Play)</strong>
+                <span>
+                  Kauf-/Abonnementverwaltung erfolgt über <strong>Google Play</strong>. Wir verarbeiten typischerweise nur die für Freischaltung/UX technisch erforderlichen Informationen
+                  (z.&nbsp;B. Produkt-ID, Kauf-/Entitlement-Status, Prüfzeitpunkte lokal).
+                </span>
+              </div>
+              <div class="kv">
+                <strong>Support-Kontakt</strong>
+                <span>
+                  Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen übermittelten Kontaktdaten und Inhalte zur Bearbeitung der Anfrage.
+                </span>
+              </div>
+            </div>
+            <h4>3.3a Datenminimierung &amp; nutzerkontrollierte Eingaben</h4>
+            <p class="muted">
+              Das Angebot ist so konzipiert, dass es ohne Nutzerkonto und ohne eigenes Backend zur dauerhaften Speicherung Ihrer Legungen auskommt.
+              Der Großteil der von Ihnen erstellten Inhalte (Fragen, Legungen, Ausgaben) verbleibt auf Ihrem Gerät, sofern Sie diese nicht an Dritte übermitteln
+              (z.&nbsp;B. KI-Anbieter) oder freiwillig außerhalb der App teilen (z.&nbsp;B. Kopieren/Einfügen).
+            </p>
+            <h4>3.4 Technische Umsetzung (was die App tatsächlich einsetzt)</h4>
+            <ul>
+              <li><strong>OpenAI API</strong>: Generierung von Interpretationen über HTTPS (derzeit OpenAI Chat Completions).</li>
+              <li><strong>Google Play Billing</strong>: Kauf- und Abonnementabwicklung über Google Play; Wiederherstellung/Prüfung von Käufen über Play.</li>
+              <li><strong>Lokaler Speicher</strong>: Persistenz ausgewählter App-Daten über lokalen Gerätespeicher (SharedPreferences).</li>
+              <li><strong>Keine Werbung/Ad-Networks</strong>: Nach aktuellem Stand keine Werbenetzwerke integriert.</li>
+              <li><strong>Keine klassischen Analyse-SDKs</strong>: Nach aktuellem Stand keine separaten Analytics-SDKs (z.&nbsp;B. Firebase Analytics).</li>
+              <li><strong>Keine Push-Benachrichtigungen</strong>: Nach aktuellem Stand keine Push Notifications.</li>
+            </ul>
+            <div class="note">
+              <p>
+                <strong>Wichtig zur Genauigkeit:</strong>
+                Diese Erklärung beschreibt den aktuellen Funktionsumfang. Wenn wir künftig zusätzliche Dienste integrieren (z.&nbsp;B. Analytics, Crash Reporting, Werbung),
+                aktualisieren wir diese Seite entsprechend (siehe Abschnitt <a href="#de-changes">8</a>).
+              </p>
+            </div>
+            <h4>3.5 Rechtsgrundlagen (DSGVO)</h4>
+            <p>
+              Wir verarbeiten personenbezogene Daten ausschließlich, wenn und soweit eine Rechtsgrundlage besteht. Je nach Kontext kann dies insbesondere sein:
+            </p>
+            <ul>
+              <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Vertrag/vertragliche Maßnahmen): Bereitstellung der App-Funktionen, Bereitstellung von Interpretationen, Verwaltung von Premium-Funktionen.</li>
+              <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse): Sicherstellung von Betrieb, Stabilität, Missbrauchsprävention, Fehleranalyse in einem minimal erforderlichen Rahmen.</li>
+              <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> (Einwilligung): Sofern wir in Einzelfällen eine Einwilligung einholen (z.&nbsp;B. für optionale Funktionen oder künftige Integrationen).</li>
+              <li><strong>Art. 6 Abs. 1 lit. c DSGVO</strong> (rechtliche Verpflichtung): Erfüllung gesetzlicher Pflichten (z.&nbsp;B. buchhalterische Nachweise, soweit anwendbar).</li>
+            </ul>
+            <h4>3.6 KI-Interpretation / OpenAI (Datenübermittlung an Dritte, Drittland)</h4>
+            <p>
+              Für die KI-Interpretation werden Inhalte, die Sie innerhalb der App eingeben oder auswählen, an einen KI-Dienst übermittelt. Dazu zählen typischerweise:
+            </p>
+            <ul>
+              <li><strong>Eingaben des Nutzers</strong>: Frage, Freitexte/Notizen, Stimmungs-/Belastungswerte und ggf. Zusatztext.</li>
+              <li><strong>Beziehungslegungen</strong>: Wenn Sie eine Beziehungslegung nutzen, kann der von Ihnen bereitgestellte Kontext (z.&nbsp;B. Namen, Geburtsdaten, Sternzeichen, Situation/Fokus) Bestandteil der Anfrage sein.</li>
+              <li><strong>Legungsdaten</strong>: gezogene Karten, Positionen der Karten, Spread-Typ, Spracheinstellung.</li>
+              <li><strong>Technische Metadaten</strong> (drittanbieterbedingt): IP-Adresse, Zeitstempel, Header-Informationen, ggf. Geräte-/App-Kontext, soweit der Drittanbieter dies im Rahmen des API-Betriebs verarbeitet.</li>
+            </ul>
+            <p>Zweck ist die <strong>Generierung einer textlichen Interpretation</strong> und die Rückgabe an die App.</p>
+            <p>
+              Die App kommuniziert derzeit per HTTPS-API-Aufruf direkt vom Gerät mit dem KI-Anbieter. Wir betreiben kein eigenes Backend für KI-Anfragen.
+              Das bedeutet in der Regel, dass Ihre Inhalte nicht über unsere eigenen Server geleitet werden; sie werden jedoch an den Drittanbieter übertragen und dort verarbeitet.
+            </p>
+            <p class="muted">
+              Die Verarbeitung durch den Drittanbieter erfolgt nach dessen Bedingungen. Wir haben keinen vollständigen Einfluss darauf, ob und wie lange der Drittanbieter Daten speichert.
+              Bitte informieren Sie sich zusätzlich in den Datenschutzinformationen des Drittanbieters.
+            </p>
+            <p class="muted">
+              Hinweis zur Konfiguration: Je nach App-Konfiguration kann für die KI-Nutzung ein API-Key erforderlich sein. Sofern Sie einen eigenen API-Key verwenden,
+              sind Sie für dessen Vertraulichkeit, die Einhaltung der Bedingungen des Anbieters sowie das Vorliegen erforderlicher Rechte/Einwilligungen bei der Übermittlung von Drittinformationen verantwortlich.
+            </p>
+            <div class="warn">
+              <p>
+                <strong>Bitte geben Sie keine sensiblen Daten ein.</strong>
+                Vermeiden Sie insbesondere Informationen, die Sie als besonders schützenswert ansehen (z.&nbsp;B. Gesundheitsdaten, konkrete Diagnosen, intime Details, Bankdaten, Passwörter, vollständige Namen Dritter ohne deren Einwilligung).
+                Die App ist für solche Inhalte nicht konzipiert.
+              </p>
+            </div>
+            <p class="muted">
+              Beziehungslegungen: Die App kann von Ihnen eingegebene Namen und Geburtsdaten zweier Personen als Bestandteil des Prompt-Kontexts an den KI-Anbieter übermitteln.
+              Geben Sie Drittinformationen nur ein, wenn hierfür eine Rechtsgrundlage besteht und – soweit erforderlich – eine Einwilligung vorliegt.
+            </p>
+            <h4>3.7 Käufe &amp; Abonnements (Google Play Billing)</h4>
+            <p>
+              Wenn Sie innerhalb der App ein Abonnement abschließen oder wiederherstellen, erfolgt die Zahlungsabwicklung über <strong>Google Play</strong>.
+              Dabei ist Google in der Regel eigenständig Verantwortlicher für die Zahlungsabwicklung und die dazugehörige Datenverarbeitung.
+            </p>
+            <p>In der App verarbeiten wir typischerweise nur:</p>
+            <ul>
+              <li><strong>Produkt-ID</strong> des Abonnements,</li>
+              <li><strong>Kauf-/Entitlement-Status</strong> (gekauft/wiederhergestellt/aktiv/inaktiv),</li>
+              <li><strong>Zeitstempel</strong> der letzten Prüfung bzw. des letzten „entitled“-Status (lokal),</li>
+              <li>ggf. weitere technische Kaufdetails, soweit vom Google-Play-Billing-System bereitgestellt und für die Freischaltung erforderlich.</li>
+            </ul>
+            <p class="muted">
+              Zahlungsdaten (z.&nbsp;B. Kreditkarteninformationen) werden nicht von uns verarbeitet, sondern von Google. Für Stornierung, Kündigung, Preisänderungen und Abrechnung gelten die Bedingungen von Google Play.
+            </p>
+            <h4>3.8 Lokaler Speicher / Datenaufbewahrung (on-device)</h4>
+            <p>
+              Ein großer Teil der App-Daten wird lokal gespeichert (z.&nbsp;B. Legungs-Historie, Tageskarten, Einstellungen). Das bedeutet:
+            </p>
+            <ul>
+              <li>Die Daten verbleiben grundsätzlich auf Ihrem Gerät, solange Sie die App nicht deinstallieren oder Daten löschen (geräte-/betriebssystemabhängig).</li>
+              <li>Bei Deinstallation der App werden lokal gespeicherte Daten in der Regel entfernt.</li>
+              <li>Wir betreiben nach aktuellem Stand <strong>keinen eigenen Server</strong> zur Speicherung Ihrer Legungen oder persönlichen Profile.</li>
+            </ul>
+            <p class="muted">
+              Typische lokale Grenzen (aktueller Stand der Implementierung): bis zu ca. 100 gespeicherte Legungen, bis zu ca. 365 Tageskarten, sowie ein Archiv-Snapshot mit begrenzter Anzahl (z.&nbsp;B. letzte 7 Tageskarten).
+              Diese Grenzen dienen der UX und Speicherhygiene und können sich durch Updates ändern.
+            </p>
+            <p class="muted">
+              Lokal gespeichert sein können – abhängig von Nutzung – insbesondere: Ihre Fragen, Karten-IDs/Positionen, Stimmung/Stress und ggf. Notiztext, die in der App dargestellten KI-Antworten,
+              Zeitstempel, Spracheinstellung sowie Cache-Werte zum Abo-Status (z.&nbsp;B. Zeitpunkt der letzten Prüfung und aktive Produkt-ID).
+              Eine Löschung ist regelmäßig durch Deinstallation oder durch in der App bereitgestellte Lösch-/Reset-Funktionen möglich (sofern vorhanden).
+            </p>
+            <p class="muted">
+              Die lokale Abo-Status-Zwischenspeicherung dient ausschließlich der UX (z.&nbsp;B. kurze Grace-Perioden bei Netzproblemen). Maßgeblich für Abrechnung und Vertragsverhältnis ist Google Play.
+            </p>
+            <h4>3.9 Cookies / Tracking auf dieser Seite</h4>
+            <p class="muted">
+              Diese Seite ist als einfache Informationsseite konzipiert. Wir setzen nach aktuellem Stand keine Tracking-Cookies ein.
+              Beim Abruf über einen Hosting-Anbieter kann dieser aus technischen Gründen Server-Logfiles (z.&nbsp;B. IP-Adresse, Zeitpunkt, User-Agent) verarbeiten.
+            </p>
+            <h4>3.10 Empfänger / Kategorien von Empfängern</h4>
+            <ul>
+              <li><strong>Drittanbieter KI</strong> (z.&nbsp;B. OpenAI): Verarbeitung zur Generierung von Interpretationen.</li>
+              <li><strong>App-Store / Zahlungsdienst</strong> (Google Play): Zahlungsabwicklung und Abonnementverwaltung.</li>
+              <li><strong>Hosting-Provider dieser Seite</strong>: rein technische Bereitstellung (Server/Logs, CDN).</li>
+              <li><strong>Kommunikationsdienstleister</strong>: E-Mail-Bearbeitung.</li>
+              <li><strong>Behörden/öffentliche Stellen</strong>: nur bei gesetzlicher Pflicht oder wirksamem behördlichem Ersuchen.</li>
+            </ul>
+            <h4>3.11 Übermittlung in Drittländer (außerhalb EU/EWR)</h4>
+            <p>
+              Je nach Sitz des Drittanbieters kann eine Verarbeitung außerhalb der EU/des EWR stattfinden (z.&nbsp;B. USA). In solchen Fällen stützen wir eine Übermittlung – soweit erforderlich –
+              auf geeignete Garantien (z.&nbsp;B. Standardvertragsklauseln, Angemessenheitsbeschluss oder vergleichbare Mechanismen), sofern und soweit anwendbar.
+            </p>
+            <h4>3.11a Rollen: Auftragsverarbeitung / gemeinsame Verantwortlichkeit / eigene Verantwortlichkeit</h4>
+            <p class="muted">
+              Je nach eingebundenem Dienst kann es sich datenschutzrechtlich um (i) Auftragsverarbeitung, (ii) gemeinsame Verantwortlichkeit oder (iii) eigene Verantwortlichkeit des Drittanbieters handeln.
+              Bei App-Stores (z.&nbsp;B. Google Play) ist der Store regelmäßig eigenständig verantwortlich für Zahlung/Abrechnung. Bei KI-Diensten hängt die Einordnung von den konkreten Vertragsbedingungen und Abläufen ab.
+            </p>
+            <h4>3.11b Speicherdauer / Löschung</h4>
+            <ul>
+              <li><strong>Lokale App-Daten</strong>: verbleiben auf Ihrem Gerät, bis Sie diese löschen oder die App deinstallieren.</li>
+              <li><strong>KI-Anfragen</strong>: Wir speichern den Inhalt nach aktuellem Stand nicht dauerhaft auf eigenen Servern, da kein eigenes Backend betrieben wird. Eine Speicherung/Protokollierung durch den Drittanbieter kann jedoch stattfinden.</li>
+              <li><strong>Support-Kommunikation</strong>: E-Mails werden so lange gespeichert, wie es für Bearbeitung, Nachweis oder gesetzliche Pflichten erforderlich ist.</li>
+              <li><strong>Website-Logs</strong>: können technisch bedingt kurzfristig gespeichert werden; Details hängen vom Hosting ab.</li>
+            </ul>
+            <h4>3.12 Ihre Rechte (Betroffenenrechte)</h4>
+            <ul>
+              <li><strong>Auskunft</strong> (Art. 15 DSGVO)</li>
+              <li><strong>Berichtigung</strong> (Art. 16 DSGVO)</li>
+              <li><strong>Löschung</strong> (Art. 17 DSGVO)</li>
+              <li><strong>Einschränkung</strong> (Art. 18 DSGVO)</li>
+              <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+              <li><strong>Widerspruch</strong> (Art. 21 DSGVO)</li>
+              <li><strong>Widerruf einer Einwilligung</strong> (Art. 7 Abs. 3 DSGVO)</li>
+              <li><strong>Beschwerde</strong> (Art. 77 DSGVO)</li>
+            </ul>
+            <h4>3.12a Ausübung Ihrer Rechte / Identitätsprüfung</h4>
+            <p>
+              Zur Ausübung Ihrer Rechte genügt eine E-Mail an <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.
+              Zum Schutz Ihrer Daten können wir – soweit erforderlich – eine angemessene Identitätsprüfung verlangen.
+            </p>
+            <h4>3.14 Kinder / Minderjährige</h4>
+            <p>
+              Die App richtet sich nicht an Kinder unter 13 Jahren. Soweit höhere Altersgrenzen gelten, gilt die jeweils strengere Regel.
+            </p>
+            <h4>3.15 Datenschutz in den USA (nur falls anwendbar)</h4>
+            <p class="muted">
+              Wir verkaufen keine personenbezogenen Daten und teilen keine personenbezogenen Daten zu Zwecken von
+              cross‑context behavioral advertising. Derzeit setzen wir keine werbebasierten Tracking‑ oder Targeting‑Mechanismen in der App ein.
+            </p>
+            <p class="muted">
+              Je nach Nutzerzahlen und gesetzlichen Schwellenwerten können US‑Datenschutzgesetze (z.&nbsp;B. Kalifornien/CCPA‑CPRA,
+              Virginia, Colorado, Connecticut, Utah) anwendbar sein. Soweit anwendbar, bestehen u.&nbsp;a. Rechte auf Auskunft, Löschung,
+              Berichtigung, Datenkopie sowie Widerspruch gegen bestimmte Verarbeitungen (z.&nbsp;B. Verkauf oder Targeted Advertising).
+            </p>
+            <p class="muted">
+              Zur Ausübung dieser Rechte schreiben Sie an <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.
+              Wir können eine angemessene Identitätsprüfung verlangen. Eine Benachteiligung wegen der Ausübung von Rechten erfolgt nicht.
+            </p>
+          </section>
+
+          <section class="card" id="de-terms" lang="de">
+            <h3 class="sec">4. Nutzungsbedingungen</h3>
+            <p>
+              Diese Nutzungsbedingungen regeln die Nutzung der App <span class="k">Astro Tarot</span>. Durch Installation, Zugriff oder Nutzung erklären Sie sich mit diesen Bedingungen einverstanden.
+              Wenn Sie damit nicht einverstanden sind, nutzen Sie die App bitte nicht.
+            </p>
+            <h4>4.1 Leistungsbeschreibung</h4>
+            <p>
+              Astro Tarot bietet digitale Tarot- und/oder astro-inspirierte Inhalte, darunter Karten-Visualisierungen, Legungen, Archivfunktionen und – sofern aktiviert –
+              KI-generierte Interpretationen, die auf Ihren Eingaben und Kartenziehungen basieren. Die Inhalte dienen primär der Unterhaltung und Selbstreflexion.
+            </p>
+            <h4>4.2 Kein Beratungsverhältnis / keine Garantien</h4>
+            <p>
+              Es kommt <strong>kein</strong> medizinisches, therapeutisches, psychologisches, rechtliches oder finanzbezogenes Beratungsverhältnis zustande.
+              Ergebnisse/Interpretationen sind nicht verlässlich, nicht objektiv überprüfbar und begründen keine Zusicherungen. Details siehe <a href="#de-disclaimer">Abschnitt 6</a>.
+            </p>
+            <h4>4.5a Nutzungsrecht (Lizenz)</h4>
+            <p class="muted">
+              Vorbehaltlich dieser Nutzungsbedingungen und der Regeln des App-Stores räumen wir Ihnen ein persönliches, beschränktes, nicht-ausschließliches, nicht übertragbares, jederzeit widerrufliches Nutzungsrecht ein,
+              die App zu privaten, nicht-kommerziellen Zwecken auf Geräten zu installieren und zu nutzen, die Sie kontrollieren. Weitergehende Rechte werden nicht eingeräumt.
+              Insbesondere ist es untersagt, die App zu vermieten, zu verleasen, zu verkaufen, zu vertreiben, zu unterlizenzieren oder in sonstiger Weise zu kommerzialisieren, soweit nicht zwingendes Recht etwas anderes erlaubt.
+            </p>
+            <h4>4.6a Drittleistungen / Abhängigkeiten</h4>
+            <p class="muted">
+              Das Angebot ist in Teilen von Drittleistungen abhängig. Insbesondere werden Abonnements über Google Play abgewickelt und KI-Interpretationen über einen externen KI-Anbieter erzeugt.
+              Wir garantieren nicht die Verfügbarkeit, Sicherheit oder fortlaufende Bereitstellung dieser Drittleistungen. Änderungen bei Drittanbietern (z.&nbsp;B. Policies, technische Schnittstellen) können die App-Funktionalität beeinflussen.
+            </p>
+            <h4>4.3 Voraussetzungen &amp; technische Verfügbarkeit</h4>
+            <ul>
+              <li>Für bestimmte Funktionen (insbesondere KI-Interpretation) ist eine Internetverbindung erforderlich.</li>
+              <li>Wir schulden keine ununterbrochene Verfügbarkeit. Wartung, Updates, technische Störungen, Netzwerkprobleme oder Drittanbieter-Ausfälle können Funktionen einschränken.</li>
+              <li>Wir können Funktionen ändern, entfernen oder ergänzen, sofern dies erforderlich oder sachlich begründet ist und keine zwingenden Rechte verletzt.</li>
+            </ul>
+            <h4>4.4 Nutzerpflichten</h4>
+            <ul>
+              <li><strong>Keine rechtswidrigen Inhalte:</strong> Sie dürfen keine Inhalte eingeben oder verbreiten, die rechtswidrig, beleidigend, diskriminierend, verleumderisch, pornografisch, extremistischer Natur oder sonst unzulässig sind.</li>
+              <li><strong>Keine sensiblen Daten:</strong> Sie sollten keine besonders sensiblen Daten (z.&nbsp;B. Gesundheitsdaten, Passwörter, Zahlungsdaten) in Freitextfeldern eingeben.</li>
+              <li><strong>Kein Missbrauch:</strong> Keine Umgehung von Paywalls, kein Reverse Engineering, kein automatisiertes Scraping, keine Störung des Betriebs.</li>
+              <li><strong>Eigenverantwortung:</strong> Entscheidungen, die Sie auf Grundlage der App treffen, treffen Sie auf eigenes Risiko.</li>
+            </ul>
+            <h4>4.9 Anwendbares Recht &amp; Gerichtsstand</h4>
+            <p class="muted">
+              Soweit rechtlich zulässig gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Für Verbraucher bleiben zwingende Verbraucherschutzvorschriften des Staates, in dem Sie Ihren gewöhnlichen Aufenthalt haben, anwendbar.
+            </p>
+            <p class="muted">
+              Gerichtsstand ist Deutschland, soweit rechtlich zulässig. Für Verbraucher gilt dies nur, soweit zwingendes Recht dies erlaubt.
+            </p>
+            <h4>4.13 Vertragssprache</h4>
+            <p class="muted">
+              Standardsprache ist Englisch. Eine deutsche Fassung wird zur Information bereitgestellt. Im Zweifel ist die englische Fassung maßgeblich, soweit gesetzlich zulässig.
+            </p>
+            <h4>4.14 Updates</h4>
+            <p class="muted">
+              Die App kann Updates erhalten, die Funktionen hinzufügen, ändern oder entfernen. Updates können aus Sicherheits-, Kompatibilitäts- oder Rechtsgründen erforderlich sein.
+              Verfügbarkeit und Installation hängen u.&nbsp;a. von Gerät, Betriebssystem und App-Store-Regeln ab.
+            </p>
+            <h4>4.15 EU/UK Verbraucherrechte für digitale Inhalte (soweit anwendbar)</h4>
+            <p class="muted">
+              Wenn Sie Verbraucher in der EU/EWR oder im Vereinigten Königreich sind, gelten zwingende Rechte zu digitalen Inhalten.
+              Dazu zählen insbesondere Anforderungen an Vertragsmäßigkeit, Funktionalität, Kompatibilität sowie erforderliche Updates.
+              Ist die App nicht vertragsgemäß, stehen Ihnen gesetzliche Abhilfen zu (z.&nbsp;B. Nachbesserung, Ersatz, Minderung oder Vertragsbeendigung),
+              jeweils nach Maßgabe des Gesetzes. Diese Rechte werden durch diese Bedingungen nicht eingeschränkt.
+            </p>
+            <p class="muted">
+              Soweit Vertrieb und Updates über einen App‑Store erfolgen, können bestimmte Abhilfen, Hinweise oder Update‑Prozesse durch den Store umgesetzt werden.
+            </p>
+          </section>
+
+          <section class="card" id="de-subscription" lang="de">
+            <h3 class="sec">5. Abonnement-Bedingungen</h3>
+            <p>
+              Dieser Abschnitt gilt für kostenpflichtige Abonnements und Premium-Funktionen in Astro Tarot, die über <strong>Google Play Billing</strong> angeboten werden.
+              Im Zweifel haben die zwingenden Bedingungen des App-Stores Vorrang (z.&nbsp;B. Abrechnung, Refund-Prozesse, Steuern).
+            </p>
+            <h4>5.1 Produkte, Leistungen, Freischaltung</h4>
+            <ul>
+              <li>Premium-Funktionen können bestimmte Legungen oder Inhalte freischalten.</li>
+              <li>Die App prüft den Kauf-/Abo-Status über Google Play und schaltet Premium entsprechend frei.</li>
+              <li>Technische Verzögerungen, Offline-Zustände oder Store-Fehler können eine (Re-)Freischaltung kurzfristig verzögern.</li>
+            </ul>
+            <h4>5.3 Kündigung, Verwaltung, Wiederherstellung</h4>
+            <ul>
+              <li>Kündigung und Verwaltung erfolgen über Ihr Google-Play-Konto („Abonnements“).</li>
+              <li>Die Deinstallation der App beendet ein Abonnement nicht automatisch.</li>
+            </ul>
+            <h4>5.4 Widerruf (EU/UK, digitale Inhalte)</h4>
+            <p class="muted">
+              Wenn Sie Verbraucher in der EU/EWR oder im Vereinigten Königreich sind, können gesetzliche Widerrufsrechte gelten.
+              Bei sofortiger Bereitstellung digitaler Inhalte kann das Widerrufsrecht erlöschen, wenn Sie ausdrücklich zustimmen,
+              dass mit der Ausführung sofort begonnen wird, und gleichzeitig den Verlust des Widerrufsrechts bestätigen.
+              Eine solche Zustimmung wird, soweit erforderlich, typischerweise im App‑Store‑Checkout eingeholt.
+            </p>
+            <p class="muted">
+              Bei Käufen über Google Play richten sich Widerruf, Kündigung und Erstattungen nach den Prozessen und Richtlinien von Google Play.
+            </p>
+          </section>
+
+          <section class="card" id="de-disclaimer" lang="de">
+            <h3 class="sec">6. Haftungsausschluss</h3>
+            <div class="warn">
+              <p>
+                <strong>Kurzfassung (die lange folgt trotzdem):</strong>
+                Astro Tarot liefert Unterhaltung und Impulse. Keine Beratung. Keine Diagnose. Keine Garantie. Kein Ersatz für professionelle Hilfe.
+                Entscheidungen treffen Sie allein und auf eigenes Risiko.
+              </p>
+            </div>
+            <h4>6.1 Natur der Inhalte</h4>
+            <p>
+              Sämtliche Inhalte in Astro Tarot – einschließlich Tarot-Legungen, Interpretationen, Textausgaben, Hinweise und Visualisierungen – sind ihrem Wesen nach
+              <strong>subjektiv</strong>, <strong>symbolisch</strong> und dienen der <strong>Unterhaltung</strong> sowie der <strong>Selbstreflexion</strong>.
+              Sie sind weder wissenschaftlich validiert noch als objektive Tatsachenbehauptungen zu verstehen.
+            </p>
+            <h4>6.6 KI-spezifische Hinweise (Generative AI)</h4>
+            <p class="muted">
+              Generative KI kann falsche, erfundene oder irreführende Aussagen erzeugen, Inkonsistenzen enthalten oder Kontext missverstehen.
+              Prüfen Sie KI-Ausgaben kritisch und nutzen Sie diese nicht als Grundlage für Entscheidungen mit erheblichen Konsequenzen.
+            </p>
+            <h4>6.5a „Wie gesehen“ / keine Gewährleistung</h4>
+            <p class="muted">
+              Soweit rechtlich zulässig wird das Angebot „wie gesehen“ und „wie verfügbar“ bereitgestellt, ohne Garantien oder Gewährleistungen jedweder Art, ausdrücklich oder konkludent,
+              einschließlich (ohne Einschränkung) konkludenter Zusicherungen der Marktgängigkeit, Eignung für einen bestimmten Zweck, Nichtverletzung von Rechten Dritter, Richtigkeit, Verfügbarkeit oder Fehlerfreiheit.
+              Zwingende gesetzliche Gewährleistungsrechte bleiben unberührt.
+            </p>
+            <h4>6.8 Haftungsbeschränkung</h4>
+            <ul>
+              <li><strong>Unbeschränkte Haftung</strong> besteht nur bei Vorsatz, grober Fahrlässigkeit, bei Verletzung von Leben, Körper oder Gesundheit sowie nach zwingenden gesetzlichen Vorschriften (z.&nbsp;B. Produkthaftung).</li>
+              <li>Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten ist die Haftung auf den typischerweise vorhersehbaren Schaden begrenzt.</li>
+              <li>Für indirekte Schäden/Folgeschäden haften wir nur bei Vorsatz/grober Fahrlässigkeit bzw. soweit zwingend.</li>
+            </ul>
+            <h4>6.9a Open-Source-Hinweise</h4>
+            <p class="muted">
+              Die App nutzt Open-Source-Komponenten. Die anwendbaren Lizenztexte und Attributionen können innerhalb der App (z.&nbsp;B. „Open-Source-Lizenzen“) eingesehen werden.
+              Open-Source-Lizenzen gelten ergänzend zu diesen Bedingungen für die jeweiligen Komponenten.
+            </p>
+            <h4>6.11 Zwingende Rechte bleiben unberührt</h4>
+            <p class="muted">
+              Nichts in diesem Haftungsausschluss soll Rechte ausschließen oder beschränken, die nach anwendbarem Recht nicht ausgeschlossen oder beschränkt werden dürfen,
+              insbesondere zwingende Verbraucherrechte.
+            </p>
+          </section>
+
+          <section class="card" id="de-copyright" lang="de">
+            <h3 class="sec">7. Urheberrecht / Inhalte</h3>
+            <p>
+              Die durch den Anbieter erstellten Inhalte und Werke auf dieser Seite sowie innerhalb der App unterliegen dem Urheberrecht.
+              Downloads, Kopien, Bearbeitungen, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.
+            </p>
+          </section>
+
+          <section class="card" id="de-changes" lang="de">
+            <h3 class="sec">8. Änderungen dieser Seite</h3>
+            <p>
+              Wir können diese rechtlichen Informationen aktualisieren, um Änderungen der App, der Rechtslage oder der technischen Integration von Diensten abzubilden.
+              Die jeweils aktuelle Fassung ist unter der URL verfügbar, die in der App verlinkt ist.
+            </p>
+          </section>
+
+          <section class="card" id="de-contact" lang="de">
+            <h3 class="sec">9. Kontakt</h3>
+            <p>
+              Fragen zu Impressum, Datenschutz oder Nutzungsbedingungen richten Sie bitte an:
+              <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+            </p>
+            <footer>
+              <p>
+                Stand: <span>2026-01-24</span> · Dokument: Rechtliches – Astro Tarot
+              </p>
+              <p class="muted">
+                Dies ist ein Mustertext, der auf Basis der aktuellen App-Implementierung erstellt wurde. Er ersetzt keine individuelle Rechtsberatung.
+              </p>
+            </footer>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

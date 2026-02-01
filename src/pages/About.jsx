@@ -18,7 +18,7 @@ const AboutContainer = styled.div`
   @media (max-width: 768px) {
     height: auto;
     min-height: 100%;
-    padding: var(--spacing-8) var(--container-padding);
+    padding: 0;
   }
 `
 
@@ -36,6 +36,13 @@ const Grid = styled.div`
   @media (max-width: 980px) {
     grid-template-columns: 1fr;
     padding: var(--spacing-8) var(--container-padding);
+  }
+
+  @media (max-width: 768px) {
+    padding-top: var(--mobile-content-top);
+    padding-bottom: var(--mobile-content-bottom);
+    padding-left: calc(var(--container-padding) + var(--safe-left));
+    padding-right: calc(var(--container-padding) + var(--safe-right));
   }
 `
 
@@ -115,6 +122,11 @@ const PullQuote = styled(motion.blockquote)`
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--color-text-tertiary);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.1rem 1.1rem 0.95rem;
+    border-radius: var(--radius-md);
   }
 `
 

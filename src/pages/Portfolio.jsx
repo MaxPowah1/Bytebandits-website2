@@ -27,7 +27,7 @@ const PortfolioContainer = styled.div`
   @media (max-width: 768px) {
     height: auto;
     min-height: 100%;
-    padding: var(--spacing-8) var(--container-padding);
+    padding: 0;
   }
 `
 
@@ -45,6 +45,13 @@ const Grid = styled.div`
   @media (max-width: 980px) {
     grid-template-columns: 1fr;
     padding: var(--spacing-8) var(--container-padding);
+  }
+
+  @media (max-width: 768px) {
+    padding-top: var(--mobile-content-top);
+    padding-bottom: var(--mobile-content-bottom);
+    padding-left: calc(var(--container-padding) + var(--safe-left));
+    padding-right: calc(var(--container-padding) + var(--safe-right));
   }
 `
 
@@ -131,6 +138,12 @@ const Item = styled(motion.a)`
   &:hover {
     opacity: 1;
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 48px 1fr;
+    gap: 0.9rem;
+    padding: 1.05rem 0;
+  }
 `
 
 const Badge = styled.div`
@@ -151,6 +164,12 @@ const Badge = styled.div`
     height: 76%;
     object-fit: contain;
     border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
   }
 `
 

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const BurgerButton = styled.button`
   position: fixed;
-  top: 1.5rem;
-  left: var(--container-padding);
+  top: var(--fixed-ui-top, 1.5rem);
+  left: var(--fixed-ui-left, var(--container-padding));
   z-index: 1001;
   display: flex;
   flex-direction: column;
@@ -21,72 +21,51 @@ const BurgerButton = styled.button`
   transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
   backdrop-filter: blur(14px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
-  
+
   &:hover {
     background-color: rgba(11, 13, 18, 0.76);
     border-color: rgba(201, 162, 39, 0.35);
     transform: translateY(-1px);
   }
-  
-  @media (max-width: 768px) {
-    top: var(--fixed-ui-top);
-    left: var(--fixed-ui-left);
-  }
-  
+
   span {
     width: 22px;
     height: 2px;
     background-color: rgba(247, 242, 232, 0.92);
     transition: all 0.3s ease;
     transform-origin: center;
-    
+
     &:nth-child(1) {
-      transform: ${props => props.open ? 'rotate(45deg) translateY(7px)' : 'none'};
+      transform: ${props => (props.open ? 'rotate(45deg) translateY(7px)' : 'none')};
     }
-    
+
     &:nth-child(2) {
-      opacity: ${props => props.open ? '0' : '1'};
+      opacity: ${props => (props.open ? '0' : '1')};
     }
-    
+
     &:nth-child(3) {
-      transform: ${props => props.open ? 'rotate(-45deg) translateY(-7px)' : 'none'};
+      transform: ${props => (props.open ? 'rotate(-45deg) translateY(-7px)' : 'none')};
     }
   }
 `
 
 const MenuOverlay = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background:
     radial-gradient(1100px 900px at 18% 14%, rgba(201, 162, 39, 0.18), transparent 60%),
     radial-gradient(900px 700px at 82% 70%, rgba(247, 242, 232, 0.10), transparent 60%),
     rgba(11, 13, 18, 0.88);
   backdrop-filter: blur(22px);
   z-index: 1000;
-  display: ${props => props.open ? 'flex' : 'none'};
+  display: ${props => (props.open ? 'flex' : 'none')};
   flex-direction: column;
-  padding: 6rem max(2rem, var(--container-padding)) 2rem;
+  padding-top: calc(5.5rem + var(--safe-top, 0px));
+  padding-left: calc(max(1.25rem, var(--container-padding)) + var(--safe-left, 0px));
+  padding-right: calc(max(1.25rem, var(--container-padding)) + var(--safe-right, 0px));
+  padding-bottom: calc(2rem + var(--safe-bottom, 0px));
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-
-  @media (max-width: 768px) {
-    padding-top: calc(5.5rem + var(--safe-top));
-    padding-left: calc(max(1.5rem, var(--container-padding)) + var(--safe-left));
-    padding-right: calc(max(1.5rem, var(--container-padding)) + var(--safe-right));
-    padding-bottom: calc(2rem + var(--safe-bottom));
-  }
-`
-
-const MenuInner = styled.div`
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
 `
 
 const NavLinks = styled.ul`
@@ -96,24 +75,22 @@ const NavLinks = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  width: 100%;
 `
 
 const NavLink = styled.li`
   a {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-size: clamp(1.6rem, 7vw, 2.6rem);
     color: rgba(247, 242, 232, 0.92);
     transition: opacity var(--transition-fast), transform var(--transition-fast);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-weight: 600;
-    display: block;
-    padding: 0.55rem 0;
-    min-height: 44px;
+    font-weight: 650;
     display: flex;
     align-items: center;
-    
+    padding: 0.55rem 0;
+    min-height: 44px;
+
     &:hover {
       opacity: 1;
       transform: translateX(6px);
@@ -122,12 +99,14 @@ const NavLink = styled.li`
 `
 
 const Meta = styled.div`
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(247, 242, 232, 0.14);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(247, 242, 232, 0.14);
+  flex-wrap: wrap;
 
   span {
     font-size: 0.78rem;
@@ -144,50 +123,52 @@ const Meta = styled.div`
   }
 `
 
-export default function BurgerMenu({ scrollToSection }) {
+export default function MobileMenu({ scrollToSection }) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleLinkClick = (e, href) => {
+  const handleLinkClick = (e, sectionId) => {
     e.preventDefault()
-    const sectionId = href.replace('#', '')
-    if (scrollToSection) {
-      scrollToSection(sectionId)
-    }
+    scrollToSection?.(sectionId)
     setIsOpen(false)
   }
 
   return (
     <>
-      <BurgerButton open={isOpen} onClick={() => setIsOpen(!isOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
+      <BurgerButton open={isOpen} onClick={() => setIsOpen(!isOpen)} aria-label="Menu">
+        <span />
+        <span />
+        <span />
       </BurgerButton>
       <MenuOverlay open={isOpen} onClick={() => setIsOpen(false)}>
-        <MenuInner onClick={(e) => e.stopPropagation()}>
+        <div onClick={(e) => e.stopPropagation()}>
           <NavLinks>
             <NavLink>
-              <a href="#home" onClick={(e) => handleLinkClick(e, '#home')}>Home</a>
+              <a href="/#/m/home" onClick={(e) => handleLinkClick(e, 'home')}>Home</a>
             </NavLink>
             <NavLink>
-              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>Services</a>
+              <a href="/#/m/services" onClick={(e) => handleLinkClick(e, 'services')}>Services</a>
             </NavLink>
             <NavLink>
-              <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')}>Portfolio</a>
+              <a href="/#/m/portfolio" onClick={(e) => handleLinkClick(e, 'portfolio')}>Portfolio</a>
             </NavLink>
             <NavLink>
-              <a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>About</a>
+              <a href="/#/m/about" onClick={(e) => handleLinkClick(e, 'about')}>About</a>
             </NavLink>
             <NavLink>
-              <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>Contact</a>
+              <a href="/#/m/contact" onClick={(e) => handleLinkClick(e, 'contact')}>Contact</a>
+            </NavLink>
+            <NavLink>
+              <a href="/#/m/impressum" onClick={(e) => handleLinkClick(e, 'impressum')}>Impressum</a>
             </NavLink>
           </NavLinks>
           <Meta>
             <span>ByteBandits</span>
-            <a href="#home" onClick={(e) => handleLinkClick(e, '#home')}>Back to top</a>
+            <a href="/#/m/home" onClick={(e) => handleLinkClick(e, 'home')}>Back to top</a>
+            <a href="/" onClick={() => setIsOpen(false)}>Desktop</a>
           </Meta>
-        </MenuInner>
+        </div>
       </MenuOverlay>
     </>
   )
 }
+

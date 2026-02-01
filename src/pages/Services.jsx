@@ -18,7 +18,7 @@ const ServicesContainer = styled.div`
   @media (max-width: 768px) {
     height: auto;
     min-height: 100%;
-    padding: var(--spacing-8) var(--container-padding);
+    padding: 0;
   }
 `
 
@@ -36,6 +36,13 @@ const Grid = styled.div`
   @media (max-width: 950px) {
     grid-template-columns: 1fr;
     padding: var(--spacing-8) var(--container-padding);
+  }
+
+  @media (max-width: 768px) {
+    padding-top: var(--mobile-content-top);
+    padding-bottom: var(--mobile-content-bottom);
+    padding-left: calc(var(--container-padding) + var(--safe-left));
+    padding-right: calc(var(--container-padding) + var(--safe-right));
   }
 `
 
@@ -116,6 +123,12 @@ const Row = styled(motion.div)`
 
   &:last-child {
     border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.05rem 0;
+    grid-template-columns: 36px 1fr;
+    gap: 0.85rem;
   }
 `
 

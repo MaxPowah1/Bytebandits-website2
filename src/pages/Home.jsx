@@ -21,7 +21,7 @@ const HomeContainer = styled.div`
   @media (max-width: 768px) {
     height: auto;
     min-height: 100%;
-    padding: var(--spacing-8) var(--container-padding);
+    padding: 0;
   }
 `
 
@@ -62,6 +62,13 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
     align-items: start;
     padding: var(--spacing-8) var(--container-padding);
+  }
+
+  @media (max-width: 768px) {
+    padding-top: var(--mobile-content-top);
+    padding-bottom: var(--mobile-content-bottom);
+    padding-left: calc(var(--container-padding) + var(--safe-left));
+    padding-right: calc(var(--container-padding) + var(--safe-right));
   }
 `
 
@@ -124,6 +131,11 @@ const CTA = styled(motion.a)`
     transform: translateY(-1px);
     border-color: rgba(201, 162, 39, 0.45);
     background: rgba(201, 162, 39, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    width: fit-content;
+    padding: 0.85rem 1.05rem;
   }
 `
 

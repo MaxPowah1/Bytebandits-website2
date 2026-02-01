@@ -17,7 +17,8 @@ const FooterContainer = styled.footer`
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
 
   @media (max-width: 768px) {
-    bottom: 14px;
+    bottom: var(--fixed-ui-bottom);
+    width: calc(100% - (2 * var(--container-padding)) - var(--safe-left) - var(--safe-right));
     border-radius: 18px;
   }
 `

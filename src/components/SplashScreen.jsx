@@ -76,6 +76,12 @@ const VideoWrapper = styled.div`
   height: 100%;
   overflow: visible;
 
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -94,6 +100,12 @@ const Video = styled.video`
   object-fit: contain;
   filter: contrast(1.05) saturate(1.1);
   animation: ${glitch} 4.5s steps(2) infinite;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `
 
 const UIOverlay = styled.div`
@@ -115,8 +127,10 @@ const UIOverlay = styled.div`
 
   @media (max-width: 768px) {
     justify-content: flex-start;
-    padding-top: 3rem;
-    padding-bottom: 1rem;
+    padding-top: calc(3rem + env(safe-area-inset-top, 0px));
+    padding-left: calc(1.25rem + env(safe-area-inset-left, 0px));
+    padding-right: calc(1.25rem + env(safe-area-inset-right, 0px));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   }
 `
 
@@ -188,6 +202,11 @@ const SkipButton = styled.button`
     opacity: 0.5;
     cursor: default;
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+  }
 `
 
 const DiagnosticGrid = styled.div`
@@ -197,6 +216,11 @@ const DiagnosticGrid = styled.div`
   margin-top: 0.5rem;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
 `
 
 const DiagnosticCell = styled.div`

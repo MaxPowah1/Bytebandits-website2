@@ -8,8 +8,8 @@ const LanguageSwitcherContainer = styled.div`
   z-index: 1000;
   
   @media (max-width: 768px) {
-    top: 1rem;
-    right: 1rem;
+    top: var(--fixed-ui-top);
+    right: var(--fixed-ui-right);
   }
 `
 
