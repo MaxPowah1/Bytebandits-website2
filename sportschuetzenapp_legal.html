@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rechtliches — Sportschützen App</title>
+<meta name="description" content="Datenschutzerklärung, Nutzungsbedingungen, Haftungsausschluss, Barrierefreiheit, Lizenzen und Impressum der Sportschützen App (Bytebandits OÜ).">
+<meta name="theme-color" content="#FAFAF6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12140F" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="index, follow">
+
+<!--
+  Sportschützen App — Rechtliche Hinweise (Einzeldatei, selbst zu hosten).
+  Design: „Ruhige Präzision · Loden & Messing" (ADR-0009).
+
+  Bewusst OHNE externe Ressourcen: keine Web-Fonts von Google/CDN, keine Skripte,
+  keine Analytics, keine Cookies. Die Seite lädt nichts nach — damit ist sie
+  selbst datenschutzkonform und passt zum Versprechen der App.
+
+  Möchtest du die App-Schriften (Manrope / IBM Plex Mono) verwenden, lade die
+  OFL-Dateien neben diese HTML und aktiviere den @font-face-Block unten.
+-->
+
+<style>
+/* ------------------------------------------------------------------
+   1. Farbregister — Loden & Messing (ADR-0009), hell + dunkel
+   ------------------------------------------------------------------ */
+:root {
+  --loden:            #3E5D4A;
+  --loden-container:  #D4E3D8;
+  --on-loden-cont:    #16281D;
+  --brass:            #9A7B45;
+  --brass-container:  #EEE0C4;
+  --on-brass-cont:    #271C06;
+
+  --surface:          #FAFAF6;
+  --surface-low:      #F4F4EE;
+  --surface-cont:     #EEEEE8;
+  --on-surface:       #1A1C1A;
+  --on-surface-var:   #424A43;
+  --outline:          #C4C9C2;
+  --outline-strong:   #727A72;
+
+  --ok:               #3E7350;
+  --soon:             #A07E34;
+  --crit:             #A9514A;
+  --crit-container:   #FCDAD6;
+  --on-crit-cont:     #410100;
+
+  --ui: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+
+  --radius: 14px;
+  --measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --loden:            #A6C7AF;
+    --loden-container:  #2A4231;
+    --on-loden-cont:    #C6DECD;
+    --brass:            #D3B67D;
+    --brass-container:  #574119;
+    --on-brass-cont:    #FFDDBB;
+
+    --surface:          #12140F;
+    --surface-low:      #191D19;
+    --surface-cont:     #1D211D;
+    --on-surface:       #E2E3DE;
+    --on-surface-var:   #C2C9C0;
+    --outline:          #424A43;
+    --outline-strong:   #8C948B;
+
+    --ok:               #86B392;
+    --soon:             #CBA85B;
+    --crit:             #E8A19A;
+    --crit-container:   #4A211E;
+    --on-crit-cont:     #FFDAD6;
+  }
+}
+
+/* Optional: App-Schriften lokal mitliefern (Dateien neben diese HTML legen)
+@font-face { font-family: "Manrope"; src: url("Manrope-Variable.ttf") format("truetype-variations"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("IBMPlexMono-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("IBMPlexMono-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+*/
+
+/* ------------------------------------------------------------------
+   2. Grundlagen
+   ------------------------------------------------------------------ */
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--ui);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+p, li { hyphens: auto; overflow-wrap: break-word; }
+a { color: var(--loden); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--brass); }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 4px; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--loden-container); color: var(--on-loden-cont);
+  padding: .6rem 1rem; border-radius: 0 0 var(--radius) 0; z-index: 10;
+}
+.skip:focus { left: 0; }
+
+/* ------------------------------------------------------------------
+   3. Signatur-Bausteine: Messing-Marke, Mono-Eyebrow, Ziel-Ring
+   ------------------------------------------------------------------ */
+.eyebrow {
+  display: flex; align-items: center; gap: .6rem;
+  font-family: var(--mono);
+  font-size: .7rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--on-surface-var);
+  margin: 0 0 .5rem;
+}
+.mark {
+  flex: 0 0 auto;
+  width: 7px; height: 7px;
+  background: var(--brass);
+  transform: rotate(45deg);
+}
+.baseline {
+  height: 2px; width: 34px;
+  background: var(--brass);
+  opacity: .85;
+  margin: .85rem 0 0;
+}
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------------
+   4. Layout
+   ------------------------------------------------------------------ */
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 4vw, 2.5rem);
+}
+
+header.masthead {
+  border-bottom: 1px solid var(--outline);
+  background: var(--surface-low);
+}
+.masthead-inner {
+  display: flex; gap: 2rem; align-items: flex-start; justify-content: space-between;
+  padding: clamp(2.5rem, 7vw, 4.5rem) 0 clamp(2rem, 5vw, 3rem);
+}
+h1 {
+  font-size: clamp(2rem, 5.2vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  font-weight: 800;
+  margin: 0;
+}
+.lede {
+  max-width: 56ch;
+  color: var(--on-surface-var);
+  margin: 1.1rem 0 0;
+  font-size: 1.05rem;
+}
+.meta {
+  display: flex; flex-wrap: wrap; gap: .45rem 1.6rem;
+  margin: 1.5rem 0 0; padding: 0; list-style: none;
+  font-family: var(--mono); font-size: .78rem;
+  color: var(--on-surface-var);
+}
+.meta b { color: var(--on-surface); font-weight: 600; }
+.ring { flex: 0 0 auto; opacity: .9; }
+.ring .rings { fill: none; stroke: var(--loden); stroke-width: 1.25; opacity: .55; }
+.ring .center { fill: var(--brass); }
+.ring .ticks { stroke: var(--brass); stroke-width: 1.25; opacity: .7; }
+@media (max-width: 720px) { .ring { display: none; } }
+
+.layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2rem, 5vw, 3.5rem) 0 5rem;
+  align-items: start;
+}
+@media (max-width: 960px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+/* Inhaltsverzeichnis */
+nav.toc { position: sticky; top: 1.5rem; }
+@media (max-width: 960px) {
+  nav.toc {
+    position: static;
+    border: 1px solid var(--outline);
+    border-radius: var(--radius);
+    background: var(--surface-low);
+    padding: 1.1rem 1.3rem;
+  }
+}
+nav.toc ol { list-style: none; margin: .35rem 0 0; padding: 0; }
+nav.toc li { margin: 0; }
+nav.toc a {
+  display: block;
+  padding: .3rem 0;
+  font-size: .93rem;
+  color: var(--on-surface-var);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  padding-left: .75rem;
+  margin-left: -.75rem;
+}
+nav.toc a:hover { color: var(--on-surface); border-left-color: var(--brass); }
+nav.toc .num { font-family: var(--mono); font-size: .78rem; color: var(--brass); margin-right: .5rem; }
+
+main { max-width: var(--measure); min-width: 0; }
+
+/* ------------------------------------------------------------------
+   5. Abschnitte
+   ------------------------------------------------------------------ */
+section { scroll-margin-top: 1.5rem; padding-top: .5rem; }
+section + section { margin-top: clamp(3rem, 7vw, 4.5rem); }
+
+h2 {
+  font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+  line-height: 1.2; letter-spacing: -.015em; font-weight: 700;
+  margin: .2rem 0 0;
+}
+h3 {
+  font-size: 1.06rem; font-weight: 700; letter-spacing: -.005em;
+  margin: 2.2rem 0 .5rem;
+}
+h4 {
+  font-size: .96rem; font-weight: 700;
+  margin: 1.5rem 0 .35rem;
+}
+h2 + p, h3 + p, h4 + p { margin-top: .4rem; }
+p { margin: 0 0 1rem; }
+
+.sec-rule { border: 0; border-top: 1px solid var(--outline); margin: 0 0 1.6rem; }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.35rem; }
+li { margin: 0 0 .45rem; }
+li > ul, li > ol { margin-top: .45rem; }
+dt { font-weight: 700; margin-top: .9rem; }
+dd { margin: .15rem 0 0; color: var(--on-surface-var); }
+
+strong, b { font-weight: 700; }
+small { font-size: .85rem; color: var(--on-surface-var); }
+
+address {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: .95rem;
+  line-height: 1.75;
+}
+
+/* Karten & Hinweisboxen — Hairline, flach, kein Schatten */
+.card {
+  border: 1px solid var(--outline);
+  border-radius: var(--radius);
+  background: var(--surface-low);
+  padding: 1.25rem 1.4rem;
+  margin: 1.4rem 0;
+}
+.card > :last-child { margin-bottom: 0; }
+.card > :first-child { margin-top: 0; }
+
+.note {
+  border: 1px solid var(--outline);
+  border-left: 3px solid var(--brass);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--surface-cont);
+  padding: 1.05rem 1.3rem;
+  margin: 1.4rem 0;
+  font-size: .97rem;
+}
+.note > :last-child { margin-bottom: 0; }
+.note.important { border-left-color: var(--crit); background: var(--crit-container); color: var(--on-crit-cont); }
+.note.important a { color: inherit; }
+.note.calm { border-left-color: var(--loden); }
+
+.tldr {
+  border: 1px solid var(--outline);
+  border-radius: var(--radius);
+  background: var(--surface-cont);
+  padding: 1.3rem 1.5rem;
+  margin: 0 0 2.5rem;
+}
+.tldr ul { margin-bottom: .4rem; }
+
+/* Tabellen */
+.table-scroll { overflow-x: auto; margin: 1.3rem 0; border: 1px solid var(--outline); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 420px; }
+caption { text-align: left; padding: .9rem 1.1rem .2rem; font-size: .85rem; color: var(--on-surface-var); }
+th, td { text-align: left; padding: .68rem 1.1rem; vertical-align: top; border-bottom: 1px solid var(--outline); }
+thead th {
+  font-family: var(--mono); font-size: .72rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--on-surface-var);
+  background: var(--surface-cont);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td code, p code, li code {
+  font-family: var(--mono); font-size: .87em;
+  background: var(--surface-cont);
+  border: 1px solid var(--outline);
+  border-radius: 5px;
+  padding: .05em .38em;
+  overflow-wrap: anywhere;
+}
+
+/* Status-Formen (Farbe nie allein — wie StatusDot/StatusShape in der App) */
+.pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: var(--mono); font-size: .72rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.pill::before { content: "●"; font-size: .8em; }
+.pill.no { color: var(--crit); }
+.pill.no::before { content: "▲"; }
+.pill.yes { color: var(--ok); }
+.pill.partial { color: var(--soon); }
+.pill.partial::before { content: "◐"; }
+
+footer.foot {
+  border-top: 1px solid var(--outline);
+  background: var(--surface-low);
+  padding: 2.5rem 0 3.5rem;
+  font-size: .9rem;
+  color: var(--on-surface-var);
+}
+.foot-links { display: flex; flex-wrap: wrap; gap: .5rem .9rem; align-items: baseline; }
+.foot-links a { font-size: .9rem; }
+.top-link { font-family: var(--mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
+
+/* ------------------------------------------------------------------
+   6. Druck
+   ------------------------------------------------------------------ */
+@media print {
+  :root { --surface: #fff; --surface-low: #fff; --surface-cont: #fff; --on-surface: #000; --on-surface-var: #333; --outline: #bbb; }
+  body { font-size: 10.5pt; }
+  nav.toc, .skip, .ring, .top-link { display: none !important; }
+  .layout { display: block; padding: 0; }
+  main { max-width: none; }
+  section { break-inside: auto; }
+  h2, h3 { break-after: avoid; }
+  .card, .note, .table-scroll, table { break-inside: avoid; }
+  a { color: #000; text-decoration: none; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <div>
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Rechtliche Hinweise</p>
+      <h1>Sportschützen&nbsp;App</h1>
+      <p class="lede">
+        Datenschutzerklärung, Nutzungsbedingungen, Haftungsausschluss, Barrierefreiheit,
+        Lizenzen und Impressum — an einer Stelle, in der Sprache der App:
+        klar, vollständig und ohne Kleingedrucktes, das sich versteckt.
+      </p>
+      <div class="baseline" aria-hidden="true"></div>
+      <ul class="meta">
+        <li><b>Stand</b> 21.07.2026</li>
+        <li><b>Dokumentversion</b> 1.0</li>
+        <li><b>App-Version</b> 1.0.0</li>
+        <li><b>Anbieter</b> Bytebandits OÜ</li>
+      </ul>
+    </div>
+
+    <svg class="ring" width="112" height="112" viewBox="0 0 112 112" role="img" aria-label="Zielscheiben-Signet">
+      <g class="rings">
+        <circle cx="56" cy="56" r="53"/>
+        <circle cx="56" cy="56" r="41"/>
+        <circle cx="56" cy="56" r="29"/>
+        <circle cx="56" cy="56" r="17"/>
+      </g>
+      <circle class="center" cx="56" cy="56" r="6"/>
+      <g class="ticks">
+        <line x1="56" y1="0" x2="56" y2="7"/>
+        <line x1="56" y1="105" x2="56" y2="112"/>
+        <line x1="0" y1="56" x2="7" y2="56"/>
+        <line x1="105" y1="56" x2="112" y2="56"/>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<div class="wrap layout">
+
+  <nav class="toc" aria-label="Inhaltsverzeichnis">
+    <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Inhalt</p>
+    <ol>
+      <li><a href="#datenschutz"><span class="num">01</span>Datenschutzerklärung</a></li>
+      <li><a href="#nutzungsbedingungen"><span class="num">02</span>Nutzungsbedingungen</a></li>
+      <li><a href="#haftung"><span class="num">03</span>Haftung &amp; Waffenrecht</a></li>
+      <li><a href="#barrierefreiheit"><span class="num">04</span>Barrierefreiheit</a></li>
+      <li><a href="#lizenzen"><span class="num">05</span>Lizenzen &amp; Nachweise</a></li>
+      <li><a href="#kontakt"><span class="num">06</span>Kontakt</a></li>
+      <li><a href="#impressum"><span class="num">07</span>Impressum</a></li>
+    </ol>
+  </nav>
+
+  <main id="inhalt">
+
+    <div class="tldr">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Auf einen Blick</p>
+      <ul>
+        <li><strong>Deine Daten bleiben auf deinem Gerät.</strong> Die App hat keine Cloud, kein Konto, kein Tracking und keine Werbung. Wir sehen nichts von dem, was du einträgst.</li>
+        <li><strong>Kein Abo-Zwang.</strong> Die Gratis-Version ist dauerhaft nutzbar; die Vollversion gibt es wahlweise als Abo oder als einmaligen Lifetime-Kauf.</li>
+        <li><strong>Kein Datenverlust</strong>, wenn ein Abo endet: Alles bleibt lesbar, bearbeitbar und exportierbar.</li>
+        <li><strong>Die App ist kein amtliches Dokument.</strong> Der Nachweis nach § 14 WaffG läuft ausschließlich über die Bescheinigung deines Schießsportverbands — die App führt eine private Eigendokumentation.</li>
+      </ul>
+      <p><small>Diese Zusammenfassung dient nur der Orientierung. Verbindlich sind allein die nachfolgenden Abschnitte.</small></p>
+    </div>
+
+    <!-- ============================================================ 1 -->
+    <section id="datenschutz" aria-labelledby="h-datenschutz">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Abschnitt 01</p>
+      <h2 id="h-datenschutz">Datenschutzerklärung</h2>
+      <div class="baseline" aria-hidden="true"></div>
+      <p><small>Informationen nach Art. 13 und 14 DSGVO · Stand 21.07.2026</small></p>
+      <hr class="sec-rule">
+
+      <h3>1.1 Das Wichtigste zuerst</h3>
+      <p>
+        Die Sportschützen App ist ein digitales Schießbuch, das <strong>vollständig offline</strong>
+        arbeitet. Alles, was du eingibst — Trainings, Waffen, Munitionschargen, Disziplinen, Notizen,
+        Fotos und Einstellungen — wird ausschließlich <strong>lokal auf deinem Gerät</strong>
+        gespeichert. Es gibt keinen Server von uns, kein Nutzerkonto, keine Registrierung, keine
+        Synchronisation und keine Analyse deines Verhaltens.
+      </p>
+      <p>
+        <strong>Wir erhalten deine Schießbuch-Daten nicht.</strong> Wir können sie weder einsehen noch
+        wiederherstellen, auch nicht auf Nachfrage. Das ist kein Versehen, sondern die zentrale
+        Produktentscheidung dieser App.
+      </p>
+
+      <h3>1.2 Verantwortlicher</h3>
+      <div class="card">
+        <address>
+          Bytebandits OÜ<br>
+          Tartu mnt 67/1-13b, Kesklinna linnaosa<br>
+          10115 Tallinn, Estland<br>
+          <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+        </address>
+      </div>
+      <p>
+        Ein Datenschutzbeauftragter ist nicht bestellt; die Voraussetzungen des Art.&nbsp;37 DSGVO
+        liegen nicht vor. Da wir innerhalb der Europäischen Union niedergelassen sind, ist auch kein
+        Vertreter nach Art.&nbsp;27 DSGVO erforderlich.
+      </p>
+
+      <h3>1.3 Welche Daten die App auf deinem Gerät speichert</h3>
+      <p>
+        Zum Verständnis — und weil Transparenz auch dort gilt, wo keine Übermittlung stattfindet —
+        listen wir vollständig auf, was die App lokal ablegt. Diese Daten verlassen dein Gerät nur,
+        wenn <em>du</em> sie exportierst, teilst oder ausdruckst.
+      </p>
+      <div class="table-scroll">
+        <table>
+          <caption>Lokale Datenbestände (SQLite-Datenbank, Einstellungsspeicher, Dateiablage)</caption>
+          <thead>
+            <tr><th scope="col">Speicherort</th><th scope="col">Inhalt</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Datenbank</strong><br><small>SQLite, App-Sandbox</small></td>
+              <td>
+                <strong>Waffen:</strong> Name, Kaliber, Typ, Schusszähler, Reinigungsintervall, Notizen, Foto-Pfad, Anlagedatum<br>
+                <strong>Munitionschargen:</strong> Hersteller, Bezeichnung, Kaliber, Geschossgewicht, Losnummer, Kaufpreis, Stückzahlen<br>
+                <strong>Trainings:</strong> Datum, Waffe, Munition, Disziplin, Art (Training/Wettkampf), Schusszahl, Ergebnis, Ort, Notizen<br>
+                <strong>Disziplinen:</strong> selbst angelegte Bezeichnungen<br>
+                <strong>Foto-Verweise:</strong> relative Dateipfade zu deinen Trainings-Fotos
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Einstellungen</strong><br><small>SharedPreferences</small></td>
+              <td>
+                Erscheinungsbild (hell/dunkel), Bedürfnis-Modus und -Ziele, Warnschwellen,
+                <strong>Schützenname und Verein</strong> (nur für den Kopf des PDF-Ausdrucks),
+                Onboarding-Status sowie der zwischengespeicherte Kaufstatus
+                (siehe <a href="#play-billing">Abschnitt&nbsp;1.6</a>)
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Dateien</strong><br><small>App-Dokumentordner</small></td>
+              <td>Von dir aufgenommene oder ausgewählte Fotos zu Trainings und Waffen (verkleinert gespeichert)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Schützenname und Verein sind die einzigen Felder, in denen typischerweise ein Klarname steht.
+        Sie sind <strong>optional</strong> und dienen allein dazu, den PDF-Ausdruck zu beschriften.
+      </p>
+      <p>
+        Soweit man die auf deinem Gerät stattfindende Verarbeitung überhaupt uns zurechnen wollte,
+        wäre die Rechtsgrundlage Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO (Erfüllung des
+        Nutzungsvertrags: Bereitstellung der Schießbuch-Funktionen, die du ausdrücklich angefordert hast).
+        Das Speichern auf deinem Endgerät ist zur Erbringung dieser von dir gewünschten Funktion
+        unbedingt erforderlich (§ 25 Abs.&nbsp;2 Nr.&nbsp;2 TDDDG); eine Einwilligung ist dafür nicht nötig,
+        und es findet keine darüber hinausgehende Auswertung statt.
+      </p>
+
+      <h3>1.4 Was die App ausdrücklich <em>nicht</em> tut</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Merkmal</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td>Nutzerkonto, Registrierung, Login</td><td><span class="pill no">nicht vorhanden</span></td></tr>
+            <tr><td>Cloud-Speicher oder Synchronisation durch uns</td><td><span class="pill no">nicht vorhanden</span></td></tr>
+            <tr><td>Analyse-, Statistik- oder Tracking-SDKs</td><td><span class="pill no">nicht vorhanden</span></td></tr>
+            <tr><td>Werbung, Werbenetzwerke, Werbe-ID (AAID)</td><td><span class="pill no">nicht vorhanden</span></td></tr>
+            <tr><td>Absturzberichte an uns über ein eigenes SDK</td><td><span class="pill no">nicht vorhanden</span></td></tr>
+            <tr><td>Standortermittlung, Kontakte, Mikrofon, Telefonstatus</td><td><span class="pill no">nicht vorhanden</span></td></tr>
+            <tr><td>Weitergabe oder Verkauf von Daten an Dritte</td><td><span class="pill no">findet nicht statt</span></td></tr>
+            <tr><td>Profilbildung, automatisierte Entscheidungen, Scoring</td><td><span class="pill no">findet nicht statt</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.5 Berechtigungen und Netzwerkzugriff</h3>
+      <p>
+        Die App fordert bewusst so wenig wie möglich an. Der Zugriff auf Kamera, Galerie und
+        Dateisystem läuft über die Systemauswahl von Android — dabei entscheidest du bei jedem
+        Vorgang einzeln, und die App erhält nur die konkret ausgewählte Datei. Deshalb verlangt die
+        App <strong>keine</strong> Kamera-, Speicher- oder Medienberechtigung.
+      </p>
+      <div class="table-scroll">
+        <table>
+          <caption>Im App-Paket enthaltene Android-Berechtigungen und ihr tatsächlicher Zweck</caption>
+          <thead><tr><th scope="col">Berechtigung</th><th scope="col">Wofür</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>com.android.vending.BILLING</code></td>
+              <td>Kauf und Wiederherstellung der Vollversion über Google Play.</td>
+            </tr>
+            <tr>
+              <td><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td>
+              <td>
+                Wird von der Google-Play-Billing-Bibliothek vorausgesetzt und daher beim Bauen der App
+                automatisch eingefügt. <strong>Unsere eigene App-Logik ruft keinen Server auf</strong> — es
+                gibt in der App keine einzige Adresse, die kontaktiert würde. Netzwerkverkehr entsteht
+                ausschließlich, wenn Google Play einen Kauf oder eine Abo-Bestätigung prüft.
+              </td>
+            </tr>
+            <tr>
+              <td><code>…DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code></td>
+              <td>
+                Technische Eigenberechtigung von Android/AndroidX, die app-interne Systemmeldungen gegen
+                Zugriff anderer Apps abschirmt. Kein Datenzugriff, keine Außenwirkung.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="play-billing">1.6 Käufe über Google Play</h3>
+      <p>
+        Die Vollversion wird über Google Play abgewickelt. Dabei verarbeitet <strong>Google als
+        eigenständig Verantwortlicher</strong> die für den Kauf nötigen Daten — insbesondere dein
+        Google-Konto, Zahlungsdaten, Geräte- und Transaktionsdaten. Auf diese Verarbeitung haben wir
+        keinen Einfluss; es gilt die
+        <a href="https://policies.google.com/privacy?hl=de" rel="noopener">Datenschutzerklärung von Google</a>.
+        Vertragspartner in Europa ist Google Ireland Limited, Gordon House, Barrow Street, Dublin&nbsp;4, Irland.
+      </p>
+      <p>
+        <strong>Was wir davon erhalten:</strong> keine Zahlungsdaten, keine Adressen, keine Namen.
+        Über die Google Play Console sehen wir lediglich <strong>aggregierte Verkaufszahlen und
+        Auszahlungsübersichten</strong> sowie — falls du dich an Google wendest oder eine Rückerstattung
+        beantragst — die von Google übermittelten Vorgangsdaten. Auf deinem Gerät speichert die App
+        nur, <em>ob</em> freigeschaltet ist und wann Google ein Abo zuletzt bestätigt hat.
+      </p>
+      <div class="note calm">
+        <p>
+          <strong>Warum eine „100 % offline"-App überhaupt online geht:</strong> Genau zweimal — beim Kauf und
+          beim stillen Wiederherstellen des Kaufstatus während des App-Starts. Beides läuft über den
+          Google-Play-Dienst deines Geräts, nicht über uns. Ohne Vollversion und ohne Kaufversuch
+          entsteht überhaupt kein Netzwerkverkehr.
+        </p>
+      </div>
+
+      <h3>1.7 Diagnosedaten von Google (Android Vitals)</h3>
+      <p>
+        Android kann Absturz- und Leistungsdaten an Google senden, wenn du der Diagnose- bzw.
+        Nutzungsdatenfreigabe in deinen Geräte- oder Play-Store-Einstellungen zugestimmt hast. Wir
+        erhalten daraus in der Play Console nur <strong>aggregierte, pseudonymisierte Auswertungen</strong>
+        (z.&nbsp;B. Absturzrate nach Gerätemodell und Android-Version, technische Stack-Traces). Ein
+        Rückschluss auf dich als Person oder auf deine Schießbuch-Inhalte ist uns damit nicht möglich.
+        Steuern kannst du das in den Google-Einstellungen deines Geräts.
+      </p>
+
+      <h3>1.8 Systemsicherung durch Android</h3>
+      <div class="note">
+        <p>
+          Android bietet auf Wunsch eine automatische Gerätesicherung an („Sicherung durch Google One"
+          bzw. Datenübertragung auf ein neues Gerät). Ist diese Funktion in deinen Geräte-Einstellungen
+          aktiv, kann das <strong>Betriebssystem</strong> App-Daten in dein Google-Konto sichern — das
+          kann auch Daten dieser App umfassen. Diese Sicherung erfolgt <strong>durch Android und Google,
+          nicht durch uns</strong>; sie ist auf aktuellen Android-Versionen mit deiner Displaysperre
+          verschlüsselt, und wir haben darauf keinerlei Zugriff.
+        </p>
+        <p>
+          Wenn du das nicht möchtest, deaktiviere die Gerätesicherung in den Android-Einstellungen
+          unter „System → Sicherung". Der praktische Vorteil der Funktion: Beim Wechsel auf ein neues
+          Telefon kann dein Schießbuch mitkommen. Unabhängig davon empfehlen wir den in der App
+          eingebauten Backup-Export (siehe <a href="#exporte">1.9</a>) als bewusst kontrollierte Sicherung.
+        </p>
+      </div>
+
+      <h3 id="exporte">1.9 Exporte, Fotos, Drucken und Teilen</h3>
+      <p>
+        Die App kann deine Daten auf deine Veranlassung hin herausgeben: als CSV-Datei, als
+        JSON-Sicherung, als PDF (Trainingsübersicht bzw. Schießtermin-Übersicht) sowie über die
+        Teilen- und Druckfunktion von Android.
+      </p>
+      <ul>
+        <li>
+          <strong>Ab dem Moment des Exports endet unsere technische Kontrolle.</strong> Wohin die Datei
+          wandert — Downloads-Ordner, Cloud-Speicher, E-Mail, Messenger, Drucker —, entscheidest allein du.
+        </li>
+        <li>
+          <strong>Die PDF-Übersicht enthält personenbezogene Daten</strong>, wenn du Schützenname und Verein
+          gepflegt hast, und dazu deine Schießtermine mit Datum, Ort und Waffe. Behandle sie so
+          sorgsam, wie du es auch bei einem Papier-Schießbuch tun würdest.
+        </li>
+        <li>
+          <strong>Drucken und Teilen</strong> übergibt die Datei an die von dir gewählte App bzw. den
+          Druckdienst; deren Datenschutzbestimmungen gelten dann zusätzlich.
+        </li>
+        <li>
+          <strong>Fotos</strong> werden aus der Kamera oder der Systemauswahl übernommen, verkleinert und
+          in der App-Sandbox abgelegt. Beachte, dass Aufnahmen unter Umständen Personen oder Orte
+          erkennbar machen; für Fotos von Dritten brauchst du deren Einverständnis.
+        </li>
+      </ul>
+
+      <h3>1.10 Speicherdauer und Löschung</h3>
+      <p>
+        Deine Daten bleiben so lange gespeichert, wie du sie behältst — es gibt keine automatische
+        Löschung und keinen Ablauf. Du kannst jederzeit:
+      </p>
+      <ul>
+        <li>einzelne Einträge in der App löschen (mit Rückgängig-Funktion),</li>
+        <li>in den Einstellungen unter „Daten &amp; Export" <strong>alle Daten auf einmal löschen</strong>,</li>
+        <li>oder die App deinstallieren — damit entfernt Android sämtliche lokalen Inhalte einschließlich
+        Datenbank, Einstellungen und Fotos.</li>
+      </ul>
+      <p>
+        <small>Zu beachten: Bereits erstellte Exporte, Ausdrucke und eine ggf. aktive Android-Systemsicherung
+        (1.8) sind davon nicht erfasst — diese musst du selbst entfernen.</small>
+      </p>
+
+      <h3>1.11 Datensicherheit</h3>
+      <p>
+        Die Daten liegen im geschützten, app-eigenen Speicherbereich (Android-Sandbox) und sind für
+        andere Apps nicht zugänglich. Auf aktuellen Geräten ist dieser Bereich zusätzlich durch die
+        Geräteverschlüsselung geschützt. Da es keine Übertragung an uns gibt, existiert auch kein
+        Übertragungsweg, der abgehört werden könnte. Empfehlung: Nutze eine Displaysperre und halte
+        dein Android-System aktuell.
+      </p>
+
+      <h3>1.12 Deine Rechte</h3>
+      <p>
+        Dir stehen nach der DSGVO die Rechte auf Auskunft (Art.&nbsp;15), Berichtigung (Art.&nbsp;16),
+        Löschung (Art.&nbsp;17), Einschränkung der Verarbeitung (Art.&nbsp;18), Datenübertragbarkeit
+        (Art.&nbsp;20) und Widerspruch (Art.&nbsp;21) zu.
+      </p>
+      <p>
+        In der Praxis übst du diese Rechte <strong>unmittelbar in der App aus</strong>: Auskunft und
+        Übertragbarkeit über den CSV- bzw. JSON-Export, Berichtigung über die Bearbeiten-Funktion,
+        Löschung über das Löschen einzelner Einträge, „Alle Daten löschen" oder das Deinstallieren.
+        Eine Auskunft <em>durch uns</em> ist nicht möglich und nicht nötig, weil bei uns keine
+        personenbezogenen Daten von dir vorliegen (Art.&nbsp;11 DSGVO). Schreibst du uns eine E-Mail,
+        verarbeiten wir selbstverständlich die darin enthaltenen Angaben, um dir zu antworten
+        (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b bzw. lit.&nbsp;f DSGVO); wir löschen solche Korrespondenz,
+        sobald sie nicht mehr benötigt wird und keine Aufbewahrungspflicht entgegensteht.
+      </p>
+      <p>
+        Unabhängig davon steht dir ein <strong>Beschwerderecht bei einer Aufsichtsbehörde</strong> zu
+        (Art.&nbsp;77 DSGVO) — wahlweise bei der für uns zuständigen estnischen Behörde
+        <em>Andmekaitse Inspektsioon</em> (Tatari 39, 10134 Tallinn, Estland,
+        <a href="mailto:info@aki.ee">info@aki.ee</a>) oder bei der Datenschutzaufsicht deines
+        Wohnorts bzw. Arbeitsplatzes.
+      </p>
+
+      <h3>1.13 Kinder und Jugendliche</h3>
+      <p>
+        Die App richtet sich an Sportschützinnen und Sportschützen; jugendliche Schützen können sie
+        ebenfalls nutzen. Für Käufe gelten die Alters- und Kontoanforderungen von Google Play —
+        Minderjährige benötigen dafür die Zustimmung ihrer Erziehungsberechtigten. Wir erheben keine
+        Altersangaben, weil wir überhaupt keine Daten erheben.
+      </p>
+
+      <h3>1.14 Änderungen dieser Erklärung</h3>
+      <p>
+        Wir passen diese Datenschutzerklärung an, wenn die App sich ändert oder die Rechtslage es
+        erfordert. Es gilt jeweils die hier veröffentlichte Fassung; das Datum oben zeigt den Stand.
+        Wesentliche Änderungen kündigen wir zusätzlich in der App oder in den Release-Notes an.
+      </p>
+    </section>
+    <!-- ============================================================ 2 -->
+    <section id="nutzungsbedingungen" aria-labelledby="h-nutzung">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Abschnitt 02</p>
+      <h2 id="h-nutzung">Nutzungsbedingungen</h2>
+      <div class="baseline" aria-hidden="true"></div>
+      <p><small>Endnutzer-Lizenzvereinbarung (EULA) und Allgemeine Geschäftsbedingungen · Stand 21.07.2026</small></p>
+      <hr class="sec-rule">
+
+      <h3 id="vertragspartner">2.1 Geltungsbereich und Vertragspartner</h3>
+      <p>
+        Diese Bedingungen regeln die Nutzung der Android-Anwendung „Sportschützen App"
+        (<code>com.bytebandits.sportschuetzen_app</code>, nachfolgend „App") zwischen dir und der
+        Bytebandits OÜ (nachfolgend „wir").
+      </p>
+      <p>Es sind zwei Vertragsverhältnisse zu unterscheiden:</p>
+      <dl>
+        <dt>Nutzungsvertrag mit uns</dt>
+        <dd>
+          Mit dem Herunterladen und Nutzen der App kommt zwischen dir und uns ein unentgeltlicher
+          Lizenzvertrag über die Software zustande — auf Basis dieser Bedingungen.
+        </dd>
+        <dt>Kaufvertrag mit Google</dt>
+        <dd>
+          Für den Erwerb der Vollversion (Abo oder Lifetime) ist im Europäischen Wirtschaftsraum
+          <strong>Google der Vertragspartner (Merchant of Record)</strong>. Zahlung, Rechnung,
+          Umsatzsteuer, Widerruf und Rückerstattung laufen daher über Google und dessen
+          Nutzungsbedingungen für Google Play.
+        </dd>
+      </dl>
+      <p>
+        Ergänzend gelten die Nutzungsbedingungen von Google Play. Abweichende oder ergänzende
+        Bedingungen deinerseits werden nicht Vertragsbestandteil.
+      </p>
+
+      <h3>2.2 Was die App leistet</h3>
+      <p>
+        Die App ist ein digitales Schießbuch für die private Eigendokumentation. Sie ermöglicht das
+        Erfassen von Trainings und Wettkämpfen, die Verwaltung von Waffen, Munitionschargen und
+        Disziplinen, das Zählen von Schießterminen für die Bedürfnis-Dokumentation, Statistiken sowie
+        Export- und Druckfunktionen. Alle Berechnungen erfolgen lokal auf deinem Gerät.
+      </p>
+      <p>
+        <strong>Systemvoraussetzungen:</strong> Android <span class="mono">7.0</span> (API-Level 24) oder
+        neuer, ausreichend freier Speicherplatz, für Käufe zusätzlich ein Google-Play-Konto und eine
+        vorübergehende Internetverbindung.
+      </p>
+
+      <h3>2.3 Gratis-Version und Vollversion</h3>
+      <p>
+        Die App ist dauerhaft kostenlos nutzbar. Ohne Vollversion gelten folgende Obergrenzen:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Bereich</th><th scope="col">Gratis</th><th scope="col">Vollversion</th></tr></thead>
+          <tbody>
+            <tr><td>Trainingseinträge</td><td class="mono">10</td><td>unbegrenzt</td></tr>
+            <tr><td>Aktive Waffen</td><td class="mono">2</td><td>unbegrenzt</td></tr>
+            <tr><td>Aktive Munitionschargen</td><td class="mono">2</td><td>unbegrenzt</td></tr>
+            <tr><td>PDF-Schießtermin-Übersicht</td><td><span class="pill no">gesperrt</span></td><td><span class="pill yes">enthalten</span></td></tr>
+            <tr><td>Alle übrigen Funktionen, CSV-Export, Backup</td><td><span class="pill yes">enthalten</span></td><td><span class="pill yes">enthalten</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.4 Kaufoptionen</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Option</th><th scope="col">Preis</th><th scope="col">Laufzeit</th></tr></thead>
+          <tbody>
+            <tr><td>Halbjahres-Abo</td><td class="mono">2,99 €</td><td>6 Monate, verlängert sich automatisch</td></tr>
+            <tr><td>Jahres-Abo</td><td class="mono">4,99 €</td><td>12 Monate, verlängert sich automatisch</td></tr>
+            <tr><td><strong>Lifetime</strong> (empfohlen)</td><td class="mono">19,99 €</td><td>einmalige Zahlung, unbefristet</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Maßgeblich sind stets die im Google Play Store angezeigten Preise inklusive der jeweils
+        geltenden Steuern. Preisänderungen für die Zukunft bleiben vorbehalten; bestehende
+        Lifetime-Käufe bleiben davon unberührt, laufende Abos werden nur nach den Regeln von Google
+        Play und nur mit vorheriger Information angepasst.
+      </p>
+      <p>
+        <strong>Abos verlängern sich automatisch</strong>, solange du sie nicht kündigst. Die Kündigung
+        erfolgt jederzeit in der Google-Play-App unter „Zahlungen und Abos → Abos" und wirkt zum Ende
+        der laufenden Abrechnungsperiode. Eine Kündigung uns gegenüber ist technisch nicht möglich,
+        da das Abo bei Google geführt wird.
+      </p>
+
+      <h3 id="kauf-abwicklung">2.5 Widerruf, Rückerstattung, Mängel</h3>
+      <p>
+        Da der Kaufvertrag mit Google zustande kommt, richten sich Widerruf und Rückerstattung nach
+        den Regeln von Google Play. Grundsätzlich gilt:
+      </p>
+      <ul>
+        <li>
+          Für digitale Inhalte besteht ein gesetzliches <strong>Widerrufsrecht von 14 Tagen</strong>. Es
+          erlischt vorzeitig, wenn du der sofortigen Bereitstellung ausdrücklich zustimmst und dabei
+          bestätigst, dadurch dein Widerrufsrecht zu verlieren (§ 356 Abs.&nbsp;5 BGB) — diese Abfrage
+          nimmt Google im Kaufvorgang vor.
+        </li>
+        <li>
+          Unabhängig davon gewährt Google in einem kurzen Zeitfenster nach dem Kauf freiwillige
+          Rückerstattungen. Anträge stellst du über
+          <a href="https://support.google.com/googleplay/answer/2479637?hl=de" rel="noopener">den Rückerstattungsprozess von Google Play</a>.
+        </li>
+        <li>
+          <strong>Mängelrechte</strong> nach §§ 327 ff. BGB (Verträge über digitale Produkte) bestehen
+          gegenüber deinem Vertragspartner. Funktioniert etwas nicht wie beschrieben, melde es uns
+          bitte trotzdem — wir sind an einer Lösung im Produkt interessiert und beheben Fehler zeitnah.
+        </li>
+      </ul>
+
+      <h3>2.6 Freischaltung ohne Server — und was das bedeutet</h3>
+      <p>
+        Die App führt bewusst keinen eigenen Server. Der Kaufstatus wird deshalb lokal
+        zwischengespeichert:
+      </p>
+      <ul>
+        <li>
+          <strong>Lifetime:</strong> einmal gekauft, dauerhaft freigeschaltet — auch vollständig offline.
+        </li>
+        <li>
+          <strong>Abo:</strong> Die App merkt sich, wann Google das Abo zuletzt als aktiv bestätigt hat, und
+          gilt bis <strong>14 Tage</strong> nach dieser letzten Bestätigung als freigeschaltet. Beim
+          App-Start wird der Status still aktualisiert, sobald Google Play erreichbar ist. Diese
+          Kulanzfrist stellt sicher, dass du auch ohne Netz — etwa auf einem abgelegenen Schießstand —
+          weiterarbeiten kannst.
+        </li>
+      </ul>
+      <div class="note">
+        <p>
+          <strong>Folge im Ausnahmefall:</strong> Ist Google Play über 14 Tage hinweg dauerhaft nicht
+          erreichbar oder wurde das Abo beendet, greifen wieder die Gratis-Limits. Das ist keine Sperre
+          und kein Fehler, sondern die Kehrseite des serverlosen Betriebs. Ein kurzer App-Start mit
+          Internetverbindung stellt die Freischaltung sofort wieder her.
+        </p>
+      </div>
+      <p>
+        <strong>Kein Datenverlust bei Ablauf:</strong> Sämtliche bereits erfassten Daten bleiben
+        vollständig lesbar, bearbeitbar, exportier- und löschbar. Gesperrt sind lediglich das Anlegen
+        <em>neuer</em> Einträge über die Gratis-Limits hinaus und die PDF-Schießtermin-Übersicht.
+        Der CSV-Export bleibt dauerhaft frei — deine Daten gehören dir.
+      </p>
+
+      <h3>2.7 Nutzungsrechte</h3>
+      <p>
+        Wir räumen dir ein einfaches, nicht ausschließliches, nicht übertragbares und zeitlich auf die
+        Dauer dieses Vertrags beschränktes Recht ein, die App auf den dir zuzuordnenden Geräten für
+        eigene Zwecke zu nutzen. Nicht gestattet sind insbesondere:
+      </p>
+      <ul>
+        <li>Vermietung, Verkauf, Unterlizenzierung oder sonstige Überlassung der App an Dritte,</li>
+        <li>Verbreitung veränderter Fassungen oder das Entfernen von Urheberrechtsvermerken,</li>
+        <li>Umgehung der Kaufprüfung oder der Gratis-Limits,</li>
+        <li>Bearbeitung, Dekompilierung und Rückentwicklung — <strong>soweit</strong> nicht zwingende
+        gesetzliche Vorschriften dies erlauben (insbesondere §§ 69d, 69e UrhG).</li>
+      </ul>
+      <p>
+        Alle Rechte an der App, ihrem Namen, ihrer Gestaltung und ihren Grafiken verbleiben bei uns
+        bzw. den jeweiligen Rechteinhabern. <strong>Die Rechte an deinen Inhalten bleiben
+        selbstverständlich vollständig bei dir</strong> — wir erhalten daran keinerlei Rechte, schon weil
+        wir sie technisch nie zu Gesicht bekommen.
+      </p>
+
+      <h3>2.8 Deine Pflichten</h3>
+      <ul>
+        <li>
+          Du bist für die <strong>Richtigkeit und Vollständigkeit</strong> deiner Eintragungen selbst
+          verantwortlich. Die App prüft Plausibilität, kann aber nicht wissen, was tatsächlich
+          geschossen wurde.
+        </li>
+        <li>
+          Du bist für <strong>regelmäßige Sicherungen</strong> verantwortlich (Einstellungen → Daten &amp;
+          Export → Backup). Da wir keine Kopie deiner Daten besitzen, kann ein Geräteverlust ohne
+          Sicherung zu unwiederbringlichem Datenverlust führen.
+        </li>
+        <li>
+          Du hältst die geltenden Vorschriften ein, insbesondere das Waffengesetz und die Regeln
+          deines Vereins und Verbands.
+        </li>
+        <li>
+          Du nutzt die App nicht, um Dritte zu täuschen — etwa durch nachträglich erfundene
+          Schießtermine gegenüber Verein, Verband oder Behörde.
+        </li>
+      </ul>
+
+      <h3>2.9 Verfügbarkeit und Aktualisierungen</h3>
+      <p>
+        Die App läuft lokal; ihre Nutzbarkeit hängt daher nicht von unserer Erreichbarkeit ab. Wir
+        stellen Aktualisierungen bereit, die für den Erhalt der Vertragsmäßigkeit erforderlich sind
+        — einschließlich Sicherheitsaktualisierungen — und zwar für den Zeitraum, den du nach Art des
+        Produkts erwarten kannst (§ 327f BGB), <strong>mindestens jedoch 24 Monate</strong> ab deinem Kauf.
+        Aktualisierungen werden über Google Play verteilt; installieren musst du sie selbst. Wir weisen
+        darauf hin, dass eine unterlassene Installation die Vertragsmäßigkeit beeinträchtigen kann.
+      </p>
+      <p>
+        Wir behalten uns vor, Funktionen weiterzuentwickeln, zu ändern oder einzustellen, soweit dies
+        für dich zumutbar ist und der Kern der zugesagten Leistung erhalten bleibt. Sollten wir die App
+        dauerhaft einstellen, bleiben bereits installierte Versionen nutzbar, und die Export-Funktionen
+        stellen sicher, dass du deine Daten mitnehmen kannst.
+      </p>
+
+      <h3>2.10 Haftung</h3>
+      <p>Wir haften dir gegenüber nach den folgenden Grundsätzen:</p>
+      <ol>
+        <li>
+          <strong>Unbeschränkt</strong> bei Vorsatz und grober Fahrlässigkeit, bei der Verletzung von Leben,
+          Körper oder Gesundheit, bei arglistig verschwiegenen Mängeln, im Rahmen einer übernommenen
+          Garantie sowie nach dem Produkthaftungsgesetz.
+        </li>
+        <li>
+          Bei <strong>einfacher Fahrlässigkeit</strong> haften wir nur für die Verletzung wesentlicher
+          Vertragspflichten — also solcher Pflichten, deren Erfüllung die ordnungsgemäße Durchführung
+          des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung du regelmäßig vertrauen
+          darfst. In diesem Fall ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden
+          begrenzt.
+        </li>
+        <li>
+          Im Übrigen ist die Haftung ausgeschlossen.
+        </li>
+        <li>
+          <strong>Datenverlust:</strong> Für den Verlust von Daten haften wir nach den vorstehenden
+          Grundsätzen nur bis zu dem Aufwand, der bei ordnungsgemäßer und regelmäßiger Datensicherung
+          durch dich zur Wiederherstellung erforderlich gewesen wäre.
+        </li>
+      </ol>
+      <p>
+        Zwingende gesetzliche Verbraucherrechte, insbesondere die Mängelrechte nach §§ 327 ff. BGB,
+        bleiben von diesen Regelungen unberührt.
+      </p>
+
+      <h3>2.11 Änderungen dieser Bedingungen</h3>
+      <p>
+        Wir können diese Bedingungen ändern, wenn dies zur Anpassung an eine geänderte Rechtslage, an
+        höchstrichterliche Rechtsprechung, an technische Entwicklungen oder an geänderte
+        Store-Vorgaben erforderlich ist und dich nicht unangemessen benachteiligt. Über wesentliche
+        Änderungen informieren wir in der App oder in den Release-Notes. Widersprichst du nicht oder
+        nutzt du die App nach der Änderung weiter, gilt die neue Fassung als angenommen; andernfalls
+        steht es dir frei, die Nutzung zu beenden.
+      </p>
+
+      <h3>2.12 Vertragsdauer und Beendigung</h3>
+      <p>
+        Der Nutzungsvertrag läuft auf unbestimmte Zeit. Du beendest ihn jederzeit durch Deinstallation
+        der App. Abos beendest du über Google Play (siehe 2.4). Wir dürfen den Nutzungsvertrag aus
+        wichtigem Grund kündigen, insbesondere bei erheblichen oder wiederholten Verstößen gegen
+        Abschnitt 2.7.
+      </p>
+
+      <h3>2.13 Schlussbestimmungen</h3>
+      <p>
+        Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Hast du als Verbraucher deinen
+        gewöhnlichen Aufenthalt in einem anderen Staat, bleiben die zwingenden
+        Verbraucherschutzvorschriften dieses Staates unberührt (Art.&nbsp;6 Rom-I-VO). Ein
+        ausschließlicher Gerichtsstand wird gegenüber Verbrauchern nicht vereinbart; es gelten die
+        gesetzlichen Regelungen.
+      </p>
+      <p>
+        Sollte eine Bestimmung dieser Bedingungen unwirksam sein oder werden, bleibt die Wirksamkeit
+        der übrigen Bestimmungen unberührt; an die Stelle der unwirksamen Bestimmung tritt die
+        gesetzliche Regelung.
+      </p>
+    </section>
+    <!-- ============================================================ 3 -->
+    <section id="haftung" aria-labelledby="h-haftung">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Abschnitt 03</p>
+      <h2 id="h-haftung">Haftungsausschluss &amp; waffenrechtliche Hinweise</h2>
+      <div class="baseline" aria-hidden="true"></div>
+      <p><small>Der wichtigste Abschnitt dieser Seite — bitte einmal ganz lesen.</small></p>
+      <hr class="sec-rule">
+
+      <div class="note important">
+        <p>
+          <strong>Die App ist eine private Eigendokumentation, kein amtliches Dokument.</strong>
+          Der Nachweis der regelmäßigen sportlichen Schießtätigkeit nach § 14 WaffG erfolgt rechtlich
+          <strong>ausschließlich</strong> über die Bescheinigung deines Schießsportverbands. Verbindlich
+          sind allein die Bestätigungen von Verein und Verband. Was die App erzeugt, ist eine
+          Schießtermin-Übersicht zur eigenen Ordnung und zur Vorlage bzw. Gegenzeichnung im Verein.
+        </p>
+      </div>
+
+      <h3>3.1 Keine Rechtsberatung</h3>
+      <p>
+        Sämtliche Inhalte der App und dieser Seite — Bedürfnis-Zählung, Fristen, Zielwerte, Hinweise
+        und Texte — sind allgemeine Informationen ohne Anspruch auf Vollständigkeit oder Aktualität und
+        stellen <strong>keine Rechtsberatung</strong> dar. Das Waffenrecht wird in den Bundesländern
+        unterschiedlich gehandhabt und ändert sich. Für deinen konkreten Fall sind deine
+        Waffenbehörde, dein Verband oder eine Rechtsanwältin bzw. ein Rechtsanwalt zuständig.
+      </p>
+
+      <h3>3.2 Bedürfnis-Zählung ist eine Rechenhilfe</h3>
+      <p>
+        Die App zählt Kalendertage mit Trainingseinträgen gegen konfigurierbare Zielwerte (z.&nbsp;B.
+        „1× pro Monat" oder „18× in 12 Monaten"). Diese Zählung bildet <strong>deine Eingaben</strong> ab,
+        nicht die Bewertung durch eine Behörde. Ob dein Bedürfnis anerkannt wird, entscheidet allein
+        die zuständige Waffenbehörde auf Grundlage der Verbandsbescheinigung. Ein grüner Balken in der
+        App ist kein Anspruch, ein roter kein Bescheid.
+      </p>
+
+      <h3>3.3 Richtigkeit der Angaben</h3>
+      <p>
+        Alle Daten stammen von dir. Die App kann Tippfehler, vergessene Termine oder falsch zugeordnete
+        Waffen nicht erkennen. Prüfe eine Übersicht vor der Vorlage im Verein sorgfältig.
+      </p>
+      <div class="note">
+        <p>
+          Unrichtige Angaben gegenüber Verein, Verband oder Behörde können erhebliche waffenrechtliche
+          und strafrechtliche Folgen haben — bis hin zum Verlust der waffenrechtlichen Zuverlässigkeit.
+          Nutze die App zur ehrlichen Dokumentation, nicht zur nachträglichen Konstruktion von Terminen.
+        </p>
+      </div>
+
+      <h3>3.4 Kein Waffen- oder Munitionsbuch im Rechtssinne</h3>
+      <p>
+        Die Verwaltung von Waffen und Munitionsbeständen dient allein deiner eigenen Übersicht. Sie
+        ersetzt <strong>nicht</strong> die Waffenbesitzkarte, keine behördlichen Anzeigen oder
+        Meldepflichten, kein Waffenbuch nach § 23 WaffG und keine Erwerbs- oder Bestandsnachweise.
+        Die App übermittelt nichts an Behörden und erinnert nicht an Melde- oder Anzeigefristen.
+      </p>
+
+      <h3>3.5 Technische Werte ohne Gewähr</h3>
+      <ul>
+        <li>
+          <strong>Reinigungserinnerungen</strong> beruhen auf einem von dir gesetzten Schussintervall. Sie
+          ersetzen keine Herstellervorgaben, keine Sichtprüfung und keine sachkundige Wartung. Für die
+          Sicherheit und den Zustand deiner Waffen bist ausschließlich du verantwortlich.
+        </li>
+        <li>
+          <strong>Munitionsbestände</strong> werden rechnerisch fortgeschrieben. Sie ersetzen keine
+          Zählung im Schrank und keine Prüfung, ob du dich im Rahmen deiner Erwerbsberechtigung bewegst.
+        </li>
+        <li>
+          <strong>Statistiken und Kennzahlen</strong> werden aus deinen Einträgen berechnet und sind nur so
+          gut wie diese. Sie haben keinerlei amtliche Bedeutung.
+        </li>
+        <li>
+          <strong>Kaliber-Hinweise</strong> (z.&nbsp;B. die Warnung bei nicht zusammenpassender Waffe und
+          Munition) sind eine reine Schreibhilfe. <strong>Sie sind kein Sicherheitsmerkmal.</strong> Ob
+          eine Patrone in einer Waffe verwendet werden darf, entscheidest du anhand der Beschriftung von
+          Waffe und Munition sowie der Herstellerangaben — niemals anhand dieser App.
+        </li>
+      </ul>
+
+      <h3>3.6 Keine Anleitung zum Umgang mit Waffen</h3>
+      <p>
+        Die App enthält keine Anleitungen zum Umgang mit Waffen oder Munition, insbesondere nicht zum
+        Wiederladen, Umbauen oder Instandsetzen. Es gelten die Sicherheitsregeln deines Standes, die
+        Sportordnung deines Verbands und die gesetzlichen Vorschriften.
+      </p>
+
+      <h3>3.7 Datenverlust</h3>
+      <p>
+        Weil alle Daten ausschließlich auf deinem Gerät liegen, führen Geräteverlust, Defekt,
+        Zurücksetzen auf Werkseinstellungen oder Deinstallation ohne Sicherung zu unwiederbringlichem
+        Datenverlust. Wir haben keine Kopie und können nichts wiederherstellen. Lege regelmäßig ein
+        Backup an und bewahre es an einem sicheren Ort auf. Ergänzend gilt Abschnitt 2.10 Nr.&nbsp;4.
+      </p>
+
+      <h3>3.8 Externe Verweise</h3>
+      <p>
+        Für Inhalte verlinkter externer Seiten sind ausschließlich deren Betreiber verantwortlich. Zum
+        Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar; bei Bekanntwerden von
+        Rechtsverletzungen entfernen wir entsprechende Links umgehend.
+      </p>
+    </section>
+    <!-- ============================================================ 4 -->
+    <section id="barrierefreiheit" aria-labelledby="h-a11y">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Abschnitt 04</p>
+      <h2 id="h-a11y">Erklärung zur Barrierefreiheit</h2>
+      <div class="baseline" aria-hidden="true"></div>
+      <p><small>Freiwillige Erklärung · Stand 21.07.2026</small></p>
+      <hr class="sec-rule">
+
+      <h3>4.1 Rechtlicher Rahmen</h3>
+      <p>
+        Das Barrierefreiheitsstärkungsgesetz (BFSG) gilt seit dem 28.&nbsp;Juni 2025. Für
+        Dienstleistungen sieht § 3 BFSG eine Ausnahme für <strong>Kleinstunternehmen</strong> vor
+        (weniger als zehn Beschäftigte und höchstens 2&nbsp;Mio.&nbsp;€ Jahresumsatz bzw.
+        Jahresbilanzsumme). Bytebandits OÜ erfüllt diese Voraussetzungen; eine gesetzliche
+        Verpflichtung besteht daher nach unserer Einschätzung nicht. Wir veröffentlichen diese
+        Erklärung dennoch freiwillig — weil Zugänglichkeit uns wichtig ist und weil Anwenderinnen und
+        Anwender wissen sollen, woran sie sind.
+      </p>
+
+      <h3>4.2 Was die App bereits unterstützt</h3>
+      <ul>
+        <li>Vollständige Bedienung mit Screenreader (TalkBack); Beschriftungen sind hinterlegt, auch dort, wo Text aus Gestaltungsgründen in Versalien erscheint.</li>
+        <li>Skalierbare Schrift — die App folgt der Systemschriftgröße.</li>
+        <li>Vollwertiges helles und dunkles Design mit auf Kontrast geprüften Farbwerten.</li>
+        <li><strong>Status wird nie allein über Farbe vermittelt:</strong> Ampelzustände tragen zusätzlich eine eigene Form (● in Ordnung · ◐ bald fällig · ▲ kritisch) — auch bei Rot-Grün-Sehschwäche eindeutig.</li>
+        <li>Die Systemeinstellung „Animationen reduzieren" wird respektiert; alle Bewegungen sind kurz und zweckgebunden, es gibt keine Endlos-Animationen und keine blinkenden Inhalte.</li>
+        <li>Große Antippflächen, ruhige Schritt-für-Schritt-Abläufe statt dichter Formulare.</li>
+      </ul>
+
+      <h3>4.3 Bekannte Einschränkungen</h3>
+      <ul>
+        <li>Diagramme im Statistik-Bereich sind primär visuell. Die zugrunde liegenden Kennzahlen stehen als Text darüber; eine vollständige Beschreibung jedes Datenpunkts gibt es nicht.</li>
+        <li>Bei sehr großen Systemschriftgraden können einzelne Tabellen und Diagramme horizontal scrollen.</li>
+        <li>Die Auswertung von Fotos (z.&nbsp;B. Trefferbilder) ist rein visuell und nicht durch Alternativtext erschlossen.</li>
+      </ul>
+
+      <h3>4.4 Rückmeldung</h3>
+      <p>
+        Stößt du auf eine Barriere, schreib uns an
+        <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>. Beschreibe kurz, wo das Problem
+        auftritt und welche Hilfstechnik du nutzt — wir melden uns in der Regel innerhalb von drei
+        Werktagen und nehmen Verbesserungen in die Planung auf.
+      </p>
+    </section>
+    <!-- ============================================================ 5 -->
+    <section id="lizenzen" aria-labelledby="h-lizenzen">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Abschnitt 05</p>
+      <h2 id="h-lizenzen">Lizenzen, Urheberrecht &amp; Nachweise</h2>
+      <div class="baseline" aria-hidden="true"></div>
+      <hr class="sec-rule">
+
+      <h3>5.1 Urheberrecht</h3>
+      <p>
+        © 2026 Bytebandits OÜ. Die App, ihr Quellcode, ihr Name, ihr Erscheinungsbild und ihre Texte
+        sind urheberrechtlich geschützt. Jede Verwertung außerhalb der gesetzlichen Schranken bedarf
+        unserer Zustimmung.
+      </p>
+
+      <h3>5.2 Grafiken und Bilder</h3>
+      <p>
+        Sämtliche in der App verwendeten Bilder — Hintergrundmotive, Illustrationen für Leerzustände,
+        Logo, Startbildschirm und Launcher-Icons — wurden von uns selbst erstellt bzw. KI-gestützt
+        erzeugt. Die Nutzungsrechte liegen bei Bytebandits OÜ; es bestehen keine Namensnennungspflichten
+        gegenüber Dritten.
+      </p>
+
+      <h3>5.3 Verwendete Open-Source-Komponenten</h3>
+      <p>
+        Die App baut auf freier Software auf. Die vollständigen Lizenztexte — einschließlich aller
+        transitiven Abhängigkeiten — findest du jederzeit <strong>in der App unter Einstellungen → Über
+        → Open-Source-Lizenzen</strong>. Die wichtigsten Komponenten:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Komponente</th><th scope="col">Zweck</th><th scope="col">Lizenz</th></tr></thead>
+          <tbody>
+            <tr><td>Flutter &amp; Dart</td><td>App-Framework</td><td>BSD-3-Clause</td></tr>
+            <tr><td>drift</td><td>SQLite-Datenbankzugriff</td><td>MIT</td></tr>
+            <tr><td>flutter_riverpod</td><td>Zustandsverwaltung</td><td>MIT</td></tr>
+            <tr><td>fl_chart</td><td>Diagramme</td><td>MIT</td></tr>
+            <tr><td>pdf, printing</td><td>PDF-Erzeugung und Druck</td><td>Apache-2.0</td></tr>
+            <tr><td>csv</td><td>CSV-Export</td><td>MIT</td></tr>
+            <tr><td>file_picker</td><td>Datei-Auswahl für Sicherungen</td><td>MIT</td></tr>
+            <tr><td>image_picker</td><td>Foto-Auswahl und Kamera</td><td>BSD-3-Clause</td></tr>
+            <tr><td>in_app_purchase (+ _android)</td><td>Google Play Billing</td><td>BSD-3-Clause</td></tr>
+            <tr><td>shared_preferences, path_provider, path</td><td>Einstellungen, Dateipfade</td><td>BSD-3-Clause</td></tr>
+            <tr><td>intl</td><td>Datums- und Zahlenformate</td><td>BSD-3-Clause</td></tr>
+            <tr><td>uuid</td><td>Eindeutige Kennungen</td><td>MIT</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.4 Schriften</h3>
+      <p>
+        Die App bündelt ihre Schriften lokal — es werden keine Schriftarten aus dem Netz nachgeladen,
+        auch nicht auf dieser Seite:
+      </p>
+      <ul>
+        <li><strong>Manrope</strong> — Copyright 2018 The Manrope Project Authors, SIL Open Font License 1.1</li>
+        <li><strong>IBM Plex Sans / IBM Plex Mono</strong> — Copyright © 2017 IBM Corp., SIL Open Font License 1.1</li>
+      </ul>
+
+      <h3>5.5 Marken</h3>
+      <p>
+        Google Play, Android und das Google-Logo sind Marken von Google LLC. Genannte Waffen-,
+        Munitions- und Verbandsbezeichnungen sind Marken oder geschützte Bezeichnungen ihrer jeweiligen
+        Inhaber und werden hier ausschließlich beschreibend verwendet.
+      </p>
+    </section>
+    <!-- ============================================================ 6 -->
+    <section id="kontakt" aria-labelledby="h-kontakt">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Abschnitt 06</p>
+      <h2 id="h-kontakt">Kontakt</h2>
+      <div class="baseline" aria-hidden="true"></div>
+      <hr class="sec-rule">
+      <p>
+        Fragen zur App, zum Datenschutz, zu einem Kauf oder zur Barrierefreiheit gehen alle an dieselbe
+        Adresse — es gibt keine Warteschleife und kein Ticketsystem:
+      </p>
+      <div class="card">
+        <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Bytebandits OÜ</p>
+        <address>
+          Tartu mnt 67/1-13b, Kesklinna linnaosa<br>
+          10115 Tallinn, Estland<br>
+          <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>
+        </address>
+      </div>
+      <p>
+        <strong>Bei Problemen mit einem Kauf oder Abo</strong> ist Google der schnellere Weg, weil dort der
+        Kaufvertrag geführt wird: Google-Play-App → Profilbild → „Zahlungen und Abos".
+      </p>
+      <p>
+        <strong>Bei einem Fehler in der App</strong> hilft uns: Android-Version, Gerätemodell, App-Version
+        (Einstellungen → Über → Version) und eine kurze Beschreibung, was du getan hast und was passiert
+        ist. Bitte schick uns <em>keine</em> Datenbank-Sicherungen oder personenbezogenen Ausdrucke mit —
+        wir brauchen sie nicht und wollen sie nicht.
+      </p>
+    </section>
+    <!-- ============================================================ 7 -->
+    <section id="impressum" aria-labelledby="h-impressum">
+      <p class="eyebrow"><span class="mark" aria-hidden="true"></span>Abschnitt 07</p>
+      <h2 id="h-impressum">Impressum</h2>
+      <div class="baseline" aria-hidden="true"></div>
+      <p><small>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</small></p>
+      <hr class="sec-rule">
+
+      <h3>7.1 Anbieter</h3>
+      <div class="card">
+        <address>
+          Bytebandits OÜ<br>
+          Tartu mnt 67/1-13b, Kesklinna linnaosa<br>
+          10115 Tallinn<br>
+          Estland
+        </address>
+      </div>
+
+      <h3>7.2 Vertretungsberechtigt</h3>
+      <p>Vertreten durch den Vorstand: <strong>M.&nbsp;Scherb</strong></p>
+
+      <h3>7.3 Kontakt</h3>
+      <p>
+        E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a><br>
+        <small>Anfragen werden in der Regel innerhalb von drei Werktagen beantwortet. Eine
+        Telefonnummer wird nicht vorgehalten; die elektronische Kontaktaufnahme ist der
+        vorgesehene und zugleich schnellste Weg.</small>
+      </p>
+
+      <h3>7.4 Registereintrag</h3>
+      <p>
+        Registernummer: <span class="mono">17265228</span><br>
+        Registergericht: Harju Maakohus (Harju County Court), Estland
+      </p>
+
+      <h3>7.5 Umsatzsteuer</h3>
+      <p>
+        Das Unternehmen ist nicht umsatzsteuerpflichtig registriert. Bei Käufen über Google Play
+        wird die Umsatzsteuer von Google als Vertragspartner (Merchant of Record) im Europäischen
+        Wirtschaftsraum ermittelt und abgeführt (siehe <a href="#vertragspartner">Abschnitt&nbsp;2.1</a>).
+      </p>
+
+      <h3>7.6 Verbraucherstreitbeilegung</h3>
+      <p>
+        Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer
+        Verbraucherschlichtungsstelle teilzunehmen (§ 36 Verbraucherstreitbeilegungsgesetz).
+      </p>
+      <div class="note">
+        <p>
+          <strong>Hinweis zur EU-Plattform für Online-Streitbeilegung:</strong> Die Plattform der
+          Europäischen Kommission wurde zum <span class="mono">20.07.2025</span> eingestellt
+          (Verordnung (EU) 2024/3228). Ein Link darauf entfällt daher bewusst. Beschwerden zu
+          Käufen richtest du direkt an Google (siehe <a href="#kauf-abwicklung">Abschnitt&nbsp;2.5</a>)
+          oder an uns.
+        </p>
+      </div>
+
+      <h3>7.7 Verhältnis zu Dritten</h3>
+      <p>
+        Die Sportschützen App ist ein unabhängiges Produkt. Es besteht <strong>keine Verbindung</strong>
+        zu Behörden, zum Deutschen Schützenbund, zum BDS, zum BDMP oder zu sonstigen
+        Schießsportverbänden, ebenso wenig zu Waffen- oder Munitionsherstellern. Google, Google Play
+        und Android sind Marken von Google LLC; ein Sponsoring- oder Empfehlungsverhältnis besteht nicht.
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="baseline" aria-hidden="true"></div>
+    <p>
+      <strong>Sportschützen App</strong> — digitales Schießbuch, 100&nbsp;% offline.<br>
+      © 2026 Bytebandits OÜ · Dokumentversion <span class="mono">1.0</span> · Stand <span class="mono">21.07.2026</span>
+    </p>
+    <p>
+      <small>
+        Diese Seite lädt keine externen Ressourcen, setzt keine Cookies und verwendet keine
+        Analyse-Werkzeuge. Serverseitig können beim Aufruf technisch bedingte Protokolldaten
+        (z.&nbsp;B. IP-Adresse, Zeitpunkt) beim Hosting-Anbieter anfallen; sie werden nicht
+        ausgewertet und nicht mit Personen zusammengeführt.
+      </small>
+    </p>
+    <p class="foot-links">
+      <a href="#impressum">Impressum</a> ·
+      <a href="#datenschutz">Datenschutz</a> ·
+      <a href="#nutzungsbedingungen">Nutzungsbedingungen</a> ·
+      <a class="top-link" href="#inhalt">↑ Nach oben</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
