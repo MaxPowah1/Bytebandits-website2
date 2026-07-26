@@ -22,6 +22,7 @@
     section { background: var(--card); border: 1px solid #1f2633; border-radius: 18px; padding: 20px; margin: 18px 0; }
     h2 { margin-top: 0; font-size: 1.25rem; }
     h3 { margin: 1.2rem 0 .2rem; font-size: 1.05rem; }
+    h4 { margin: 1rem 0 .2rem; font-size: .98rem; color: var(--fg); }
     .badge { display: inline-block; font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: #1f2633; color: var(--muted); border: 1px solid #2a3242; }
     .warn { color: var(--warn); }
     .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
@@ -32,6 +33,14 @@
     .split { display: none; }
     .split.active { display: block; }
     .box-warn { border: 1px solid #3a2b00; background: #1b1603; padding: 12px 14px; border-radius: 12px; }
+    .box-ok { border: 1px solid #0f3b2c; background: #071a14; padding: 12px 14px; border-radius: 12px; }
+    .box-info { border: 1px solid #1f3350; background: #0a1420; padding: 12px 14px; border-radius: 12px; }
+    table { width: 100%; border-collapse: collapse; margin: .6rem 0 1rem; font-size: .95rem; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #1f2633; vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; }
+    .yes { color: var(--accent); }
+    .no { color: var(--danger); }
+    .tbl-scroll { overflow-x: auto; }
   </style>
   <script>
     function setLang(lang) {
@@ -53,7 +62,7 @@
       <div>
         <div class="badge">MotoLean X</div>
         <h1>Rechtliches / Legal</h1>
-        <div class="meta">Version 1.0.0 · Gültig ab / Effective: 2025-09-08</div>
+        <div class="meta">Version 2.0 · Gültig ab / Effective: 2026-07-24</div>
       </div>
       <div style="text-align:right">
         <div class="lang-switch">
@@ -98,7 +107,15 @@
       <p>Diese AGB gelten für die Nutzung der mobilen Anwendung „MotoLean X“ („App“) zwischen der Bytebandits OÜ („wir“) und den Nutzenden („Sie“). Abweichende Bedingungen gelten nur, wenn wir ihnen ausdrücklich zustimmen.</p>
 
       <h3>2. Leistungsumfang</h3>
-      <p>Die App misst und protokolliert den Neigungswinkel eines Motorrads und – sofern freigegeben – Standort- und Bewegungsdaten des Geräts. Die Anzeige ist bewusst dezent gehalten, um Ablenkung zu vermeiden. <strong>Es handelt sich nicht um ein geeichtes oder zertifiziertes Messverfahren; alle Messwerte sind Näherungswerte und können je nach Sensorik, Montage, Fahrstil und Umgebungsbedingungen abweichen.</strong></p>
+      <p>Die App misst und protokolliert den Neigungswinkel eines Motorrads und – sofern freigegeben – Standort- und Bewegungsdaten des Geräts. Zum Funktionsumfang gehören insbesondere:</p>
+      <ul>
+        <li>Live-Anzeige und Aufzeichnung der Schräglage,</li>
+        <li>Aufzeichnung von Fahrten mit GPS-Strecke und Geschwindigkeit,</li>
+        <li>Rundenzeiten- und Sektorenmessung über frei gesetzte Linien,</li>
+        <li>optionale Anbindung eines externen Neigungssensors (z. B. WitMotion WT901) über Bluetooth oder USB,</li>
+        <li>Export von Aufzeichnungen als CSV oder GPX.</li>
+      </ul>
+      <p>Die Anzeige ist bewusst dezent gehalten, um Ablenkung zu vermeiden. <strong>Es handelt sich nicht um ein geeichtes oder zertifiziertes Messverfahren; alle Messwerte sind Näherungswerte und können je nach Sensorik, Montage, Fahrstil und Umgebungsbedingungen abweichen.</strong></p>
 
       <h3>3. Zulässige Nutzung</h3>
       <ul>
@@ -107,10 +124,12 @@
         <li>Unterlassen Sie jede missbräuchliche Nutzung (z. B. unzulässiges Reverse Engineering, Umgehung von Schutzmechanismen).</li>
       </ul>
 
-      <h3>4. Entgelt / Verfügbarkeit</h3>
-      <p>Sofern Kosten anfallen, werden diese im Store ausgewiesen. Wir bemühen uns um eine hohe Verfügbarkeit; ein Anspruch auf jederzeitige Störungsfreiheit besteht nicht.</p>
+      <h3>4. Entgelt, In-App-Käufe und Widerruf</h3>
+      <p>Die App enthält kostenpflichtige Zusatzfunktionen („Premium“), die als In-App-Kauf über Google Play angeboten werden. Preise, Laufzeiten und Abrechnung werden vor dem Kauf im Store ausgewiesen. Vertragspartner für die Zahlungsabwicklung ist Google; es gelten zusätzlich die Nutzungsbedingungen von Google Play.</p>
+      <p>Für digitale Inhalte gilt: Mit Ihrer ausdrücklichen Zustimmung zum sofortigen Beginn der Ausführung und Ihrer Kenntnisnahme, dass Sie dadurch Ihr Widerrufsrecht verlieren, erlischt das Widerrufsrecht vorzeitig (§ 356 Abs. 5 BGB). Erstattungen richten sich im Übrigen nach den Richtlinien von Google Play.</p>
+      <p>Wir bemühen uns um eine hohe Verfügbarkeit; ein Anspruch auf jederzeitige Störungsfreiheit besteht nicht.</p>
 
-      <h3>5. Haftung & Haftungsausschluss (umfassend)</h3>
+      <h3>5. Haftung &amp; Haftungsausschluss (umfassend)</h3>
       <p><strong>Die Nutzung der App erfolgt auf eigene Gefahr.</strong> Soweit gesetzlich zulässig, schließen wir jede Haftung aus für Schäden, die mittelbar oder unmittelbar aus der Nutzung der App entstehen, insbesondere für:</p>
       <ul>
         <li>Ungenauigkeiten, Verzögerungen oder Unvollständigkeiten von Mess-, Sensor- oder Standortdaten,</li>
@@ -125,7 +144,7 @@
       <p>Die App wird in der jeweils aktuellen Fassung bereitgestellt. Standort- und Messdaten können ungenau, verzögert oder unvollständig sein. Es wird keine Gewähr für die Eignung zu einem bestimmten Zweck übernommen.</p>
 
       <h3>7. Datenschutz</h3>
-      <p>Informationen zur Verarbeitung personenbezogener Daten finden Sie in der <em>Datenschutzerklärung</em>.</p>
+      <p>Informationen zur Verarbeitung personenbezogener Daten finden Sie in der <em>Datenschutzerklärung</em> auf dieser Seite.</p>
 
       <h3>8. Änderungen</h3>
       <p>Wir können diese AGB anpassen, wenn sich Funktionen oder Rechtslagen ändern. Es gilt die jeweils veröffentlichte Fassung.</p>
@@ -138,44 +157,128 @@
       <h2>Datenschutzerklärung</h2>
       <p>Verantwortlicher (Art. 4 Nr. 7 DSGVO) ist die <strong>Bytebandits OÜ</strong>, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estland; E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.</p>
 
-      <h3>1. Verarbeitete Daten & Zwecke</h3>
+      <div class="box-ok">
+        <p style="margin:0"><strong>Kurzfassung:</strong> <strong>Ihre GPS-Positionen verlassen Ihr Gerät nicht.</strong> Aufgezeichnete Fahrten bleiben lokal gespeichert. Nach außen gehen nur zwei Dinge: Kartenkacheln werden zur Darstellung nachgeladen, und – <em>ausschließlich nach Ihrer ausdrücklichen Einwilligung</em> – anonymisierte Messdaten ohne Ortsbezug zur Verbesserung der Schräglagen-Messung. Details in den Abschnitten 2 und 3.</p>
+      </div>
+
+      <h3>1. Verarbeitete Daten &amp; Zwecke</h3>
       <ul>
-        <li><strong>Standortdaten (GPS, ggf. im Hintergrund):</strong> Aufzeichnung von Fahrten, Anzeige der Strecke, Verknüpfung mit Neigungsdaten.</li>
-        <li><strong>Bewegungs-/Gerätesensordaten:</strong> Berechnung des Neigungswinkels.</li>
-        <li><strong>Sitzungs-/Protokolldaten:</strong> Zeitstempel, App-Ereignisse (z. B. Start/Stop), Fehlermeldungen zur Funktion und Diagnose.</li>
-        <li><strong>Benachrichtigungen/Vordergrunddienst:</strong> Sicherstellung laufender Aufzeichnungen.</li>
-        <li><strong>Netzwerkzugriff:</strong> Kartenkacheln und optionale Online-Funktionen (keine Werbung, kein Drittanbieter-Tracking-SDK).</li>
+        <li><strong>Standortdaten (GPS, ggf. im Hintergrund):</strong> Aufzeichnung von Fahrten, Anzeige der Strecke, Geschwindigkeit, Rundenzeiten, Verknüpfung mit Neigungsdaten.</li>
+        <li><strong>Bewegungs- und Gerätesensordaten:</strong> Beschleunigungssensor und Gyroskop zur Berechnung des Neigungswinkels.</li>
+        <li><strong>Bluetooth- und USB-Zugriff:</strong> ausschließlich zur Verbindung mit einem optionalen externen Neigungssensor. Es findet kein Bluetooth-basiertes Tracking und keine Standortbestimmung über Bluetooth statt.</li>
+        <li><strong>Sitzungs- und Protokolldaten:</strong> Zeitstempel, App-Ereignisse (z. B. Start/Stopp), Fehlermeldungen zur Funktion und Diagnose – lokal auf dem Gerät.</li>
+        <li><strong>Benachrichtigungen und Vordergrunddienst:</strong> Sicherstellung laufender Aufzeichnungen, solange der Bildschirm aus ist.</li>
+        <li><strong>Kaufdaten:</strong> Bei einem In-App-Kauf verarbeitet Google Play die Zahlung. Wir erhalten von Google lediglich die Information, ob ein Kauf gültig ist – keine Zahlungsdaten.</li>
+        <li><strong>Netzwerkzugriff:</strong> Kartenkacheln und – nach Einwilligung – die Übermittlung anonymisierter Fahrdaten. <strong>Keine Werbung, kein Analyse- oder Tracking-SDK von Drittanbietern.</strong></li>
       </ul>
-      <p class="small">Hinweis: Die App kann Berechtigungen für präzise/ungefähre und Hintergrund-Standortdaten, Vordergrunddienst, Benachrichtigungen, Internet/Netzwerk sowie hochfrequente Sensoren verwenden.</p>
+      <p class="small">Die App kann Berechtigungen für präzise/ungefähre und Hintergrund-Standortdaten, Vordergrunddienst, Benachrichtigungen, Internet/Netzwerk, Bluetooth sowie hochfrequente Sensoren anfordern.</p>
 
-      <h3>2. Rechtsgrundlagen (Art. 6 DSGVO)</h3>
+      <h3>2. Freiwillige Übermittlung anonymisierter Fahrdaten</h3>
+      <p>Sie können uns aufgezeichnete Fahrten zur Verfügung stellen, damit wir die Schräglagen-Messung verbessern können. <strong>Das ist vollständig freiwillig; die App funktioniert ohne diese Funktion unverändert.</strong></p>
+
+      <h4>2.1 Wie die Übermittlung ausgelöst wird</h4>
       <ul>
-        <li><strong>Vertrag (Art. 6 Abs. 1 b):</strong> Bereitstellung der Kernfunktionen (Aufzeichnen/Anzeigen von Lean- und GPS-Daten).</li>
-        <li><strong>Einwilligung (Art. 6 Abs. 1 a):</strong> z. B. Hintergrund-Standort oder Benachrichtigungen, soweit vom System angefragt.</li>
-        <li><strong>Berechtigtes Interesse (Art. 6 Abs. 1 f):</strong> App-Sicherheit, Fehlerdiagnose, Missbrauchsvermeidung.</li>
+        <li><strong>Einmalige Einwilligung:</strong> Sie werden einmal gefragt und stimmen durch aktives Betätigen der Schaltfläche „Ja, ich helfe mit“ zu. Danach werden Aufzeichnungen <strong>ab einer Länge von 10 Minuten</strong> automatisch übermittelt. Kürzere Aufzeichnungen bleiben auf Ihrem Gerät.</li>
+        <li><strong>Einzelne Fahrten:</strong> Unabhängig davon können Sie jede einzelne Aufzeichnung über das Menü in der Fahrtenliste manuell teilen.</li>
+        <li><strong>Widerruf:</strong> Sie können die automatische Übermittlung jederzeit in den Einstellungen der App abschalten. Der Widerruf wirkt für die Zukunft.</li>
       </ul>
 
-      <h3>3. Speicherort & Speicherdauer</h3>
-      <p>Mess- und Sitzungsdaten werden primär <strong>lokal auf Ihrem Gerät</strong> gespeichert. Eine Übermittlung an uns oder Dritte erfolgt nur, wenn Sie aktiv exportieren/teilen. Löschung ist in der App möglich.</p>
+      <h4>2.2 Was übermittelt wird – und was nicht</h4>
+      <div class="tbl-scroll">
+      <table>
+        <tr><th style="width:50%">Übermittelt wird</th><th>Nicht übermittelt wird</th></tr>
+        <tr>
+          <td>
+            <ul>
+              <li>Schräglagenverlauf über die Zeit</li>
+              <li>Geschwindigkeit und GPS-Genauigkeitswerte</li>
+              <li>Kurven-Drehrate (Grad pro Sekunde)</li>
+              <li>App-Version, Filtereinstellungen, verwendete Sensorquelle</li>
+              <li>Gerätemodell, Hersteller, Prozessor, Android-Version, Arbeitsspeicher, Bildschirmauflösung</li>
+              <li>technische Kennwerte des verbauten Beschleunigungs- und Drehratensensors (Name, Hersteller, Auflösung, maximale Abtastrate)</li>
+              <li>Monat der Aufzeichnung (z. B. „2026-07“)</li>
+              <li>ein optionaler Freitext-Kommentar, den Sie selbst eingeben</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li class="no"><strong>keine GPS-Koordinaten</strong> – Ihre Positionen verlassen das Gerät nicht</li>
+              <li class="no"><strong>kein Datum und keine Uhrzeit</strong> – Zeitangaben sind relativ zum Beginn der Aufzeichnung, das Aufnahmedatum wird auf den Monat gerundet</li>
+              <li class="no"><strong>keine Konto-, Nutzer- oder Gerätekennung</strong> – auch keine Werbe-ID, keine Seriennummer, keine Android-ID</li>
+              <li class="no"><strong>keine IP-Adresse</strong> – die Zugriffsprotokollierung ist für diesen Endpunkt abgeschaltet</li>
+              <li class="no">keine Kontaktdaten, keine Fotos, keine Adressbuchdaten</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      </div>
+      <p class="small">Die Kurven-Drehrate wird <em>auf Ihrem Gerät</em> aus aufeinanderfolgenden Positionen berechnet; anschließend werden die Positionen verworfen. Übermittelt wird nur das Ergebnis, nicht die zugrunde liegenden Koordinaten.</p>
 
-      <h3>4. Empfänger & Drittlandtransfers</h3>
-      <p>Keine regelmäßigen Übermittlungen an Dritte. Bei Support-Anfragen verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung. Sollten künftig optionale Cloud-Dienste angeboten werden, informieren wir vorab und holen erforderliche Einwilligungen ein.</p>
+      <h4>2.3 Anonymität und verbleibendes Risiko</h4>
+      <p>Nach Entfernung der Positions- und Zeitangaben und ohne jede Kennung lässt sich der übermittelte Datensatz keiner bestimmten Person mehr zuordnen. Es handelt sich damit um anonyme Daten im Sinne von Erwägungsgrund 26 DSGVO.</p>
+      <p>Der Vollständigkeit halber weisen wir auf ein theoretisches Restrisiko hin: Aus Geschwindigkeit und Drehrate lässt sich der <em>Verlauf</em> einer Strecke als geometrische Form nachbilden. Ein Ortsbezug ist darin nicht enthalten – es gibt keinen Anfangspunkt und keine Himmelsrichtung. Wo Sie gefahren sind, lässt sich daraus nicht bestimmen.</p>
 
-      <h3>5. Ihre Rechte</h3>
-      <p>Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch (Art. 12–22 DSGVO). Zudem besteht ein Beschwerderecht bei einer Aufsichtsbehörde, z. B. Estonian Data Protection Inspectorate.</p>
+      <h4>2.4 Rechtsgrundlage</h4>
+      <ul>
+        <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> – Ihre Einwilligung, soweit im Zuge der Übermittlung überhaupt personenbezogene Daten (etwa die IP-Adresse während der Verbindung) verarbeitet werden.</li>
+        <li><strong>§ 25 Abs. 1 TDDDG</strong> – Ihre Einwilligung für den Zugriff auf Informationen, die auf Ihrem Endgerät gespeichert sind (Aufzeichnungen sowie technische Angaben zu Gerät und Sensorik). Diese Einwilligung ist unabhängig davon erforderlich, ob die Daten personenbezogen sind.</li>
+      </ul>
 
-      <h3>6. Minderjährige</h3>
+      <h4>2.5 Upload-Code und Löschung</h4>
+      <p>Jede übermittelte Fahrt erhält einen zufälligen Upload-Code (Beispiel: <code>KSC9-6RVR</code>). Sie finden alle Ihre Codes in den Einstellungen der App. Da wir bewusst nichts speichern, was zu Ihnen zurückführt, ist dieser Code die einzige Möglichkeit, eine bestimmte Übermittlung zuzuordnen: Nennen Sie ihn uns per E-Mail, und wir löschen den betreffenden Datensatz.</p>
+
+      <h4>2.6 Speicherort und Speicherdauer</h4>
+      <p>Die übermittelten Daten werden auf einem von uns betriebenen Server in <strong>Deutschland</strong> (IONOS SE, Rechenzentrum in der EU) gespeichert. Eine Weitergabe an Dritte findet nicht statt. Da die Daten anonym sind, unterliegen sie keiner gesetzlichen Löschfrist; wir bewahren sie auf, solange sie für die Verbesserung der Messverfahren nützlich sind.</p>
+
+      <h3>3. Externe Dienste und Empfänger</h3>
+      <p>Beim Aufruf der folgenden Dienste wird technisch bedingt Ihre IP-Adresse an den jeweiligen Anbieter übertragen. Wir haben darauf keinen Einfluss.</p>
+
+      <h4>3.1 Kartendarstellung – OpenStreetMap</h4>
+      <p>Für die Kartenansicht (Streckenanzeige, Setzen von Start-/Ziellinien) laden wir Kartenkacheln von <strong>tile.openstreetmap.org</strong>, betrieben von der OpenStreetMap Foundation (Vereinigtes Königreich). Dabei werden Ihre IP-Adresse und die angeforderten Kachelkoordinaten übertragen; aus Letzteren ergibt sich der betrachtete Kartenausschnitt. Rechtsgrundlage ist unser berechtigtes Interesse an einer funktionsfähigen Kartendarstellung (Art. 6 Abs. 1 lit. f DSGVO). Nutzungsbedingungen: <a href="https://operations.osmfoundation.org/policies/tiles/" target="_blank" rel="noopener">operations.osmfoundation.org/policies/tiles/</a>.</p>
+
+      <div class="box-info">
+        <p style="margin:0"><strong>Keine Übermittlung von Positionsdaten:</strong> Die App enthält keine Funktion, die GPS-Koordinaten Ihrer Fahrten an Dritte sendet. Eine frühere Höhenprofil-Funktion, die dafür einen externen Höhendienst angefragt hätte, wurde vollständig aus der App entfernt.</p>
+      </div>
+
+      <h4>3.2 Zahlungsabwicklung – Google Play</h4>
+      <p>In-App-Käufe werden über Google Play abgewickelt (Google Ireland Limited). Wir erhalten keine Zahlungsdaten, sondern lediglich eine Bestätigung über die Gültigkeit eines Kaufs. Es gelten ergänzend die Datenschutzbestimmungen von Google.</p>
+
+      <h4>3.3 Keine Werbung, kein Tracking</h4>
+      <p>Die App enthält <strong>keine Werbung</strong>, kein Analyse-SDK, kein Crash-Reporting eines Drittanbieters und keine geräteübergreifende Wiedererkennung. Wir verkaufen keine Daten.</p>
+
+      <h3>4. Rechtsgrundlagen im Überblick (Art. 6 DSGVO)</h3>
+      <ul>
+        <li><strong>Vertrag (Art. 6 Abs. 1 lit. b):</strong> Bereitstellung der Kernfunktionen – Aufzeichnen und Anzeigen von Schräglagen-, GPS- und Rundenzeitdaten, In-App-Käufe.</li>
+        <li><strong>Einwilligung (Art. 6 Abs. 1 lit. a):</strong> Standortzugriff und Benachrichtigungen, soweit vom Betriebssystem abgefragt; freiwillige Übermittlung von Fahrdaten (Abschnitt 2).</li>
+        <li><strong>§ 25 Abs. 1 TDDDG:</strong> Zugriff auf Informationen im Endgerät im Rahmen der freiwilligen Datenübermittlung.</li>
+        <li><strong>Berechtigtes Interesse (Art. 6 Abs. 1 lit. f):</strong> App-Sicherheit, Fehlerdiagnose, Missbrauchsvermeidung, Kartendarstellung.</li>
+      </ul>
+
+      <h3>5. Speicherort &amp; Speicherdauer</h3>
+      <p>Mess- und Sitzungsdaten werden <strong>lokal auf Ihrem Gerät</strong> gespeichert und bleiben dort, bis Sie sie löschen. Eine Übermittlung an uns erfolgt ausschließlich in den in Abschnitt 2 beschriebenen Fällen oder wenn Sie eine Aufzeichnung aktiv exportieren und teilen. Das Löschen einzelner Fahrten oder aller Daten ist jederzeit in der App möglich.</p>
+
+      <h3>6. Server-Protokolle</h3>
+      <p>Unser Webserver protokolliert Zugriffe (IP-Adresse, Zeitpunkt, angeforderte Ressource, Statuscode) zur Aufrechterhaltung des Betriebs und zur Abwehr von Angriffen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Diese Protokolle werden turnusmäßig rotiert und gelöscht. <strong>Für den Endpunkt, der freiwillig geteilte Fahrdaten entgegennimmt, ist die Zugriffsprotokollierung ausdrücklich abgeschaltet</strong>, damit Übermittlungen nicht über die IP-Adresse zuordenbar werden.</p>
+
+      <h3>7. Ihre Rechte</h3>
+      <p>Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch (Art. 12–22 DSGVO). Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen – für die Fahrdaten-Übermittlung direkt in den Einstellungen der App, im Übrigen per E-Mail an <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.</p>
+      <p>Zur Löschung einer bereits übermittelten Fahrt benötigen wir den zugehörigen Upload-Code (siehe Abschnitt 2.5), da die Daten sonst keiner Person zuzuordnen sind. Zudem besteht ein Beschwerderecht bei einer Aufsichtsbehörde, z. B. der estnischen Datenschutzaufsicht (Andmekaitse Inspektsioon).</p>
+
+      <h3>8. Minderjährige</h3>
       <p>Die App richtet sich nicht an Kinder. Soweit eine Einwilligung erforderlich ist, gilt sie in Estland ab 13 Jahren als wirksam; jüngere Personen benötigen die Zustimmung der Erziehungsberechtigten.</p>
 
-      <h3>7. Sicherheit & Haftungsausschluss für Daten</h3>
-      <p>Wir ergreifen angemessene technische und organisatorische Maßnahmen. Gleichwohl kann ein absoluter Schutz vor Datenverlust, unbefugtem Zugriff oder Übertragungsschwierigkeiten nicht garantiert werden. <strong>Soweit rechtlich zulässig, schließen wir hierfür die Haftung aus.</strong></p>
+      <h3>9. Sicherheit &amp; Haftungsausschluss für Daten</h3>
+      <p>Wir ergreifen angemessene technische und organisatorische Maßnahmen; die Übertragung erfolgt ausschließlich verschlüsselt (HTTPS/TLS). Gleichwohl kann ein absoluter Schutz vor Datenverlust, unbefugtem Zugriff oder Übertragungsschwierigkeiten nicht garantiert werden. <strong>Soweit rechtlich zulässig, schließen wir hierfür die Haftung aus.</strong></p>
 
-      <h3>8. Änderungen</h3>
-      <p>Wir passen diese Erklärung an, wenn sich Funktionen oder Rechtslagen ändern. Die jeweils gültige Fassung ist über diese Seite einsehbar.</p>
+      <h3>10. Änderungen</h3>
+      <p>Wir passen diese Erklärung an, wenn sich Funktionen oder Rechtslagen ändern. Erweitert sich der Umfang der freiwillig übermittelten Daten, holen wir Ihre Einwilligung erneut ein. Die jeweils gültige Fassung ist über diese Seite einsehbar.</p>
+
+      <h3>Hinweis für Einwohner Kaliforniens (CPRA/CCPA)</h3>
+      <p>Einwohner Kaliforniens haben Rechte auf Auskunft, Löschung und Berichtigung sowie auf Widerspruch gegen den Verkauf oder das Teilen personenbezogener Daten. Wir <strong>verkaufen und teilen keine</strong> personenbezogenen Daten und setzen keine kontextübergreifende verhaltensbasierte Werbung ein. Anfragen an <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>; wir prüfen und beantworten diese fristgerecht und benachteiligen niemanden für die Ausübung seiner Rechte.</p>
     </section>
 
     <section>
-      <h2>Sicherheits- & Rechtshinweise beim Fahren</h2>
+      <h2>Sicherheits- &amp; Rechtshinweise beim Fahren</h2>
       <ul>
         <li>Beachten Sie gesetzliche Verbote der Gerätebedienung während der Fahrt (z. B. § 23 StVO). Nutzen Sie die App nur montiert und mit Sprach-/Kurzbedienung.</li>
         <li>Halten Sie Ihre Aufmerksamkeit stets auf den Verkehr gerichtet; nur kurze Blicke aufs Display.</li>
@@ -215,7 +318,15 @@
       <p>These Terms govern the use of the “MotoLean X” mobile application (“App”) between Bytebandits OÜ (“we”) and the user (“you”). Deviating terms apply only if expressly agreed.</p>
 
       <h3>2. Service</h3>
-      <p>The App measures and logs motorcycle lean angle and—if permitted—device location and motion data. Visuals are deliberately minimal to reduce distraction. <strong>The App is not a certified or calibrated measuring device; all readings are approximate and may vary with hardware, mounting, riding and environment.</strong></p>
+      <p>The App measures and logs motorcycle lean angle and—if permitted—device location and motion data. The feature set includes in particular:</p>
+      <ul>
+        <li>live display and recording of lean angle,</li>
+        <li>ride recording with GPS track and speed,</li>
+        <li>lap and sector timing using user-defined lines,</li>
+        <li>optional connection of an external lean sensor (e.g. WitMotion WT901) via Bluetooth or USB,</li>
+        <li>export of recordings as CSV or GPX.</li>
+      </ul>
+      <p>Visuals are deliberately minimal to reduce distraction. <strong>The App is not a certified or calibrated measuring device; all readings are approximate and may vary with hardware, mounting, riding and environment.</strong></p>
 
       <h3>3. Permitted Use</h3>
       <ul>
@@ -224,10 +335,12 @@
         <li>Do not misuse the App (e.g., unlawful reverse engineering or circumventing security features).</li>
       </ul>
 
-      <h3>4. Fees / Availability</h3>
-      <p>If fees apply, they are shown in the store. We strive for high availability but do not warrant uninterrupted, error-free operation.</p>
+      <h3>4. Fees, In-App Purchases and Withdrawal</h3>
+      <p>The App offers paid additional features (“Premium”) sold as in-app purchases through Google Play. Prices, terms and billing are shown in the store before purchase. Google is your contractual partner for payment processing; the Google Play terms apply in addition.</p>
+      <p>For digital content: if you expressly consent to immediate performance and acknowledge that you thereby lose your right of withdrawal, that right expires early (Section 356(5) German Civil Code). Refunds are otherwise governed by Google Play policies.</p>
+      <p>We strive for high availability but do not warrant uninterrupted, error-free operation.</p>
 
-      <h3>5. Liability & Disclaimer (comprehensive)</h3>
+      <h3>5. Liability &amp; Disclaimer (comprehensive)</h3>
       <p><strong>You use the App entirely at your own risk.</strong> To the fullest extent permitted by law, we disclaim all liability for any loss or damage arising out of or in connection with the App, including in particular:</p>
       <ul>
         <li>inaccurate, delayed or incomplete measurements, sensor or location data,</li>
@@ -255,47 +368,128 @@
       <h2>Privacy Policy</h2>
       <p>The controller is <strong>Bytebandits OÜ</strong>, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estonia; Email: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.</p>
 
-      <h3>1. Data We Process & Purposes</h3>
+      <div class="box-ok">
+        <p style="margin:0"><strong>In short:</strong> <strong>Your GPS positions never leave your device.</strong> Recorded rides are stored locally. Only two things go out: map tiles are fetched for display, and—<em>solely with your explicit consent</em>—anonymised measurement data without any location reference, to improve lean angle accuracy. Details in sections 2 and 3.</p>
+      </div>
+
+      <h3>1. Data We Process &amp; Purposes</h3>
       <ul>
-        <li><strong>Location data (GPS, possibly in background):</strong> to record rides, show tracks and correlate with lean data.</li>
-        <li><strong>Motion/device sensor data:</strong> to compute lean angle.</li>
-        <li><strong>Session/log data:</strong> timestamps and app events (e.g., start/stop), error logs for functionality and troubleshooting.</li>
-        <li><strong>Notifications/foreground service:</strong> to keep recordings active and visible to the OS.</li>
-        <li><strong>Network access:</strong> map tiles and optional online features (no ads, no third-party tracking SDK).</li>
+        <li><strong>Location data (GPS, possibly in background):</strong> to record rides, show tracks, speed, lap times and correlate with lean data.</li>
+        <li><strong>Motion and device sensor data:</strong> accelerometer and gyroscope to compute lean angle.</li>
+        <li><strong>Bluetooth and USB access:</strong> solely to connect an optional external lean sensor. No Bluetooth-based tracking and no positioning via Bluetooth takes place.</li>
+        <li><strong>Session/log data:</strong> timestamps, app events (e.g. start/stop), error logs for functionality and troubleshooting—stored locally on the device.</li>
+        <li><strong>Notifications/foreground service:</strong> to keep recordings running while the screen is off.</li>
+        <li><strong>Purchase data:</strong> in-app purchases are processed by Google Play. We only receive confirmation whether a purchase is valid—no payment details.</li>
+        <li><strong>Network access:</strong> map tiles and—after consent—transmission of anonymised ride data. <strong>No advertising, no third-party analytics or tracking SDK.</strong></li>
       </ul>
-      <p class="small">Note: The App may request permissions for precise/approximate and background location, foreground service, notifications, Internet/network and high-frequency sensors.</p>
+      <p class="small">The App may request permissions for precise/approximate and background location, foreground service, notifications, Internet/network, Bluetooth and high-frequency sensors.</p>
 
-      <h3>2. Legal Bases (GDPR Art. 6)</h3>
+      <h3>2. Voluntary Transmission of Anonymised Ride Data</h3>
+      <p>You may make recorded rides available to us so we can improve lean angle measurement. <strong>This is entirely voluntary; the App works exactly the same without it.</strong></p>
+
+      <h4>2.1 How transmission is triggered</h4>
       <ul>
-        <li><strong>Contract (Art. 6(1)(b)):</strong> provide core features (record/display lean & GPS data).</li>
-        <li><strong>Consent (Art. 6(1)(a)):</strong> e.g., background location or notifications as prompted by the OS.</li>
-        <li><strong>Legitimate interests (Art. 6(1)(f)):</strong> app security, troubleshooting and abuse prevention.</li>
+        <li><strong>One-time consent:</strong> you are asked once and consent by actively tapping “Yes, I will help”. After that, recordings <strong>of 10 minutes or longer</strong> are transmitted automatically. Shorter recordings stay on your device.</li>
+        <li><strong>Individual rides:</strong> independently of this, you can share any single recording manually from the menu in the ride list.</li>
+        <li><strong>Withdrawal:</strong> you can switch automatic transmission off at any time in the App settings. Withdrawal takes effect for the future.</li>
       </ul>
 
-      <h3>3. Storage & Retention</h3>
-      <p>Records are stored primarily <strong>locally on your device</strong>. We do not receive your rides unless you actively export/share them. You can delete data at any time in the App.</p>
+      <h4>2.2 What is transmitted—and what is not</h4>
+      <div class="tbl-scroll">
+      <table>
+        <tr><th style="width:50%">Transmitted</th><th>Never transmitted</th></tr>
+        <tr>
+          <td>
+            <ul>
+              <li>lean angle over time</li>
+              <li>speed and GPS accuracy values</li>
+              <li>cornering rate (degrees per second)</li>
+              <li>app version, filter settings, sensor source in use</li>
+              <li>device model, manufacturer, chipset, Android version, memory, screen resolution</li>
+              <li>technical specifications of the built-in accelerometer and gyroscope (name, vendor, resolution, maximum sampling rate)</li>
+              <li>month of recording (e.g. “2026-07”)</li>
+              <li>an optional free-text comment you write yourself</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li class="no"><strong>no GPS coordinates</strong>—your positions do not leave the device</li>
+              <li class="no"><strong>no date or time of day</strong>—timestamps are relative to the start of the recording, the recording date is rounded to the month</li>
+              <li class="no"><strong>no account, user or device identifier</strong>—no advertising ID, no serial number, no Android ID</li>
+              <li class="no"><strong>no IP address</strong>—access logging is disabled for this endpoint</li>
+              <li class="no">no contact details, no photos, no address book data</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      </div>
+      <p class="small">The cornering rate is calculated <em>on your device</em> from consecutive positions; the positions are then discarded. Only the result is transmitted, never the underlying coordinates.</p>
 
-      <h3>4. Recipients & International Transfers</h3>
-      <p>No routine sharing. If you contact support, we process your message solely to handle your request. If we later offer optional cloud services, we will inform you in advance and obtain any required consent.</p>
+      <h4>2.3 Anonymity and residual risk</h4>
+      <p>With location and time removed and without any identifier, the transmitted dataset can no longer be attributed to a specific person. It therefore constitutes anonymous data within the meaning of Recital 26 GDPR.</p>
+      <p>For completeness we note a theoretical residual risk: speed and cornering rate allow the <em>shape</em> of a route to be reconstructed geometrically. That shape contains no location reference—there is no starting point and no compass direction. Where you rode cannot be determined from it.</p>
 
-      <h3>5. Your Rights</h3>
-      <p>You have rights of access, rectification, erasure, restriction, portability and to object (GDPR Arts. 12–22). You may lodge a complaint with a supervisory authority, e.g., the Estonian Data Protection Inspectorate.</p>
+      <h4>2.4 Legal basis</h4>
+      <ul>
+        <li><strong>Art. 6(1)(a) GDPR</strong>—your consent, insofar as any personal data (such as the IP address during the connection) is processed in the course of transmission.</li>
+        <li><strong>Section 25(1) TDDDG</strong> (German implementation of the ePrivacy Directive)—your consent for accessing information stored on your terminal device (recordings and technical device/sensor details). This consent is required regardless of whether the data is personal.</li>
+      </ul>
 
-      <h3>6. Children</h3>
+      <h4>2.5 Upload code and deletion</h4>
+      <p>Every transmitted ride receives a random upload code (example: <code>KSC9-6RVR</code>). You will find all your codes in the App settings. Because we deliberately store nothing that points back to you, this code is the only way to identify a specific transmission: send it to us by email and we will delete that dataset.</p>
+
+      <h4>2.6 Storage location and retention</h4>
+      <p>Transmitted data is stored on a server operated by us in <strong>Germany</strong> (IONOS SE, data centre in the EU). It is not passed on to third parties. As the data is anonymous, no statutory retention limit applies; we keep it for as long as it is useful for improving our measurement methods.</p>
+
+      <h3>3. External Services and Recipients</h3>
+      <p>When the following services are used, your IP address is necessarily transmitted to the respective provider. We have no influence over this.</p>
+
+      <h4>3.1 Maps—OpenStreetMap</h4>
+      <p>For map views (track display, setting start/finish lines) we load map tiles from <strong>tile.openstreetmap.org</strong>, operated by the OpenStreetMap Foundation (United Kingdom). Your IP address and the requested tile coordinates are transmitted; the latter indicate the map section being viewed. The legal basis is our legitimate interest in a functioning map display (Art. 6(1)(f) GDPR). Terms: <a href="https://operations.osmfoundation.org/policies/tiles/" target="_blank" rel="noopener">operations.osmfoundation.org/policies/tiles/</a>.</p>
+
+      <div class="box-info">
+        <p style="margin:0"><strong>No transmission of location data:</strong> The App contains no feature that sends GPS coordinates of your rides to third parties. An earlier elevation profile feature, which would have queried an external elevation service for this, has been removed from the App entirely.</p>
+      </div>
+
+      <h4>3.2 Payments—Google Play</h4>
+      <p>In-app purchases are processed via Google Play (Google Ireland Limited). We receive no payment data, only confirmation that a purchase is valid. Google's privacy terms apply in addition.</p>
+
+      <h4>3.3 No advertising, no tracking</h4>
+      <p>The App contains <strong>no advertising</strong>, no analytics SDK, no third-party crash reporting and no cross-device recognition. We do not sell data.</p>
+
+      <h3>4. Legal Bases at a Glance (GDPR Art. 6)</h3>
+      <ul>
+        <li><strong>Contract (Art. 6(1)(b)):</strong> providing core features—recording and displaying lean, GPS and lap data, in-app purchases.</li>
+        <li><strong>Consent (Art. 6(1)(a)):</strong> location access and notifications as prompted by the OS; voluntary transmission of ride data (section 2).</li>
+        <li><strong>Section 25(1) TDDDG:</strong> access to information on your terminal device in the context of voluntary data transmission.</li>
+        <li><strong>Legitimate interests (Art. 6(1)(f)):</strong> app security, troubleshooting, abuse prevention, map display.</li>
+      </ul>
+
+      <h3>5. Storage &amp; Retention</h3>
+      <p>Measurement and session data is stored <strong>locally on your device</strong> and stays there until you delete it. Transmission to us occurs only in the cases described in section 2, or when you actively export and share a recording. You can delete individual rides or all data at any time in the App.</p>
+
+      <h3>6. Server Logs</h3>
+      <p>Our web server logs access (IP address, time, requested resource, status code) to maintain operation and defend against attacks. The legal basis is Art. 6(1)(f) GDPR. These logs are rotated and deleted regularly. <strong>For the endpoint that receives voluntarily shared ride data, access logging is explicitly disabled</strong>, so that transmissions cannot be linked via IP address.</p>
+
+      <h3>7. Your Rights</h3>
+      <p>You have rights of access, rectification, erasure, restriction, portability and to object (GDPR Arts. 12–22). You may withdraw any consent at any time with effect for the future—for ride data transmission directly in the App settings, otherwise by email to <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.</p>
+      <p>To delete an already transmitted ride we need the corresponding upload code (see section 2.5), as the data cannot otherwise be attributed to any person. You may also lodge a complaint with a supervisory authority, e.g. the Estonian Data Protection Inspectorate (Andmekaitse Inspektsioon).</p>
+
+      <h3>8. Children</h3>
       <p>The App is not directed to children. Where consent is required, in Estonia consent is valid from age 13; younger users need parental approval.</p>
 
-      <h3>7. Security & Data Disclaimer</h3>
-      <p>We implement appropriate technical and organizational measures; however, absolute protection against data loss, unauthorized access or transmission issues cannot be guaranteed. <strong>To the extent permitted by law, we disclaim liability for such events.</strong></p>
+      <h3>9. Security &amp; Data Disclaimer</h3>
+      <p>We implement appropriate technical and organisational measures; all transmission is encrypted (HTTPS/TLS). However, absolute protection against data loss, unauthorised access or transmission issues cannot be guaranteed. <strong>To the extent permitted by law, we disclaim liability for such events.</strong></p>
 
-      <h3>8. Changes</h3>
-      <p>We will update this notice when features or laws change. The current version will be published here.</p>
+      <h3>10. Changes</h3>
+      <p>We will update this notice when features or laws change. If the scope of voluntarily transmitted data expands, we will obtain your consent again. The current version is published here.</p>
 
       <h3>California Notice (CPRA/CCPA)</h3>
       <p>California residents have rights to know/access, delete, correct, and to opt-out of the sale or sharing of personal information. We do <strong>not</strong> sell or share personal information and do not use cross-context behavioral advertising. Submit requests to <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>. We will verify requests and respond within statutory timeframes and will not discriminate for exercising your rights.</p>
     </section>
 
     <section>
-      <h2>Safety & Legal While Riding</h2>
+      <h2>Safety &amp; Legal While Riding</h2>
       <ul>
         <li>Comply with local hands-free / anti-distraction laws. Use a proper mount and keep your eyes on the road.</li>
         <li>Minimize glances; the App is not a substitute for rider training or safety systems.</li>
@@ -306,7 +500,7 @@
 </main>
 
 <footer class="wrap small">
-  © 2025 Bytebandits OÜ. All rights reserved. · Build 1.0.0
+  © 2026 Bytebandits OÜ. All rights reserved. · Legal version 2.0 · 2026-07-24
 </footer>
 </body>
 </html>
