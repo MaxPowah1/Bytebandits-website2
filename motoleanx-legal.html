@@ -62,7 +62,7 @@
       <div>
         <div class="badge">MotoLean X</div>
         <h1>Rechtliches / Legal</h1>
-        <div class="meta">Version 2.0 · Gültig ab / Effective: 2026-07-24</div>
+        <div class="meta">Version 2.1 · Gültig ab / Effective: 2026-08-19</div>
       </div>
       <div style="text-align:right">
         <div class="lang-switch">
@@ -158,13 +158,13 @@
       <p>Verantwortlicher (Art. 4 Nr. 7 DSGVO) ist die <strong>Bytebandits OÜ</strong>, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estland; E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.</p>
 
       <div class="box-ok">
-        <p style="margin:0"><strong>Kurzfassung:</strong> <strong>Ihre GPS-Positionen verlassen Ihr Gerät nicht.</strong> Aufgezeichnete Fahrten bleiben lokal gespeichert. Nach außen gehen nur zwei Dinge: Kartenkacheln werden zur Darstellung nachgeladen, und – <em>ausschließlich nach Ihrer ausdrücklichen Einwilligung</em> – anonymisierte Messdaten ohne Ortsbezug zur Verbesserung der Schräglagen-Messung. Details in den Abschnitten 2 und 3.</p>
+        <p style="margin:0"><strong>Kurzfassung:</strong> <strong>Ihre GPS-Positionen verlassen Ihr Gerät nicht.</strong> Aufgezeichnete Fahrten bleiben lokal gespeichert. Nach außen gehen nur zwei Dinge: Kartenkacheln werden zur Darstellung nachgeladen, und – <em>ausschließlich nach Ihrer ausdrücklichen Einwilligung</em> – anonymisierte Mess- und Sensordaten ohne Ortsbezug zur Verbesserung der Schräglagen-Messung. Details in den Abschnitten 2 und 3.</p>
       </div>
 
       <h3>1. Verarbeitete Daten &amp; Zwecke</h3>
       <ul>
         <li><strong>Standortdaten (GPS, ggf. im Hintergrund):</strong> Aufzeichnung von Fahrten, Anzeige der Strecke, Geschwindigkeit, Rundenzeiten, Verknüpfung mit Neigungsdaten.</li>
-        <li><strong>Bewegungs- und Gerätesensordaten:</strong> Beschleunigungssensor und Gyroskop zur Berechnung des Neigungswinkels.</li>
+        <li><strong>Bewegungs- und Gerätesensordaten:</strong> Beschleunigungssensor und Gyroskop zur Berechnung des Neigungswinkels. Haben Sie dem Teilen von Fahrdaten zugestimmt, werden diese Rohwerte zusätzlich aufgezeichnet und ausschnittsweise übermittelt (Abschnitt 2).</li>
         <li><strong>Bluetooth- und USB-Zugriff:</strong> ausschließlich zur Verbindung mit einem optionalen externen Neigungssensor. Es findet kein Bluetooth-basiertes Tracking und keine Standortbestimmung über Bluetooth statt.</li>
         <li><strong>Sitzungs- und Protokolldaten:</strong> Zeitstempel, App-Ereignisse (z. B. Start/Stopp), Fehlermeldungen zur Funktion und Diagnose – lokal auf dem Gerät.</li>
         <li><strong>Benachrichtigungen und Vordergrunddienst:</strong> Sicherstellung laufender Aufzeichnungen, solange der Bildschirm aus ist.</li>
@@ -180,7 +180,8 @@
       <ul>
         <li><strong>Einmalige Einwilligung:</strong> Sie werden einmal gefragt und stimmen durch aktives Betätigen der Schaltfläche „Ja, ich helfe mit“ zu. Danach werden Aufzeichnungen <strong>ab einer Länge von 10 Minuten</strong> automatisch übermittelt. Kürzere Aufzeichnungen bleiben auf Ihrem Gerät.</li>
         <li><strong>Einzelne Fahrten:</strong> Unabhängig davon können Sie jede einzelne Aufzeichnung über das Menü in der Fahrtenliste manuell teilen.</li>
-        <li><strong>Widerruf:</strong> Sie können die automatische Übermittlung jederzeit in den Einstellungen der App abschalten. Der Widerruf wirkt für die Zukunft.</li>
+        <li><strong>Rohe Sensordaten:</strong> Solange die automatische Übermittlung eingeschaltet ist, zeichnet die App zusätzlich die rohen Messwerte von Beschleunigungssensor und Gyroskop auf. Übertragen wird davon höchstens der Ausschnitt der ersten <strong>15 Minuten</strong> einer Fahrt. Diese Werte enthalten keinerlei Ortsbezug; sie sind das, woran sich verbesserte Auswerteverfahren nachrechnen lassen.</li>
+        <li><strong>Widerruf:</strong> Sie können die automatische Übermittlung jederzeit in den Einstellungen der App abschalten. Damit endet zugleich die Aufzeichnung der rohen Sensordaten. Der Widerruf wirkt für die Zukunft.</li>
       </ul>
 
       <h4>2.2 Was übermittelt wird – und was nicht</h4>
@@ -191,13 +192,13 @@
           <td>
             <ul>
               <li>Schräglagenverlauf über die Zeit</li>
+              <li><strong>Rohe Bewegungssensordaten</strong> (Beschleunigung und Drehrate des Handys) für einen begrenzten Zeitraum je Fahrt — damit lassen sich neue Auswerteverfahren am Schreibtisch nachrechnen</li>
               <li>Geschwindigkeit und GPS-Genauigkeitswerte</li>
               <li>Kurven-Drehrate (Grad pro Sekunde)</li>
               <li>App-Version, Filtereinstellungen, verwendete Sensorquelle</li>
               <li>Gerätemodell, Hersteller, Prozessor, Android-Version, Arbeitsspeicher, Bildschirmauflösung</li>
               <li>technische Kennwerte des verbauten Beschleunigungs- und Drehratensensors (Name, Hersteller, Auflösung, maximale Abtastrate)</li>
               <li>Monat der Aufzeichnung (z. B. „2026-07“)</li>
-              <li>ein optionaler Freitext-Kommentar, den Sie selbst eingeben</li>
             </ul>
           </td>
           <td>
@@ -369,13 +370,13 @@
       <p>The controller is <strong>Bytebandits OÜ</strong>, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estonia; Email: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>.</p>
 
       <div class="box-ok">
-        <p style="margin:0"><strong>In short:</strong> <strong>Your GPS positions never leave your device.</strong> Recorded rides are stored locally. Only two things go out: map tiles are fetched for display, and—<em>solely with your explicit consent</em>—anonymised measurement data without any location reference, to improve lean angle accuracy. Details in sections 2 and 3.</p>
+        <p style="margin:0"><strong>In short:</strong> <strong>Your GPS positions never leave your device.</strong> Recorded rides are stored locally. Only two things go out: map tiles are fetched for display, and—<em>solely with your explicit consent</em>—anonymised measurement and sensor data without any location reference, to improve lean angle accuracy. Details in sections 2 and 3.</p>
       </div>
 
       <h3>1. Data We Process &amp; Purposes</h3>
       <ul>
         <li><strong>Location data (GPS, possibly in background):</strong> to record rides, show tracks, speed, lap times and correlate with lean data.</li>
-        <li><strong>Motion and device sensor data:</strong> accelerometer and gyroscope to compute lean angle.</li>
+        <li><strong>Motion and device sensor data:</strong> accelerometer and gyroscope to compute lean angle. If you have consented to sharing ride data, these raw values are additionally recorded and transmitted in part (section 2).</li>
         <li><strong>Bluetooth and USB access:</strong> solely to connect an optional external lean sensor. No Bluetooth-based tracking and no positioning via Bluetooth takes place.</li>
         <li><strong>Session/log data:</strong> timestamps, app events (e.g. start/stop), error logs for functionality and troubleshooting—stored locally on the device.</li>
         <li><strong>Notifications/foreground service:</strong> to keep recordings running while the screen is off.</li>
@@ -391,7 +392,8 @@
       <ul>
         <li><strong>One-time consent:</strong> you are asked once and consent by actively tapping “Yes, I will help”. After that, recordings <strong>of 10 minutes or longer</strong> are transmitted automatically. Shorter recordings stay on your device.</li>
         <li><strong>Individual rides:</strong> independently of this, you can share any single recording manually from the menu in the ride list.</li>
-        <li><strong>Withdrawal:</strong> you can switch automatic transmission off at any time in the App settings. Withdrawal takes effect for the future.</li>
+        <li><strong>Raw sensor readings:</strong> while automatic transmission is switched on, the App additionally records the raw values from the accelerometer and gyroscope. At most the first <strong>15 minutes</strong> of a ride are transmitted from these. The values contain no location reference whatsoever; they are what allows improved algorithms to be verified against real rides.</li>
+        <li><strong>Withdrawal:</strong> you can switch automatic transmission off at any time in the App settings. This also ends the recording of raw sensor readings. Withdrawal takes effect for the future.</li>
       </ul>
 
       <h4>2.2 What is transmitted—and what is not</h4>
@@ -402,13 +404,13 @@
           <td>
             <ul>
               <li>lean angle over time</li>
+              <li><strong>raw motion sensor readings</strong> (phone acceleration and rotation rate) for a limited period per ride — these let us replay rides through new algorithms offline</li>
               <li>speed and GPS accuracy values</li>
               <li>cornering rate (degrees per second)</li>
               <li>app version, filter settings, sensor source in use</li>
               <li>device model, manufacturer, chipset, Android version, memory, screen resolution</li>
               <li>technical specifications of the built-in accelerometer and gyroscope (name, vendor, resolution, maximum sampling rate)</li>
               <li>month of recording (e.g. “2026-07”)</li>
-              <li>an optional free-text comment you write yourself</li>
             </ul>
           </td>
           <td>
@@ -500,7 +502,7 @@
 </main>
 
 <footer class="wrap small">
-  © 2026 Bytebandits OÜ. All rights reserved. · Legal version 2.0 · 2026-07-24
+  © 2026 Bytebandits OÜ. All rights reserved. · Legal version 2.1 · 2026-08-19
 </footer>
 </body>
 </html>
