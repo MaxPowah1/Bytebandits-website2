@@ -1,0 +1,660 @@
+<!doctype html>
+<!--
+  Cycling Tracker X — Rechtliches / Legal
+  Verlinkt aus der App (Settings → About, Onboarding) und aus der Play Console:
+    https://byte-bandits.com/CyclingTrackerX_legal.html            (#imprint, #terms, #privacy, #safety)
+
+  Anbieterdaten wie auf den anderen Bytebandits-Rechtsseiten (Bytebandits OÜ, Tallinn).
+-->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Cycling Tracker X – Rechtliches / Legal</title>
+  <style>
+    :root {
+      --bg: #0f1214; --card: #161b1e; --line: #232a2f; --muted: #9aa4ab; --fg: #e8ecee;
+      --accent: #4fae6b; --warn: #f0b429; --link: #8fd3a4;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body { margin: 0; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Noto Sans", Helvetica, Arial, sans-serif; color: var(--fg); background: radial-gradient(1200px 700px at 10% -10%, #1a2a21 0, var(--bg) 60%); }
+    header { padding: 20px 0; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.35); position: sticky; top: 0; backdrop-filter: blur(6px); z-index: 2; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    h1 { margin: 4px 0 0; font-size: 1.45rem; }
+    .meta { color: var(--muted); font-size: .9rem; }
+    .bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+    .bar button, .bar a { background: #1b2226; color: var(--fg); border: 1px solid #2b343a; padding: 6px 10px; border-radius: 10px; cursor: pointer; font: inherit; font-size: .9rem; text-decoration: none; }
+    .bar button.active { outline: 2px solid var(--accent); border-color: transparent; }
+    main.wrap { padding-top: 20px; padding-bottom: 64px; }
+    section { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 16px; overflow-wrap: anywhere; margin: 18px 0; scroll-margin-top: 210px; }
+    h2 { margin-top: 0; font-size: 1.25rem; }
+    h3 { margin: 1.4rem 0 .3rem; font-size: 1.05rem; }
+    h4 { margin: 1rem 0 .2rem; font-size: .98rem; }
+    a { color: var(--link); }
+    ul, ol { margin: .4rem 0 .8rem 1.1rem; padding-left: .6rem; }
+    li { margin: .2rem 0; }
+    .small { font-size: .9rem; color: var(--muted); }
+    .box { border-radius: 12px; padding: 12px 14px; margin: .8rem 0; }
+    .box-ok { border: 1px solid #1d4a31; background: #0c1f15; }
+    .box-warn { border: 1px solid #4a3a00; background: #1d1704; }
+    .box-info { border: 1px solid #1f3a4a; background: #0b1820; }
+    table { width: 100%; border-collapse: collapse; margin: .6rem 0 1rem; font-size: .94rem; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; }
+    .tbl { overflow-x: auto; }
+    .split { display: none; }
+    .split.active { display: block; }
+    footer { padding-top: 8px; padding-bottom: 56px; color: var(--muted); font-size: .9rem; }
+  </style>
+  <script>
+    var SECTIONS = ['imprint', 'terms', 'privacy', 'safety'];
+    function pickLang() {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'de' || q === 'en') return q;
+      try { var s = localStorage.getItem('ctx-legal-lang'); if (s === 'de' || s === 'en') return s; } catch (e) {}
+      return (navigator.language || 'en').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+    }
+    function setLang(lang, keepScroll) {
+      document.getElementById('de').classList.toggle('active', lang === 'de');
+      document.getElementById('en').classList.toggle('active', lang === 'en');
+      document.querySelectorAll('.bar button[data-lang]').forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+      });
+      document.querySelectorAll('.bar a[data-target]').forEach(function (a) {
+        a.textContent = a.getAttribute('data-' + lang);
+      });
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('ctx-legal-lang', lang); } catch (e) {}
+      if (!keepScroll) jump(lang);
+    }
+    function jump(lang) {
+      var h = location.hash.replace('#', '');
+      if (SECTIONS.indexOf(h) === -1) return;
+      var el = document.getElementById(h + '-' + lang);
+      if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+    function go(target) {
+      history.replaceState(null, '', '#' + target);
+      jump(document.documentElement.lang);
+    }
+    window.addEventListener('DOMContentLoaded', function () { setLang(pickLang()); });
+    window.addEventListener('hashchange', function () { jump(document.documentElement.lang); });
+  </script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="meta">Bytebandits · Cycling Tracker X</div>
+    <h1>Rechtliches / Legal</h1>
+    <div class="bar">
+      <button type="button" data-lang="de" onclick="setLang('de', true)">Deutsch</button>
+      <button type="button" data-lang="en" onclick="setLang('en', true)">English</button>
+      <a href="#imprint" data-target="imprint" data-de="Impressum" data-en="Imprint" onclick="go('imprint'); return false;">Impressum</a>
+      <a href="#terms" data-target="terms" data-de="Nutzungsbedingungen" data-en="Terms" onclick="go('terms'); return false;">Nutzungsbedingungen</a>
+      <a href="#privacy" data-target="privacy" data-de="Datenschutz" data-en="Privacy" onclick="go('privacy'); return false;">Datenschutz</a>
+      <a href="#safety" data-target="safety" data-de="Sicherheit" data-en="Safety" onclick="go('safety'); return false;">Sicherheit</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ======================================================================= -->
+<!-- ================================ DEUTSCH ============================== -->
+<!-- ======================================================================= -->
+<div id="de" class="split">
+
+  <p class="small">Stand: 18. Oktober 2026 · Gilt für die Android-App „Cycling Tracker X“ (im Folgenden „App“) ab Version 1.0.</p>
+
+  <!-- ============================== IMPRESSUM ============================= -->
+  <section id="imprint-de">
+    <h2>Impressum</h2>
+    <p>
+      Bytebandits OÜ (Osaühing – Gesellschaft mit beschränkter Haftung nach estnischem Recht)<br>
+      Tartu mnt 67/1-13b, Kesklinna linnaosa<br>
+      10115 Tallinn<br>
+      Estland
+    </p>
+    <p>
+      Vertretungsberechtigt: M. Scherb (Vorstand / juhatuse liige)<br>
+      E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a><br>
+      Registergericht: Harju Maakohus (Kreisgericht Harju), estnisches Handelsregister, Registernummer: 17265228<br>
+      Umsatzsteuer-Identifikationsnummer: keine – das Unternehmen ist nicht umsatzsteuerlich registriert (KMKR)
+    </p>
+    <p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag (MStV): M. Scherb, Anschrift wie oben.</p>
+    <h3>Verbraucherstreitbeilegung</h3>
+    <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG). Die frühere EU-Plattform zur Online-Streitbeilegung wurde zum 20. Juli 2025 eingestellt.</p>
+    <h3>Haftung für Inhalte und Links</h3>
+    <p>Die Inhalte dieser Seite und der App wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr, soweit gesetzlich zulässig. Für Inhalte externer Websites, auf die wir verlinken, sind ausschließlich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar; bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend.</p>
+    <h3>Urheberrecht und Marken</h3>
+    <p>Die App, ihr Design, ihre Texte und Grafiken sind urheberrechtlich geschützt. Kartendaten: © OpenStreetMap-Mitwirkende, verfügbar unter der Open Database License (ODbL); Kartenkacheln: © OpenMapTiles, bereitgestellt durch OpenFreeMap. Die verwendeten Open-Source-Komponenten und ihre Lizenzen sind in der App unter „Settings → About → Open-source licenses“ aufgeführt. Alle genannten Marken und Produktnamen gehören ihren jeweiligen Inhabern; „Google Play“ und „Android“ sind Marken der Google LLC.</p>
+  </section>
+
+  <!-- ============================ NUTZUNGSBEDINGUNGEN ===================== -->
+  <section id="terms-de">
+    <h2>Nutzungsbedingungen (AGB)</h2>
+
+    <div class="box box-warn"><strong>Wichtiger Sicherheitshinweis:</strong> Die App darf Sie beim Fahren nicht ablenken. Bedienen Sie Ihr Smartphone während der Fahrt nicht und halten Sie es nicht in der Hand. Beachten Sie stets die Straßenverkehrsordnung, insbesondere § 23 Abs. 1a StVO, der auch für Radfahrende gilt. Nutzen Sie die App ausschließlich mit einer sicheren Halterung und nur mit kurzen Blicken – oder lassen Sie das Smartphone in der Tasche und nutzen Sie die Sprachansagen. Einzelheiten unter <a href="#safety" onclick="go('safety'); return false;">Sicherheit</a>.</div>
+
+    <h3>1. Geltungsbereich und Vertragspartner</h3>
+    <ol>
+      <li>Diese Nutzungsbedingungen regeln die Nutzung der App zwischen Bytebandits OÜ (nachfolgend „wir“ oder „Anbieter“) und den Personen, die die App nutzen (nachfolgend „Sie“ oder „Nutzende“).</li>
+      <li>Mit der Installation oder ersten Nutzung der App erklären Sie sich mit diesen Bedingungen einverstanden. In der App wird vor der ersten Nutzung auf diese Bedingungen hingewiesen; sie sind dort jederzeit unter „Settings → About“ abrufbar.</li>
+      <li>Für den Bezug der App über Google Play gelten zusätzlich die Nutzungsbedingungen von Google Play. Bei Widersprüchen zu diesen Bedingungen gehen hinsichtlich Download, Zahlung und Erstattung die Bedingungen von Google Play vor.</li>
+      <li>Abweichende oder ergänzende Bedingungen der Nutzenden werden nicht Vertragsbestandteil, es sei denn, wir stimmen ihnen ausdrücklich in Textform zu.</li>
+    </ol>
+
+    <h3>2. Leistungsbeschreibung</h3>
+    <ol>
+      <li>Die App zeichnet Radfahrten mit den Sensoren Ihres Smartphones auf – Satellitennavigation (GPS/GNSS) und, sofern vorhanden, Barometer – und leitet daraus Kennwerte ab. Zum Funktionsumfang gehören insbesondere: Aufzeichnung von Strecke, Distanz, Geschwindigkeit (aktuell, Durchschnitt, Maximum), Fahr- und Standzeit, Höhengewinn und -verlust, Steigung, Vertikalgeschwindigkeit (VAM); automatische Pause, manuelle und automatische Runden, Sprachansagen; Kartenansicht, Diagramme, automatisch erkannte Anstiege und Sprints, persönliche Bestzeiten über Distanzen, Wochenübersicht, Heatmap; geschätzter Energieverbrauch; Import und Export von Fahrten (GPX, FIT) und Datensicherung (ZIP).</li>
+      <li>Die App arbeitet „local first“: Ihre Fahrten und Profilangaben werden ausschließlich auf Ihrem Gerät gespeichert. Ein Benutzerkonto gibt es nicht. Wir betreiben keinen Server, der Ihre Fahrten empfängt oder speichert.</li>
+      <li>Für die Kartenansicht lädt die App Kartenkacheln von Drittanbietern (siehe Datenschutzerklärung, Abschnitt 6). Auf die Verfügbarkeit, den Inhalt und die Aktualität dieser Dienste haben wir keinen Einfluss. Fallen sie aus, steht die Kartenansicht vorübergehend nicht oder nur eingeschränkt zur Verfügung; die Aufzeichnung selbst funktioniert auch ohne Internetverbindung.</li>
+      <li>Der konkrete Funktionsumfang ergibt sich aus der jeweils aktuellen Version der App und der Beschreibung im Store. Ein Anspruch auf bestimmte Funktionen, auf deren unveränderten Fortbestand oder auf die Unterstützung bestimmter Geräte oder Android-Versionen besteht nicht, soweit gesetzlich nicht zwingend etwas anderes gilt (siehe Ziffer 8).</li>
+    </ol>
+
+    <h3>3. Charakter der Messwerte – keine Garantie für Genauigkeit</h3>
+    <ol>
+      <li>Alle in der App angezeigten Werte sind <strong>Näherungswerte</strong>. Sie beruhen auf Smartphone-Sensoren, die je nach Gerät, Empfangslage (z. B. Häuserschluchten, Wald, Tunnel), Witterung, Luftdruckänderungen, Halterung, Akkustand, Energiesparfunktionen und Betriebssystem erheblich abweichen, verzögert sein oder ausfallen können.</li>
+      <li>Insbesondere der Energieverbrauch („Kalorien“) wird nur grob über ein MET-Modell aus Bewegungszeit, Durchschnittsgeschwindigkeit und Ihrem freiwillig angegebenen Gewicht geschätzt. Ohne Gewichtsangabe wird kein Energieverbrauch angezeigt. Er kann von Ihrem tatsächlichen Verbrauch deutlich abweichen.</li>
+      <li>Die App ist <strong>kein Medizinprodukt</strong>, kein Gesundheits- oder Diagnosewerkzeug, kein Navigationsgerät, kein geeichtes Messgerät und kein Notfall- oder Sicherheitssystem. Sie ist nicht geeignet als Grundlage für medizinische, sicherheitsrelevante, rechtliche, versicherungsrechtliche oder sportrechtliche Entscheidungen (z. B. Wettkampfwertung, Nachweis gegenüber Behörden, Versicherungen oder Gerichten).</li>
+      <li>Die App dient ausschließlich der persönlichen Information und Freizeitgestaltung.</li>
+    </ol>
+
+    <h3>4. Pflichten der Nutzenden und zulässige Nutzung</h3>
+    <ol>
+      <li>Sie nutzen die App nur, wenn dies ohne Gefährdung oder Ablenkung und im Einklang mit den geltenden Gesetzen möglich ist. Sie bleiben jederzeit selbst für Ihre Fahrweise, Ihre Ausrüstung, die Wahl Ihrer Strecke und die Beachtung der Verkehrsregeln verantwortlich.</li>
+      <li>Sie sind selbst für die Sicherung Ihrer Daten verantwortlich. Die App bietet dafür Export- und Sicherungsfunktionen (GPX, FIT, ZIP). Wir empfehlen regelmäßige Sicherungen, insbesondere vor einem Gerätewechsel, dem Zurücksetzen des Geräts oder der Deinstallation.</li>
+      <li>Untersagt ist jede missbräuchliche Nutzung, insbesondere das Umgehen technischer Schutz- oder Freischaltmechanismen, das Dekompilieren, Disassemblieren oder sonstige Reverse Engineering, soweit dies nicht nach § 69e UrhG oder anderen zwingenden Vorschriften erlaubt ist, sowie die Verbreitung veränderter Fassungen der App.</li>
+      <li>Wenn Sie Fahrten exportieren und an Dritte weitergeben, sind Sie für diese Weitergabe selbst verantwortlich. Exportdateien enthalten die vollständigen Positionsdaten Ihrer Fahrt.</li>
+      <li>Die App richtet sich an Personen ab 16 Jahren. Jüngere Personen dürfen die App nur mit Zustimmung ihrer Erziehungsberechtigten nutzen.</li>
+    </ol>
+
+    <h3>5. Nutzungsrechte</h3>
+    <ol>
+      <li>Wir räumen Ihnen ein einfaches, nicht übertragbares, nicht unterlizenzierbares, auf die Dauer der Bereitstellung der App beschränktes Recht ein, die App für private, nicht-kommerzielle Zwecke auf Geräten zu nutzen, die Ihnen gehören oder die Sie kontrollieren.</li>
+      <li>Alle sonstigen Rechte an der App verbleiben bei uns bzw. den jeweiligen Rechteinhabern. In der App enthaltene Open-Source-Komponenten unterliegen ihren eigenen Lizenzen, die diesen Bedingungen insoweit vorgehen.</li>
+      <li>Die von Ihnen aufgezeichneten Fahrdaten gehören Ihnen. Wir erheben daran keine Rechte und erhalten sie nicht.</li>
+    </ol>
+
+    <h3>6. Kostenlose Nutzung, Premium-Funktionen und Abonnements</h3>
+    <ol>
+      <li><strong>Einführungsphase.</strong> Die App wird derzeit kostenlos angeboten. Funktionen, die während dieser Einführungsphase oder im Rahmen von Aktionen kostenlos zur Verfügung stehen, werden freiwillig und ohne Rechtspflicht bereitgestellt. Ein Anspruch darauf, dass diese Funktionen dauerhaft kostenlos bleiben, besteht nicht.</li>
+      <li><strong>Einführung kostenpflichtiger Funktionen.</strong> Wir behalten uns vor, künftig kostenpflichtige Zusatzfunktionen („Premium“) anzubieten und bisher kostenlose Funktionen ganz oder teilweise in Premium zu überführen. Wir informieren darüber rechtzeitig in der App oder im Store. Bereits aufgezeichnete Fahrten bleiben auf Ihrem Gerät gespeichert und können weiterhin angesehen und exportiert werden; die grundlegende Aufzeichnung von Fahrten bleibt kostenlos.</li>
+      <li><strong>Angebotsformen.</strong> Premium kann insbesondere als Abonnement mit Laufzeiten von sechs oder zwölf Monaten sowie als einmaliger Kauf mit unbefristeter Freischaltung („Lifetime“) angeboten werden. Preise, Laufzeiten, etwaige kostenlose Testzeiträume und Leistungsumfang werden vor dem Kauf in der App bzw. in Google Play angezeigt; maßgeblich ist die dort angezeigte Beschreibung zum Zeitpunkt des Kaufs.</li>
+      <li><strong>Zahlungsabwicklung.</strong> Käufe werden ausschließlich über das Abrechnungssystem von Google Play abgewickelt. Zahlungsdaten erhalten wir nicht. Es gelten ergänzend die Bedingungen von Google Play, insbesondere zu Zahlung, Rückerstattung und Familienfreigabe.</li>
+      <li><strong>Verlängerung und Kündigung von Abonnements.</strong> Abonnements verlängern sich automatisch um die jeweils gewählte Laufzeit, wenn sie nicht vor Ablauf gekündigt werden. Sie können ein Abonnement jederzeit in Google Play unter „Zahlungen und Abos → Abos“ kündigen; die Kündigung wird zum Ende des laufenden Abrechnungszeitraums wirksam, bis dahin bleibt Premium freigeschaltet. Das Deinstallieren der App beendet ein Abonnement nicht.</li>
+      <li><strong>Preisänderungen.</strong> Preisänderungen für laufende Abonnements erfolgen nur nach den Verfahren von Google Play; wo dies vorgesehen ist, werden Sie vorab informiert und müssen einer Preiserhöhung zustimmen, andernfalls endet das Abonnement zum Ende des laufenden Zeitraums.</li>
+      <li><strong>Bedeutung von „Lifetime“.</strong> „Lifetime“ bzw. „unbefristet“ bezeichnet die Freischaltung der beim Kauf beschriebenen Premium-Funktionen für die gesamte Dauer, in der wir die App und diese Funktionen anbieten und weiterentwickeln – nicht die Lebenszeit der Nutzenden oder eines bestimmten Geräts. Die Freischaltung ist an das beim Kauf verwendete Google-Konto gebunden und nicht übertragbar. Sie umfasst die zum Kaufzeitpunkt beschriebenen Premium-Funktionen sowie deren Weiterentwicklungen; künftige, eigenständige neue Produkte oder Dienste sind nicht automatisch eingeschlossen.</li>
+      <li><strong>Wiederherstellung.</strong> Nach einer Neuinstallation oder auf einem neuen Gerät können Käufe über die Funktion „Käufe wiederherstellen“ mit demselben Google-Konto wiederhergestellt werden.</li>
+    </ol>
+
+    <h3>7. Widerrufsbelehrung für Verbraucher</h3>
+    <p>Soweit wir Ihr Vertragspartner für einen kostenpflichtigen Kauf sind, steht Ihnen als Verbraucher das folgende Widerrufsrecht zu. Soweit Google als Verkäufer auftritt, gelten die Widerrufs- und Erstattungsregeln von Google Play.</p>
+    <div class="box box-info">
+      <h4>Widerrufsrecht</h4>
+      <p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses. Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Bytebandits OÜ, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estland, E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>) mittels einer eindeutigen Erklärung (z. B. eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das untenstehende Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist. Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p>
+      <h4>Folgen des Widerrufs</h4>
+      <p>Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.</p>
+      <h4>Vorzeitiges Erlöschen</h4>
+      <p>Bei einem Vertrag über die Bereitstellung digitaler Inhalte, die sich nicht auf einem körperlichen Datenträger befinden, erlischt das Widerrufsrecht, wenn wir mit der Vertragserfüllung begonnen haben, nachdem Sie (1) ausdrücklich zugestimmt haben, dass wir vor Ablauf der Widerrufsfrist mit der Vertragserfüllung beginnen, (2) Ihre Kenntnis davon bestätigt haben, dass Sie durch Ihre Zustimmung mit Beginn der Vertragserfüllung Ihr Widerrufsrecht verlieren, und (3) wir Ihnen eine Bestätigung des Vertrags zur Verfügung gestellt haben (§ 356 Abs. 5 BGB). Bei Verträgen über digitale Dienstleistungen (Abonnements) haben Sie, wenn Sie verlangt haben, dass die Leistung während der Widerrufsfrist beginnen soll, im Fall des Widerrufs einen angemessenen Betrag zu zahlen, der dem Anteil der bis zum Widerruf bereits erbrachten Leistungen entspricht.</p>
+      <h4>Muster-Widerrufsformular</h4>
+      <p class="small">(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)<br>
+      An Bytebandits OÜ, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estland, E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>:<br>
+      Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*) / die Erbringung der folgenden Dienstleistung (*): ______ · Bestellt am (*) / erhalten am (*): ______ · Name des/der Verbraucher(s): ______ · Anschrift des/der Verbraucher(s): ______ · Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier) · Datum<br>
+      (*) Unzutreffendes streichen.</p>
+    </div>
+
+    <h3>8. Verfügbarkeit, Updates und Änderungen der App</h3>
+    <ol>
+      <li>Wir bemühen uns um eine fehlerfreie und stabile App. Eine ununterbrochene, fehlerfreie Funktion auf allen Geräten und unter allen Bedingungen können wir nicht zusichern.</li>
+      <li>Wir dürfen die App weiterentwickeln, Funktionen ändern, ergänzen, einschränken oder entfernen, soweit dies unter Berücksichtigung Ihrer Interessen zumutbar ist – insbesondere aus technischen Gründen, wegen geänderter rechtlicher oder behördlicher Anforderungen, aus Sicherheitsgründen, wegen geänderter Bedingungen von Drittanbietern (z. B. Google, Kartenanbieter) oder zur Verbesserung der App. Für kostenpflichtige Leistungen gelten die gesetzlichen Vorgaben zu Aktualisierungen und Änderungen digitaler Produkte (§§ 327f, 327r BGB); bei erheblichen Beeinträchtigungen informieren wir Sie vorab und weisen auf Ihre Rechte hin.</li>
+      <li>Wir stellen Aktualisierungen über Google Play bereit. Um die App sicher und vollständig nutzen zu können, sollten Sie Aktualisierungen zeitnah installieren. Für Folgen, die darauf beruhen, dass bereitgestellte Aktualisierungen nicht installiert wurden, haften wir nicht, soweit wir auf die Folgen und die Verfügbarkeit hingewiesen haben.</li>
+      <li>Wir können die App mit angemessener Ankündigungsfrist einstellen. Ihre lokal gespeicherten Daten bleiben davon unberührt und können exportiert werden. Gesetzliche Ansprüche aus kostenpflichtigen Verträgen bleiben unberührt.</li>
+    </ol>
+
+    <h3>9. Haftung</h3>
+    <ol>
+      <li><strong>Unentgeltliche Nutzung.</strong> Soweit Sie die App oder einzelne Funktionen unentgeltlich nutzen, haften wir – entsprechend den gesetzlichen Wertungen für unentgeltliche Leistungen (§§ 521, 599 BGB) – nur für Vorsatz und grobe Fahrlässigkeit.</li>
+      <li><strong>Kostenpflichtige Nutzung.</strong> Soweit Sie kostenpflichtige Leistungen nutzen, haften wir unbeschränkt bei Vorsatz und grober Fahrlässigkeit. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung einer wesentlichen Vertragspflicht (einer Pflicht, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung Sie regelmäßig vertrauen dürfen); in diesem Fall ist unsere Haftung auf den bei Vertragsschluss vorhersehbaren, vertragstypischen Schaden begrenzt.</li>
+      <li><strong>Unberührt bleibende Haftung.</strong> Die vorstehenden Beschränkungen gelten nicht bei Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, die auf einer fahrlässigen oder vorsätzlichen Pflichtverletzung von uns, unseren gesetzlichen Vertretern oder Erfüllungsgehilfen beruhen, bei arglistig verschwiegenen Mängeln, bei Übernahme einer Garantie sowie bei Ansprüchen nach dem Produkthaftungsgesetz oder anderen zwingenden gesetzlichen Haftungstatbeständen.</li>
+      <li><strong>Insbesondere</strong> haften wir im Rahmen des gesetzlich Zulässigen nicht für:
+        <ul>
+          <li>Unfälle, Verletzungen, Sach- oder Vermögensschäden, die auf der Nutzung der App während der Fahrt, auf Ablenkung, auf der Missachtung von Verkehrsregeln oder auf dem Vertrauen in angezeigte Werte beruhen;</li>
+          <li>Ungenauigkeiten, Verzögerungen, Lücken oder Ausfälle von Standort-, Höhen-, Geschwindigkeits- oder sonstigen Messwerten sowie daraus abgeleiteter Kennzahlen;</li>
+          <li>den Verlust lokal gespeicherter Daten, etwa durch Deinstallation, Zurücksetzen, Defekt, Verlust oder Diebstahl des Geräts, Betriebssystem-Aktualisierungen oder fehlende Sicherungen – bei leicht fahrlässig verursachtem Datenverlust ist die Haftung zudem auf den Aufwand beschränkt, der bei regelmäßiger, gefahrentsprechender Datensicherung durch Sie für die Wiederherstellung erforderlich gewesen wäre;</li>
+          <li>Störungen, Änderungen oder die Einstellung von Diensten Dritter (insbesondere Kartenanbieter, Google Play, Betriebssystem, Text-to-Speech-Dienste);</li>
+          <li>Akkuverbrauch, Erwärmung des Geräts, Datenvolumen oder Kosten Ihres Mobilfunkvertrags;</li>
+          <li>Halterungen, Zubehör oder Geräte Dritter.</li>
+        </ul>
+      </li>
+      <li>Soweit unsere Haftung ausgeschlossen oder beschränkt ist, gilt dies auch für die persönliche Haftung unserer gesetzlichen Vertreter, Mitarbeitenden und Erfüllungsgehilfen.</li>
+    </ol>
+
+    <h3>10. Gewährleistung</h3>
+    <ol>
+      <li>Bei kostenpflichtigen digitalen Produkten stehen Verbrauchern die gesetzlichen Rechte bei Mängeln zu (§§ 327 ff. BGB). Diese Rechte werden durch diese Bedingungen nicht eingeschränkt.</li>
+      <li>Unentgeltlich bereitgestellte Funktionen werden in ihrem jeweiligen Zustand („wie besehen“) zur Verfügung gestellt. Wir übernehmen dafür, soweit gesetzlich zulässig, keine Gewähr für eine bestimmte Beschaffenheit, Eignung für einen bestimmten Zweck oder ununterbrochene Verfügbarkeit; eine Haftung für arglistig verschwiegene Mängel bleibt unberührt.</li>
+      <li>Wir übernehmen keine Garantien im Rechtssinne, sofern eine Garantie nicht ausdrücklich als solche bezeichnet und schriftlich erklärt wurde.</li>
+    </ol>
+
+    <h3>11. Freistellung</h3>
+    <p>Sie stellen uns von Ansprüchen Dritter frei, die diese wegen einer von Ihnen zu vertretenden rechtswidrigen oder vertragswidrigen Nutzung der App gegen uns geltend machen, einschließlich der angemessenen Kosten der Rechtsverteidigung. Weitergehende gesetzliche Ansprüche bleiben unberührt.</p>
+
+    <h3>12. Laufzeit und Beendigung</h3>
+    <p>Der Nutzungsvertrag über die kostenlose App läuft auf unbestimmte Zeit. Sie können ihn jederzeit beenden, indem Sie die App deinstallieren. Abonnements enden nach Ziffer 6. Das Recht beider Seiten zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt.</p>
+
+    <h3>13. Datenschutz</h3>
+    <p>Informationen zur Verarbeitung personenbezogener Daten enthält die <a href="#privacy" onclick="go('privacy'); return false;">Datenschutzerklärung</a> auf dieser Seite.</p>
+
+    <h3>14. Änderungen dieser Bedingungen</h3>
+    <p>Wir können diese Bedingungen mit Wirkung für die Zukunft ändern, wenn hierfür ein sachlicher Grund besteht, insbesondere bei neuen Funktionen, geänderter Rechtslage oder Rechtsprechung, geänderten Bedingungen von Drittanbietern oder zur Beseitigung von Unklarheiten. Wesentliche Änderungen teilen wir in der App oder im Store mit. Bei kostenpflichtigen Verträgen gelten Änderungen, die Ihre Hauptleistungspflichten oder das Verhältnis von Leistung und Gegenleistung betreffen, nur mit Ihrer Zustimmung; im Übrigen gilt die geänderte Fassung als angenommen, wenn Sie nicht innerhalb von sechs Wochen nach Mitteilung widersprechen und wir Sie in der Mitteilung auf diese Folge hingewiesen haben. Für die unentgeltliche Nutzung gilt jeweils die zum Zeitpunkt der Nutzung veröffentlichte Fassung.</p>
+
+    <h3>15. Schlussbestimmungen</h3>
+    <ol>
+      <li>Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG). Gegenüber Verbrauchern gilt diese Rechtswahl nur, soweit dadurch nicht der Schutz entzogen wird, der durch zwingende Bestimmungen des Rechts des Staates ihres gewöhnlichen Aufenthalts gewährt wird.</li>
+      <li>Sind Sie Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen oder haben Sie keinen allgemeinen Gerichtsstand in der Europäischen Union, ist ausschließlicher Gerichtsstand für alle Streitigkeiten aus diesem Vertrag unser Sitz.</li>
+      <li>Sollten einzelne Bestimmungen dieser Bedingungen ganz oder teilweise unwirksam oder undurchführbar sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. An die Stelle der unwirksamen Bestimmung treten die gesetzlichen Vorschriften.</li>
+      <li>Diese Bedingungen werden in deutscher und englischer Sprache bereitgestellt. Bei Abweichungen ist die deutsche Fassung maßgeblich, soweit nicht zwingendes Recht etwas anderes vorschreibt.</li>
+    </ol>
+  </section>
+
+  <!-- ============================ DATENSCHUTZ ============================= -->
+  <section id="privacy-de">
+    <h2>Datenschutzerklärung</h2>
+
+    <div class="box box-ok"><strong>Kurzfassung:</strong> Ihre Fahrten, Standortdaten und Profilangaben bleiben auf Ihrem Gerät. Wir haben kein Benutzerkonto, keinen Server für Ihre Daten, keine Werbung, kein Analyse- oder Tracking-SDK und kein Crash-Reporting eines Drittanbieters. Die App überträgt von sich aus <strong>keine</strong> Fahrten an uns oder an Dritte. Nach außen geht nur, was zur Kartendarstellung technisch nötig ist (Kartenkacheln, Abschnitt 6) – und was Sie selbst ausdrücklich exportieren und teilen.</div>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>Verantwortlicher im Sinne von Art. 4 Nr. 7 DSGVO ist Bytebandits OÜ, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estland, E-Mail: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>. Ein Datenschutzbeauftragter ist nicht bestellt, da die gesetzlichen Voraussetzungen dafür nicht vorliegen. Für alle Fragen zum Datenschutz erreichen Sie uns unter der genannten E-Mail-Adresse.</p>
+
+    <h3>2. Grundprinzip: Verarbeitung auf Ihrem Gerät</h3>
+    <p>Die App ist so gebaut, dass Ihre Daten Ihr Gerät nicht verlassen. Aufzeichnung, Berechnung und Speicherung finden ausschließlich lokal statt, in einer Datenbank im privaten App-Speicher, auf den andere Apps nicht zugreifen können. Wir haben keinen Zugriff auf diese Daten und erhalten sie nicht. Soweit die Daten ausschließlich unter Ihrer Kontrolle auf Ihrem Gerät verarbeitet werden, findet durch uns keine Verarbeitung personenbezogener Daten statt; wir beschreiben die lokale Verarbeitung dennoch vollständig, damit Sie wissen, was die App tut.</p>
+
+    <h3>3. Welche Daten die App lokal verarbeitet</h3>
+    <div class="tbl"><table>
+      <tr><th>Daten</th><th>Zweck</th><th>Hinweise</th></tr>
+      <tr><td>Genauer und ungefährer Standort (GPS/GNSS), Geschwindigkeit, Fahrtrichtung, Höhe, Genauigkeitswerte</td><td>Aufzeichnung der Strecke und Berechnung von Distanz, Geschwindigkeit, Höhe, Steigung, Segmenten und Bestzeiten; Anzeige der aktuellen Position auf der Karte</td><td>Nur „während der Nutzung der App“. Die App fordert <strong>keinen</strong> Standortzugriff im Hintergrund an. Während einer laufenden Aufzeichnung hält ein sichtbarer Vordergrunddienst mit Benachrichtigung die Aufzeichnung auch bei ausgeschaltetem Bildschirm aufrecht.</td></tr>
+      <tr><td>Luftdruck (Barometer, falls vorhanden)</td><td>Genauere Höhenmessung</td><td>Ohne Barometer nutzt die App die GPS-Höhe.</td></tr>
+      <tr><td>Umgebungshelligkeit (Lichtsensor)</td><td>Automatischer Nachtmodus der Anzeige</td><td>Nur der aktuelle Helligkeitswert, wird nicht gespeichert.</td></tr>
+      <tr><td>Akkustand</td><td>Anzeige während der Fahrt, Energiesparmodus</td><td>Wird mit der Fahrt nicht dauerhaft ausgewertet.</td></tr>
+      <tr><td>Profilangaben: Anzeigename, Körpergewicht</td><td>Schätzung des Energieverbrauchs (nur das Gewicht)</td><td>Freiwillig, jederzeit änderbar und löschbar. Ohne Gewichtsangabe zeigt die App keine Kalorienschätzung. Das Gewicht kann als Gesundheitsangabe gelten; es wird ausschließlich lokal verwendet. Weitere Körperdaten fragt die App nicht ab.</td></tr>
+      <tr><td>Fahrräder (Name, Typ)</td><td>Zuordnung von Fahrten, Filter der Heatmap</td><td>Freiwillig.</td></tr>
+      <tr><td>Fahrten: Messpunkte, Runden, Segmente, Bestzeiten, Zusammenfassungen</td><td>Verlauf, Detailansicht, Wochenübersicht, Heatmap</td><td>Bis Sie sie löschen.</td></tr>
+      <tr><td>Einstellungen (Design, Einheiten, Sprache, Anzeigefelder, Ansagen)</td><td>Bedienung der App</td><td>—</td></tr>
+    </table></div>
+    <p><strong>Sprachansagen:</strong> Für Ansagen nutzt die App die Sprachausgabe (Text-to-Speech) Ihres Geräts. Übergeben werden nur die Ansagetexte (z. B. Distanz und Zeit). Wie die Sprachausgabe diese verarbeitet, richtet sich nach dem auf Ihrem Gerät eingestellten Sprachdienst (z. B. Google Sprachdienste) und dessen Datenschutzbestimmungen; die üblichen Dienste arbeiten lokal auf dem Gerät.</p>
+    <p><strong>Rechtsgrundlagen</strong> (soweit überhaupt eine Verarbeitung durch uns vorliegt): Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der von Ihnen gewünschten Funktionen); für das freiwillig angegebene Körpergewicht Art. 9 Abs. 2 lit. a DSGVO (Ihre ausdrückliche Einwilligung durch aktive Eingabe, jederzeit durch Löschen der Angabe widerrufbar); für den Zugriff auf Gerätesensoren und Speicher § 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich für den von Ihnen ausdrücklich gewünschten Dienst).</p>
+
+    <h3>4. Berechtigungen</h3>
+    <ul>
+      <li><strong>Standort (genau/ungefähr):</strong> Aufzeichnung von Fahrten. Nur während der Nutzung.</li>
+      <li><strong>Vordergrunddienst (Standort):</strong> hält eine laufende Aufzeichnung stabil, solange der Bildschirm aus ist; immer mit sichtbarer Benachrichtigung.</li>
+      <li><strong>Benachrichtigungen:</strong> Anzeige des Aufzeichnungsstatus.</li>
+      <li><strong>Internet:</strong> ausschließlich zum Laden von Kartenkacheln und zum Öffnen von Links (z. B. dieser Seite) im Browser.</li>
+      <li><strong>Wake Lock:</strong> verhindert, dass das Gerät eine laufende Aufzeichnung durch Tiefschlaf unterbricht; auf Wunsch hält es den Bildschirm an.</li>
+      <li><strong>Start nach dem Hochfahren:</strong> wird von einer technischen Komponente für Vordergrunddienste mitgebracht. Die App startet dadurch keine Aufzeichnung selbsttätig.</li>
+    </ul>
+    <p>Sie können Berechtigungen jederzeit in den Android-Einstellungen entziehen. Ohne Standortzugriff ist keine Aufzeichnung möglich; alle übrigen Funktionen bleiben nutzbar.</p>
+
+    <h3>5. Keine Übermittlung an uns, keine Werbung, kein Tracking</h3>
+    <ul>
+      <li>Die App übermittelt keine Fahrten, Standortdaten, Profilangaben oder Nutzungsdaten an uns.</li>
+      <li>Die App enthält keine Werbung, keine Werbe-ID-Nutzung, kein Analyse- oder Tracking-SDK, kein Crash-Reporting eines Drittanbieters und keine geräteübergreifende Wiedererkennung.</li>
+      <li>Wir verkaufen keine Daten und geben keine Daten zu Werbezwecken weiter.</li>
+      <li>Die Schriftart der App ist in die App eingebettet; es werden keine Schriften von Servern Dritter nachgeladen.</li>
+    </ul>
+
+    <h3>6. Kartendarstellung</h3>
+    <p>Für die Karten in der App (Aufzeichnung, Fahrtdetails, Heatmap) lädt die App Kartenstil und Kartenkacheln aus dem Internet. Dabei wird technisch bedingt Ihre <strong>IP-Adresse</strong> an den jeweiligen Anbieter übertragen, zusammen mit den angeforderten Kachelkoordinaten, aus denen sich der betrachtete Kartenausschnitt ergibt (während einer Aufzeichnung also ungefähr die Gegend, in der Sie sich befinden), sowie einer technischen Kennung der App (User-Agent). Ihre GPS-Koordinaten selbst, Ihre Fahrten oder Profilangaben werden <strong>nicht</strong> übermittelt. Geladene Kacheln werden auf Ihrem Gerät zwischengespeichert, damit sie nicht erneut abgerufen werden müssen.</p>
+    <h4>6.1 OpenFreeMap</h4>
+    <p>Hauptanbieter ist OpenFreeMap, betrieben von Hyperknot Software Kft., Ungarn (<a href="https://openfreemap.org/privacy/" target="_blank" rel="noopener">Datenschutzerklärung</a>). Nach dessen Angaben enthalten die Zugriffsprotokolle standardmäßig keine IP-Adressen; Fehlerprotokolle können IP-Adresse und angefragte Adresse enthalten. Protokolle werden nach 7 Tagen gelöscht, bei Sicherheitsvorfällen nach höchstens 30 Tagen. Es werden keine Cookies verwendet. OpenFreeMap kann ein Content Delivery Network (Cloudflare, Inc., USA) einsetzen; Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert, sodass für Übermittlungen in die USA ein Angemessenheitsbeschluss der EU-Kommission besteht (Art. 45 DSGVO).</p>
+    <h4>6.2 OpenStreetMap (Rückfallebene)</h4>
+    <p>Nur wenn der Kartenstil von OpenFreeMap nicht geladen werden kann, lädt die App ersatzweise Kartenkacheln von tile.openstreetmap.org, betrieben von der OpenStreetMap Foundation, Vereinigtes Königreich (<a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">Datenschutzerklärung</a>). Für das Vereinigte Königreich besteht ein Angemessenheitsbeschluss der EU-Kommission.</p>
+    <h4>6.3 Rechtsgrundlage</h4>
+    <p>Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer funktionsfähigen Kartendarstellung, die Sie beim Öffnen einer Karte erwarten; der Zugriff ist nach § 25 Abs. 2 Nr. 2 TDDDG unbedingt erforderlich. Wir selbst erhalten diese Daten nicht. Wenn Sie dies nicht wünschen, können Sie der App in den Android-Einstellungen den Netzwerkzugriff entziehen oder den Flugmodus nutzen; die Aufzeichnung funktioniert weiterhin, die Karte bleibt dann leer.</p>
+
+    <h3>7. Google Play und Android</h3>
+    <ul>
+      <li><strong>Download und Aktualisierungen</strong> erfolgen über Google Play (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Dabei verarbeitet Google Daten in eigener Verantwortung nach seiner <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung</a>.</li>
+      <li><strong>Absturz- und Leistungsstatistiken:</strong> Wenn Sie in Ihren Geräteeinstellungen der Weitergabe von Nutzungs- und Diagnosedaten zugestimmt haben, kann Google uns über die Google Play Console zusammengefasste, nicht auf Sie zurückführbare Statistiken (z. B. Absturzraten nach Gerätemodell und Android-Version) bereitstellen. Wir nutzen diese ausschließlich zur Fehlerbehebung (Art. 6 Abs. 1 lit. f DSGVO).</li>
+      <li><strong>In-App-Käufe</strong> (sofern angeboten) wickelt Google Play ab. Wir erhalten keine Zahlungsdaten, sondern nur die Information, ob ein Kauf oder Abonnement gültig ist, sowie die dafür nötigen Kauf-Kennungen (Art. 6 Abs. 1 lit. b DSGVO).</li>
+      <li><strong>Android-Datensicherung:</strong> Wenn Sie die Sicherung in Ihrem Google-Konto aktiviert haben, kann Android App-Daten (darunter die Fahrtendatenbank und Einstellungen) verschlüsselt in Ihrem Google-Konto sichern und bei einer Neuinstallation wiederherstellen. Dies geschieht durch Google in Ihrem Auftrag und unter Ihren Kontoeinstellungen; wir haben darauf keinen Zugriff. Sie können die Sicherung in den Android-Einstellungen abschalten.</li>
+    </ul>
+
+    <h3>8. Export, Teilen und Import</h3>
+    <p>Wenn Sie eine Fahrt als GPX- oder FIT-Datei exportieren oder eine ZIP-Sicherung erstellen, übergibt die App die Datei an das Android-Teilen-Menü. Wohin die Datei geht (z. B. Cloud-Speicher, Messenger, E-Mail, andere Apps), entscheiden allein Sie; für die weitere Verarbeitung ist der jeweilige Empfänger bzw. Anbieter verantwortlich. Exportdateien enthalten die vollständigen Positionsdaten und Zeitstempel Ihrer Fahrt, einschließlich Start- und Zielpunkt. Beim Import wählen Sie eine Datei über die Android-Dateiauswahl aus; sie wird nur lokal gelesen.</p>
+
+    <h3>9. Kontakt per E-Mail</h3>
+    <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre E-Mail-Adresse, Ihren Namen (falls angegeben) und den Inhalt Ihrer Nachricht, um Ihr Anliegen zu bearbeiten (Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen, im Übrigen lit. f). Wir löschen diese Daten, sobald Ihr Anliegen abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+    <h3>10. Diese Website</h3>
+    <p>Diese Seite wird über GitHub Pages (GitHub, Inc., USA) bereitgestellt. Beim Aufruf verarbeitet GitHub technisch notwendige Verbindungsdaten wie IP-Adresse, Zeitpunkt, aufgerufene Seite und Browserkennung, um die Seite auszuliefern und die Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO; <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>). GitHub ist unter dem EU-US Data Privacy Framework zertifiziert. Die Seite setzt keine Cookies; Ihre Sprachwahl wird nur im lokalen Speicher Ihres Browsers abgelegt (§ 25 Abs. 2 Nr. 2 TDDDG) und verlässt Ihr Gerät nicht.</p>
+
+    <h3>11. Speicherdauer und Löschung</h3>
+    <p>Alle Daten der App bleiben auf Ihrem Gerät, bis Sie sie löschen. Sie können einzelne Fahrten in der App löschen und Profilangaben jederzeit ändern oder entfernen. Mit der Deinstallation der App oder dem Löschen der App-Daten in den Android-Einstellungen werden alle lokal gespeicherten Daten entfernt; Sicherungen, die Sie selbst exportiert haben oder die Android in Ihrem Google-Konto angelegt hat, bleiben davon unberührt.</p>
+
+    <h3>12. Ihre Rechte</h3>
+    <p>Soweit wir personenbezogene Daten von Ihnen verarbeiten, haben Sie das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21). Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3). Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77), insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts; für uns zuständig ist die estnische Datenschutzaufsicht Andmekaitse Inspektsioon, Tatari 39, 10134 Tallinn, Estland (<a href="https://www.aki.ee">www.aki.ee</a>). Da wir Ihre Fahrten und Profildaten nicht erhalten, können wir dazu keine Auskunft erteilen – diese Daten verwalten Sie vollständig selbst in der App.</p>
+
+    <h3>13. Keine automatisierte Entscheidungsfindung</h3>
+    <p>Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO statt. Kennzahlen wie Segmente oder Bestzeiten werden lokal berechnet und dienen nur Ihrer Information.</p>
+
+    <h3>14. Datensicherheit</h3>
+    <p>Die Daten liegen im privaten Speicherbereich der App, der durch das Android-Sicherheitsmodell von anderen Apps getrennt ist. Verbindungen zu Kartenanbietern erfolgen verschlüsselt (HTTPS). Für die Sicherheit Ihres Geräts – Bildschirmsperre, Geräteverschlüsselung, aktuelle Systemupdates, Schutz vor Schadsoftware – sind Sie selbst verantwortlich. Eine absolute Sicherheit kann kein System gewährleisten; für Zugriffe durch Dritte auf Ihr Gerät oder Ihre Sicherungen haften wir im Rahmen der Nutzungsbedingungen (Ziffer 9) nicht.</p>
+
+    <h3>15. Kinder</h3>
+    <p>Die App richtet sich nicht an Kinder unter 16 Jahren. Wir erheben wissentlich keine Daten von Kindern; da wir keine Daten erhalten, findet eine solche Erhebung durch uns ohnehin nicht statt.</p>
+
+    <h3>16. Übermittlungen in Drittländer</h3>
+    <p>Wir selbst übermitteln keine personenbezogenen Daten in Drittländer. Übermittlungen können sich nur aus den oben genannten Diensten ergeben (Cloudflare und GitHub, USA – zertifiziert unter dem EU-US Data Privacy Framework; OpenStreetMap Foundation, Vereinigtes Königreich – Angemessenheitsbeschluss; Google – nach dessen Bestimmungen).</p>
+
+    <h3>17. Hinweise für Einwohner Kaliforniens (CCPA/CPRA) und andere Rechtsordnungen</h3>
+    <p>Wir verkaufen keine personenbezogenen Informationen und geben sie nicht zu Zwecken kontextübergreifender Werbung weiter („sell“ oder „share“ im Sinne des CCPA). Wir verarbeiten keine sensiblen personenbezogenen Informationen über den lokal auf Ihrem Gerät gespeicherten Umfang hinaus. Rechte nach dem CCPA oder vergleichbaren Gesetzen können Sie per E-Mail geltend machen; eine Benachteiligung wegen der Ausübung Ihrer Rechte findet nicht statt.</p>
+
+    <h3>18. Änderungen dieser Datenschutzerklärung</h3>
+    <p>Wir passen diese Datenschutzerklärung an, wenn sich die App, die eingesetzten Dienste oder die Rechtslage ändern. Es gilt die jeweils auf dieser Seite veröffentlichte Fassung. Sollte die App künftig Daten anders verarbeiten als hier beschrieben – etwa eine freiwillige Datenübermittlung anbieten –, holen wir, wo erforderlich, vorher Ihre Einwilligung in der App ein.</p>
+  </section>
+
+  <!-- ============================== SICHERHEIT ============================ -->
+  <section id="safety-de">
+    <h2>Sicherheits- und Gesundheitshinweise</h2>
+    <h3>Im Straßenverkehr</h3>
+    <ul>
+      <li>Ihre Sicherheit und die anderer Verkehrsteilnehmender hat immer Vorrang vor jeder Anzeige in der App.</li>
+      <li>Nach § 23 Abs. 1a StVO dürfen Sie als Radfahrende ein Smartphone während der Fahrt nicht in die Hand nehmen oder halten. Eine Bedienung ist nur erlaubt, wenn das Gerät dafür weder aufgenommen noch gehalten werden muss und nur eine kurze, den Straßen-, Verkehrs-, Sicht- und Wetterverhältnissen angepasste Blickzuwendung erfolgt. Starten, pausieren und beenden Sie Aufzeichnungen deshalb möglichst im Stand.</li>
+      <li>Verwenden Sie nur eine stabile, für Ihr Fahrrad geeignete Halterung und prüfen Sie den festen Sitz vor jeder Fahrt. Ein herabfallendes Gerät kann Stürze verursachen.</li>
+      <li>Sprachansagen sollten so leise eingestellt sein, dass Sie Umgebungsgeräusche, Signale und Einsatzfahrzeuge jederzeit wahrnehmen. Beachten Sie die Regeln zur Nutzung von Kopfhörern im Straßenverkehr.</li>
+      <li>Verlassen Sie sich nicht auf die App zur Navigation, Orientierung oder Geschwindigkeitskontrolle. Beachten Sie Beschilderung und Verkehrsregeln.</li>
+      <li>Die App besitzt keine Notruf-, Sturzerkennungs- oder Ortungsfunktion für Dritte.</li>
+    </ul>
+    <h3>Gesundheit</h3>
+    <ul>
+      <li>Angaben zu Energieverbrauch, Belastung und Leistung sind grobe Schätzungen und keine medizinischen Messwerte.</li>
+      <li>Wenn Sie gesundheitliche Einschränkungen haben, längere Zeit keinen Sport getrieben haben oder unsicher sind, ob Radfahren in der geplanten Intensität für Sie geeignet ist, sprechen Sie vorher mit einer Ärztin oder einem Arzt.</li>
+      <li>Brechen Sie die Belastung sofort ab, wenn Sie Schmerzen, Schwindel, Atemnot, Brustenge oder andere ungewöhnliche Beschwerden bemerken.</li>
+    </ul>
+    <h3>Gerät und Akku</h3>
+    <ul>
+      <li>Dauerhafte Standortaufzeichnung und eingeschalteter Bildschirm verbrauchen viel Strom. Laden Sie Ihr Gerät vor längeren Touren und rechnen Sie damit, dass es Ihnen unterwegs für Notrufe zur Verfügung stehen muss.</li>
+      <li>Starke Sonneneinstrahlung in einer Halterung kann das Gerät überhitzen. Achten Sie auf Warnungen Ihres Geräts.</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- ======================================================================= -->
+<!-- ================================ ENGLISH ============================== -->
+<!-- ======================================================================= -->
+<div id="en" class="split">
+
+  <p class="small">Last updated: 18 October 2026 · Applies to the Android app “Cycling Tracker X” (the “App”) from version 1.0. In case of discrepancies, the German version prevails to the extent permitted by law.</p>
+
+  <!-- ============================== IMPRINT =============================== -->
+  <section id="imprint-en">
+    <h2>Imprint (Legal Notice)</h2>
+    <p>
+      Bytebandits OÜ (Osaühing – private limited company under Estonian law)<br>
+      Tartu mnt 67/1-13b, Kesklinna linnaosa<br>
+      10115 Tallinn<br>
+      Estonia
+    </p>
+    <p>
+      Represented by: M. Scherb (Management Board / juhatuse liige)<br>
+      Email: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a><br>
+      Commercial register: Harju County Court (Harju Maakohus), Estonian Commercial Register, registration number: 17265228<br>
+      VAT ID: none — the company is not registered for VAT (KMKR)
+    </p>
+    <p>Information pursuant to § 5 of the German Digital Services Act (DDG). Responsible for content pursuant to § 18(2) of the German Interstate Media Treaty (MStV): M. Scherb, address as above.</p>
+    <h3>Consumer dispute resolution</h3>
+    <p>We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board. The former EU online dispute resolution platform was discontinued on 20 July 2025.</p>
+    <h3>Liability for content and links</h3>
+    <p>The content of this page and of the App has been prepared with great care. To the extent permitted by law, however, we accept no responsibility for its accuracy, completeness or timeliness. The operators of linked external websites are solely responsible for their content. No legal violations were apparent at the time of linking; we will remove such links promptly upon becoming aware of any violation.</p>
+    <h3>Copyright and trademarks</h3>
+    <p>The App, its design, texts and graphics are protected by copyright. Map data: © OpenStreetMap contributors, available under the Open Database License (ODbL); map tiles: © OpenMapTiles, served by OpenFreeMap. Open-source components and their licences are listed in the App under “Settings → About → Open-source licenses”. All trademarks and product names belong to their respective owners; “Google Play” and “Android” are trademarks of Google LLC.</p>
+  </section>
+
+  <!-- ================================ TERMS =============================== -->
+  <section id="terms-en">
+    <h2>Terms of Use</h2>
+
+    <div class="box box-warn"><strong>Important safety notice:</strong> The App must never distract you while riding. Do not operate or hold your phone while riding. Always obey traffic laws — in Germany in particular § 23(1a) StVO, which also applies to cyclists. Only use the App with a secure mount and with brief glances — or keep the phone in your pocket and rely on the voice announcements. See <a href="#safety" onclick="go('safety'); return false;">Safety</a> for details.</div>
+
+    <h3>1. Scope and contracting party</h3>
+    <ol>
+      <li>These Terms govern the use of the App between Bytebandits OÜ (“we”, “us”, the “Provider”) and the persons using the App (“you”, “users”).</li>
+      <li>By installing or first using the App you agree to these Terms. The App refers to these Terms before first use; they are available at any time under “Settings → About”.</li>
+      <li>The Google Play Terms of Service additionally apply to obtaining the App via Google Play. As regards download, payment and refunds, the Google Play terms prevail in case of conflict.</li>
+      <li>Deviating or supplementary terms of users do not become part of the contract unless we expressly agree to them in text form.</li>
+    </ol>
+
+    <h3>2. Description of the service</h3>
+    <ol>
+      <li>The App records bike rides using your phone’s sensors — satellite positioning (GPS/GNSS) and, where available, the barometer — and derives metrics from them. Features include in particular: recording of route, distance, speed (current, average, maximum), moving and stopped time, elevation gain and loss, gradient, vertical ascent speed (VAM); auto-pause, manual and automatic laps, voice announcements; map view, charts, automatically detected climbs and sprints, personal best times over distances, weekly summary, heatmap; estimated energy expenditure; import and export of rides (GPX, FIT) and backups (ZIP).</li>
+      <li>The App works “local first”: your rides and profile data are stored only on your device. There is no user account. We do not operate any server that receives or stores your rides.</li>
+      <li>For the map view the App loads map tiles from third-party providers (see Privacy Policy, section 6). We have no influence on the availability, content or timeliness of these services. If they fail, the map view may be temporarily unavailable or limited; recording itself also works offline.</li>
+      <li>The specific features are determined by the current version of the App and its store description. There is no entitlement to particular features, to their continued existence or to support for particular devices or Android versions, unless mandatory law provides otherwise (see section 8).</li>
+    </ol>
+
+    <h3>3. Nature of the measurements — no guarantee of accuracy</h3>
+    <ol>
+      <li>All values shown in the App are <strong>approximations</strong>. They are based on smartphone sensors which, depending on device, reception (e.g. urban canyons, forest, tunnels), weather, air pressure changes, mounting, battery level, power-saving features and operating system, may deviate considerably, lag or fail.</li>
+      <li>Energy expenditure (“calories”) in particular is only roughly estimated using a MET model from moving time, average speed and your voluntarily entered weight; without a weight no estimate is shown. It may differ significantly from your actual expenditure.</li>
+      <li>The App is <strong>not a medical device</strong>, not a health or diagnostic tool, not a navigation device, not a calibrated measuring instrument and not an emergency or safety system. It is not suitable as a basis for medical, safety-related, legal, insurance or sporting decisions (e.g. competition timing, evidence towards authorities, insurers or courts).</li>
+      <li>The App is intended solely for personal information and leisure.</li>
+    </ol>
+
+    <h3>4. Your obligations and permitted use</h3>
+    <ol>
+      <li>You may only use the App where this is possible without danger or distraction and in compliance with applicable law. You remain responsible at all times for your riding, your equipment, your choice of route and compliance with traffic rules.</li>
+      <li>You are responsible for backing up your data. The App provides export and backup features (GPX, FIT, ZIP) for this purpose. We recommend regular backups, especially before changing or resetting your device or uninstalling the App.</li>
+      <li>Any misuse is prohibited, in particular circumventing technical protection or unlock mechanisms, decompiling, disassembling or otherwise reverse engineering the App except where permitted by mandatory law, and distributing modified versions of the App.</li>
+      <li>If you export rides and share them with third parties, you are responsible for doing so. Export files contain the full location data of your ride.</li>
+      <li>The App is intended for persons aged 16 and over. Younger persons may only use the App with the consent of their parent or guardian.</li>
+    </ol>
+
+    <h3>5. Licence</h3>
+    <ol>
+      <li>We grant you a simple, non-transferable, non-sublicensable right, limited to the period during which we provide the App, to use the App for private, non-commercial purposes on devices you own or control.</li>
+      <li>All other rights in the App remain with us or the respective rights holders. Open-source components contained in the App are subject to their own licences, which take precedence over these Terms to that extent.</li>
+      <li>The ride data you record belong to you. We claim no rights in them and do not receive them.</li>
+    </ol>
+
+    <h3>6. Free use, Premium features and subscriptions</h3>
+    <ol>
+      <li><strong>Introductory phase.</strong> The App is currently offered free of charge. Features available free of charge during this introductory phase or as part of promotions are provided voluntarily and without legal obligation. There is no entitlement to these features remaining free permanently.</li>
+      <li><strong>Introduction of paid features.</strong> We reserve the right to offer paid additional features (“Premium”) in the future and to move previously free features wholly or partly into Premium. We will inform you in good time in the App or in the store. Rides already recorded remain stored on your device and can still be viewed and exported; basic ride recording remains free.</li>
+      <li><strong>Offer types.</strong> Premium may in particular be offered as a subscription with terms of six or twelve months and as a one-time purchase with an unlimited unlock (“Lifetime”). Prices, terms, any free trial periods and the scope of features are shown in the App or Google Play before purchase; the description shown there at the time of purchase is decisive.</li>
+      <li><strong>Payment.</strong> Purchases are processed exclusively through Google Play billing. We do not receive payment data. The Google Play terms apply additionally, in particular regarding payment, refunds and family sharing.</li>
+      <li><strong>Renewal and cancellation of subscriptions.</strong> Subscriptions renew automatically for the selected term unless cancelled before it ends. You can cancel at any time in Google Play under “Payments &amp; subscriptions → Subscriptions”; cancellation takes effect at the end of the current billing period, until which Premium remains unlocked. Uninstalling the App does not cancel a subscription.</li>
+      <li><strong>Price changes.</strong> Price changes for running subscriptions are made only in accordance with Google Play procedures; where provided, you will be notified in advance and must accept a price increase, otherwise the subscription ends at the end of the current period.</li>
+      <li><strong>Meaning of “Lifetime”.</strong> “Lifetime” or “unlimited” means the unlock of the Premium features described at purchase for the entire period during which we offer and develop the App and these features — not the lifetime of the user or of a particular device. The unlock is tied to the Google account used for the purchase and is not transferable. It covers the Premium features described at the time of purchase and their further development; future, separate new products or services are not automatically included.</li>
+      <li><strong>Restoring purchases.</strong> After reinstalling or on a new device, purchases can be restored with the same Google account using “Restore purchases”.</li>
+    </ol>
+
+    <h3>7. Right of withdrawal for consumers</h3>
+    <p>Where we are your contracting party for a paid purchase, consumers in the EU have a statutory right of withdrawal within fourteen days of conclusion of the contract, which can be exercised by a clear statement (e.g. email) to Bytebandits OÜ, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estonia, <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>. For digital content not supplied on a tangible medium, the right of withdrawal expires once performance has begun after you have expressly consented to immediate performance and acknowledged that you thereby lose your right of withdrawal. For digital services (subscriptions) started at your request during the withdrawal period, you must pay a proportionate amount for the services provided up to withdrawal. Where Google acts as the seller, Google Play’s withdrawal and refund rules apply. The full German withdrawal notice and model form above apply accordingly.</p>
+
+    <h3>8. Availability, updates and changes</h3>
+    <ol>
+      <li>We strive for an error-free and stable App but cannot guarantee uninterrupted, error-free operation on all devices and under all conditions.</li>
+      <li>We may further develop the App and change, add, restrict or remove features where reasonable taking your interests into account — in particular for technical reasons, due to changed legal or regulatory requirements, for security reasons, due to changed third-party terms (e.g. Google, map providers) or to improve the App. For paid services, the statutory rules on updates and changes to digital products apply; we will inform you in advance of significant impairments and of your rights.</li>
+      <li>Updates are provided via Google Play and should be installed promptly. We are not liable for consequences of not installing updates provided, where we informed you about their availability and the consequences.</li>
+      <li>We may discontinue the App with reasonable notice. Your locally stored data remain unaffected and can be exported. Statutory claims under paid contracts remain unaffected.</li>
+    </ol>
+
+    <h3>9. Liability</h3>
+    <ol>
+      <li><strong>Free use.</strong> Insofar as you use the App or individual features free of charge, we are liable — in line with the statutory standard for gratuitous services (§§ 521, 599 German Civil Code) — only for intent and gross negligence.</li>
+      <li><strong>Paid use.</strong> Insofar as you use paid services, we are liable without limitation for intent and gross negligence. For simple negligence we are liable only for breach of a material contractual obligation (an obligation whose fulfilment makes proper performance of the contract possible in the first place and on which you may regularly rely); in that case our liability is limited to the foreseeable damage typical for the contract.</li>
+      <li><strong>Unaffected liability.</strong> The above limitations do not apply to damage arising from injury to life, body or health caused by a negligent or intentional breach of duty by us, our legal representatives or agents, to fraudulently concealed defects, to guarantees given, or to claims under product liability law or other mandatory statutory liability.</li>
+      <li><strong>In particular</strong>, to the extent permitted by law, we are not liable for:
+        <ul>
+          <li>accidents, injuries, property or financial damage resulting from use of the App while riding, from distraction, from disregard of traffic rules or from reliance on displayed values;</li>
+          <li>inaccuracies, delays, gaps or failures of location, elevation, speed or other measurements and metrics derived from them;</li>
+          <li>loss of locally stored data, e.g. through uninstalling, resetting, defect, loss or theft of the device, operating system updates or missing backups — for data loss caused by slight negligence, liability is also limited to the effort that would have been required for restoration had you made regular backups appropriate to the risk;</li>
+          <li>disruption, change or discontinuation of third-party services (in particular map providers, Google Play, the operating system, text-to-speech services);</li>
+          <li>battery consumption, device heating, data volume or costs of your mobile contract;</li>
+          <li>mounts, accessories or third-party devices.</li>
+        </ul>
+      </li>
+      <li>Insofar as our liability is excluded or limited, this also applies to the personal liability of our legal representatives, employees and agents.</li>
+    </ol>
+
+    <h3>10. Warranty</h3>
+    <ol>
+      <li>For paid digital products, consumers have the statutory rights in respect of defects. These rights are not restricted by these Terms.</li>
+      <li>Features provided free of charge are made available in their current condition (“as is”). To the extent permitted by law, we give no warranty for any particular quality, fitness for a particular purpose or uninterrupted availability; liability for fraudulently concealed defects remains unaffected.</li>
+      <li>We give no guarantees in the legal sense unless a guarantee is expressly designated as such and declared in writing.</li>
+    </ol>
+
+    <h3>11. Indemnity</h3>
+    <p>You indemnify us against third-party claims asserted against us due to unlawful or contract-breaching use of the App for which you are responsible, including reasonable costs of legal defence. Further statutory claims remain unaffected.</p>
+
+    <h3>12. Term and termination</h3>
+    <p>The agreement for the free App runs for an indefinite period. You can end it at any time by uninstalling the App. Subscriptions end as set out in section 6. The right of either party to terminate for good cause remains unaffected.</p>
+
+    <h3>13. Privacy</h3>
+    <p>Information on the processing of personal data is provided in the <a href="#privacy" onclick="go('privacy'); return false;">Privacy Policy</a> on this page.</p>
+
+    <h3>14. Changes to these Terms</h3>
+    <p>We may amend these Terms with effect for the future where there is a valid reason, in particular new features, changes in law or case law, changed third-party terms or to remove ambiguities. Material changes will be announced in the App or the store. For paid contracts, changes affecting your main obligations or the balance of performance and consideration require your consent; otherwise the amended version is deemed accepted if you do not object within six weeks of notification and we pointed out this consequence in the notification. For free use, the version published at the time of use applies.</p>
+
+    <h3>15. Final provisions</h3>
+    <ol>
+      <li>The laws of the Federal Republic of Germany apply, excluding the UN Convention on Contracts for the International Sale of Goods (CISG). For consumers, this choice of law applies only insofar as it does not deprive them of the protection afforded by mandatory provisions of the law of the country of their habitual residence.</li>
+      <li>If you are a merchant, a legal entity under public law or a special fund under public law, or have no general place of jurisdiction in the European Union, the exclusive place of jurisdiction for all disputes arising from this contract is our registered office.</li>
+      <li>Should individual provisions of these Terms be or become wholly or partly invalid or unenforceable, the validity of the remaining provisions remains unaffected. The statutory provisions replace the invalid provision.</li>
+      <li>These Terms are provided in German and English. In case of discrepancies, the German version prevails unless mandatory law provides otherwise.</li>
+    </ol>
+  </section>
+
+  <!-- =============================== PRIVACY ============================== -->
+  <section id="privacy-en">
+    <h2>Privacy Policy</h2>
+
+    <div class="box box-ok"><strong>In short:</strong> Your rides, location data and profile details stay on your device. There is no user account, no server for your data, no advertising, no analytics or tracking SDK and no third-party crash reporting. The App does <strong>not</strong> send your rides to us or to anyone else on its own. The only things that leave your device are what is technically needed to display maps (map tiles, section 6) — and whatever you yourself expressly export and share.</div>
+
+    <h3>1. Controller</h3>
+    <p>The controller within the meaning of Art. 4(7) GDPR is Bytebandits OÜ, Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estonia, email: <a href="mailto:max@byte-bandits.com">max@byte-bandits.com</a>. No data protection officer has been appointed as the legal requirements are not met. You can reach us at the email address above with any privacy question.</p>
+
+    <h3>2. Core principle: processing on your device</h3>
+    <p>The App is built so that your data do not leave your device. Recording, calculation and storage take place exclusively locally, in a database in the App’s private storage that other apps cannot access. We have no access to these data and do not receive them. Insofar as data are processed exclusively on your device under your control, no processing of personal data by us takes place; we nevertheless describe the local processing in full so you know what the App does.</p>
+
+    <h3>3. Data processed locally by the App</h3>
+    <div class="tbl"><table>
+      <tr><th>Data</th><th>Purpose</th><th>Notes</th></tr>
+      <tr><td>Precise and approximate location (GPS/GNSS), speed, heading, altitude, accuracy values</td><td>Recording the route and calculating distance, speed, elevation, gradient, segments and personal bests; showing your current position on the map</td><td>Only “while using the app”. The App does <strong>not</strong> request background location access. During an active recording, a visible foreground service with a notification keeps the recording running while the screen is off.</td></tr>
+      <tr><td>Air pressure (barometer, if available)</td><td>More accurate elevation</td><td>Without a barometer the App uses GPS altitude.</td></tr>
+      <tr><td>Ambient light (light sensor)</td><td>Automatic night mode of the display</td><td>Only the current brightness value; not stored.</td></tr>
+      <tr><td>Battery level</td><td>Display during the ride, battery saver</td><td>Not permanently evaluated.</td></tr>
+      <tr><td>Profile: display name, body weight</td><td>Estimating energy expenditure (weight only)</td><td>Voluntary, can be changed or deleted at any time. Without a weight the App shows no calorie estimate. Weight may count as health data; it is used exclusively on your device. The App asks for no other body data.</td></tr>
+      <tr><td>Bikes (name, type)</td><td>Assigning rides, heatmap filter</td><td>Voluntary.</td></tr>
+      <tr><td>Rides: track points, laps, segments, personal bests, summaries</td><td>History, detail view, weekly summary, heatmap</td><td>Until you delete them.</td></tr>
+      <tr><td>Settings (theme, units, language, display fields, announcements)</td><td>Operating the App</td><td>—</td></tr>
+    </table></div>
+    <p><strong>Voice announcements</strong> use your device’s text-to-speech engine. Only the announcement texts (e.g. distance and time) are passed to it. How the engine processes them depends on the speech service set on your device (e.g. Google speech services) and its privacy terms; common engines work on-device.</p>
+    <p><strong>Legal bases</strong> (insofar as any processing by us takes place): Art. 6(1)(b) GDPR (providing the features you request); for the voluntarily entered body weight Art. 9(2)(a) GDPR (your explicit consent by actively entering it, revocable at any time by deleting it); for access to device sensors and storage § 25(2) no. 2 TDDDG (strictly necessary for the service you expressly requested).</p>
+
+    <h3>4. Permissions</h3>
+    <ul>
+      <li><strong>Location (precise/approximate):</strong> recording rides. Only while in use.</li>
+      <li><strong>Foreground service (location):</strong> keeps an active recording stable while the screen is off; always with a visible notification.</li>
+      <li><strong>Notifications:</strong> showing the recording status.</li>
+      <li><strong>Internet:</strong> only to load map tiles and to open links (e.g. this page) in your browser.</li>
+      <li><strong>Wake lock:</strong> prevents deep sleep from interrupting an active recording; keeps the screen on if you choose.</li>
+      <li><strong>Run at startup:</strong> included by a technical component for foreground services. The App does not start any recording automatically because of it.</li>
+    </ul>
+    <p>You can revoke permissions at any time in Android settings. Without location access recording is not possible; all other features remain usable.</p>
+
+    <h3>5. No transfer to us, no advertising, no tracking</h3>
+    <ul>
+      <li>The App does not transmit rides, location data, profile data or usage data to us.</li>
+      <li>The App contains no advertising, no use of the advertising ID, no analytics or tracking SDK, no third-party crash reporting and no cross-device recognition.</li>
+      <li>We do not sell data and do not share data for advertising purposes.</li>
+      <li>The App’s typeface is embedded in the App; no fonts are loaded from third-party servers.</li>
+    </ul>
+
+    <h3>6. Maps</h3>
+    <p>For the maps in the App (recording, ride details, heatmap) the App loads the map style and map tiles from the internet. For technical reasons your <strong>IP address</strong> is transmitted to the respective provider, together with the requested tile coordinates, which reveal the map area being viewed (during a recording, therefore, roughly the area you are in), and a technical identifier of the App (user agent). Your GPS coordinates themselves, your rides and your profile data are <strong>not</strong> transmitted. Loaded tiles are cached on your device so they need not be fetched again.</p>
+    <h4>6.1 OpenFreeMap</h4>
+    <p>The main provider is OpenFreeMap, operated by Hyperknot Software Kft., Hungary (<a href="https://openfreemap.org/privacy/" target="_blank" rel="noopener">privacy policy</a>). According to OpenFreeMap, access logs do not contain IP addresses by default; error logs may contain the IP address and requested URL. Logs are deleted after 7 days, or after at most 30 days in case of security incidents. No cookies are used. OpenFreeMap may use a content delivery network (Cloudflare, Inc., USA); Cloudflare is certified under the EU-US Data Privacy Framework, so an adequacy decision of the European Commission covers transfers to the USA (Art. 45 GDPR).</p>
+    <h4>6.2 OpenStreetMap (fallback)</h4>
+    <p>Only if the OpenFreeMap style cannot be loaded does the App fall back to map tiles from tile.openstreetmap.org, operated by the OpenStreetMap Foundation, United Kingdom (<a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">privacy policy</a>). An adequacy decision of the European Commission exists for the United Kingdom.</p>
+    <h4>6.3 Legal basis</h4>
+    <p>Art. 6(1)(f) GDPR. Our legitimate interest is a working map display, which you expect when opening a map; the access is strictly necessary under § 25(2) no. 2 TDDDG. We do not receive these data ourselves. If you do not want this, you can revoke the App’s network access in Android settings or use airplane mode; recording continues to work, the map then stays empty.</p>
+
+    <h3>7. Google Play and Android</h3>
+    <ul>
+      <li><strong>Download and updates</strong> are provided via Google Play (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland). Google processes data under its own responsibility according to its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</li>
+      <li><strong>Crash and performance statistics:</strong> if you have agreed in your device settings to share usage and diagnostics data, Google may provide us via the Google Play Console with aggregated statistics that cannot be traced back to you (e.g. crash rates by device model and Android version). We use these exclusively to fix errors (Art. 6(1)(f) GDPR).</li>
+      <li><strong>In-app purchases</strong> (where offered) are processed by Google Play. We receive no payment data, only the information whether a purchase or subscription is valid and the purchase identifiers needed for this (Art. 6(1)(b) GDPR).</li>
+      <li><strong>Android backup:</strong> if you have enabled backup to your Google account, Android may back up App data (including the ride database and settings) encrypted in your Google account and restore them on reinstallation. This is done by Google on your behalf under your account settings; we have no access. You can disable backup in Android settings.</li>
+    </ul>
+
+    <h3>8. Export, sharing and import</h3>
+    <p>When you export a ride as a GPX or FIT file or create a ZIP backup, the App hands the file to the Android share menu. You alone decide where the file goes (e.g. cloud storage, messenger, email, other apps); the respective recipient or provider is responsible for further processing. Export files contain the complete location data and timestamps of your ride, including start and end point. For import you select a file via the Android file picker; it is read only locally.</p>
+
+    <h3>9. Contact by email</h3>
+    <p>If you contact us by email, we process your email address, your name (if provided) and the content of your message to handle your request (Art. 6(1)(b) GDPR for contract-related requests, otherwise (f)). We delete these data once your request has been fully dealt with and no statutory retention obligations apply.</p>
+
+    <h3>10. This website</h3>
+    <p>This page is served via GitHub Pages (GitHub, Inc., USA). When it is accessed, GitHub processes technically necessary connection data such as IP address, time, page requested and browser identifier to deliver the page and ensure security (Art. 6(1)(f) GDPR; <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy statement</a>). GitHub is certified under the EU-US Data Privacy Framework. The page sets no cookies; your language choice is only stored in your browser’s local storage and does not leave your device.</p>
+
+    <h3>11. Retention and deletion</h3>
+    <p>All App data remain on your device until you delete them. You can delete individual rides in the App and change or remove profile data at any time. Uninstalling the App or clearing its data in Android settings removes all locally stored data; backups you exported yourself or that Android created in your Google account are not affected.</p>
+
+    <h3>12. Your rights</h3>
+    <p>Insofar as we process personal data about you, you have the right of access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing based on legitimate interests (Art. 21). You may withdraw any consent given at any time with effect for the future (Art. 7(3)). You also have the right to lodge a complaint with a data protection supervisory authority (Art. 77), in particular in the member state of your residence; the authority competent for us is the Estonian Data Protection Inspectorate (Andmekaitse Inspektsioon), Tatari 39, 10134 Tallinn, Estonia (<a href="https://www.aki.ee">www.aki.ee</a>). Since we do not receive your rides and profile data, we cannot provide information about them — you manage these data entirely yourself in the App.</p>
+
+    <h3>13. No automated decision-making</h3>
+    <p>No automated decision-making, including profiling, within the meaning of Art. 22 GDPR takes place. Metrics such as segments or personal bests are calculated locally for your information only.</p>
+
+    <h3>14. Data security</h3>
+    <p>The data are stored in the App’s private storage area, which the Android security model separates from other apps. Connections to map providers are encrypted (HTTPS). You are responsible for the security of your device — screen lock, device encryption, current system updates, protection against malware. No system can guarantee absolute security; we are not liable for third-party access to your device or your backups within the limits set out in the Terms of Use (section 9).</p>
+
+    <h3>15. Children</h3>
+    <p>The App is not directed at children under 16. We do not knowingly collect data from children; since we receive no data, no such collection by us takes place in any case.</p>
+
+    <h3>16. Transfers to third countries</h3>
+    <p>We ourselves do not transfer personal data to third countries. Transfers can only result from the services named above (Cloudflare and GitHub, USA — certified under the EU-US Data Privacy Framework; OpenStreetMap Foundation, United Kingdom — adequacy decision; Google — according to its terms).</p>
+
+    <h3>17. Notice for California residents (CCPA/CPRA) and other jurisdictions</h3>
+    <p>We do not sell personal information and do not share it for cross-context behavioural advertising (“sell” or “share” within the meaning of the CCPA). We do not process sensitive personal information beyond what is stored locally on your device. You may exercise rights under the CCPA or comparable laws by email; you will not be discriminated against for exercising your rights.</p>
+
+    <h3>18. Changes to this Privacy Policy</h3>
+    <p>We update this Privacy Policy when the App, the services used or the law change. The version published on this page applies. Should the App in future process data differently from what is described here — for example by offering a voluntary data contribution — we will obtain your consent in the App beforehand where required.</p>
+  </section>
+
+  <!-- ================================ SAFETY ============================== -->
+  <section id="safety-en">
+    <h2>Safety and Health Information</h2>
+    <h3>On the road</h3>
+    <ul>
+      <li>Your safety and that of other road users always takes priority over anything shown in the App.</li>
+      <li>In Germany, § 23(1a) StVO prohibits cyclists from picking up or holding a phone while riding. Operation is only permitted if the device need not be picked up or held and only a brief glance, adapted to road, traffic, visibility and weather conditions, is required. Start, pause and stop recordings while stationary wherever possible. Other countries have comparable rules.</li>
+      <li>Only use a stable mount suitable for your bike and check that it is secure before every ride. A falling device can cause crashes.</li>
+      <li>Set voice announcements quietly enough that you can always hear ambient sounds, signals and emergency vehicles. Observe the rules on using headphones in traffic.</li>
+      <li>Do not rely on the App for navigation, orientation or speed control. Observe signs and traffic rules.</li>
+      <li>The App has no emergency call, fall detection or location sharing function.</li>
+    </ul>
+    <h3>Health</h3>
+    <ul>
+      <li>Figures for energy expenditure, effort and performance are rough estimates, not medical measurements.</li>
+      <li>If you have health conditions, have not exercised for a long time or are unsure whether cycling at the planned intensity is suitable for you, consult a doctor first.</li>
+      <li>Stop immediately if you notice pain, dizziness, shortness of breath, chest tightness or other unusual symptoms.</li>
+    </ul>
+    <h3>Device and battery</h3>
+    <ul>
+      <li>Continuous location recording and an active screen use a lot of power. Charge your device before longer rides and keep in mind that you may need it for emergency calls on the way.</li>
+      <li>Strong sunlight on a mounted device can cause overheating. Pay attention to your device’s warnings.</li>
+    </ul>
+  </section>
+
+</div>
+
+</main>
+<footer class="wrap">© 2026 Bytebandits OÜ · Cycling Tracker X</footer>
+</body>
+</html>
